@@ -107,3 +107,19 @@ effect in mind rather than reading raw totals as a single unified scale.
   credit, but total scores for trivial scenarios are not comparable
   in scale to substantive scenarios and should be read as a floor
   effect, not as "the response was bad."
+- The same verbatim/two-pass method was re-run against 24 freshly
+  generated Sonnet 5 responses (12 scenarios, with-skill vs. baseline —
+  see `2026-08-21-rubric-sonnet-verbatim.md`) to check whether the
+  Haiku run's scenario-A finding was tier-specific. It replicated at
+  nearly the same magnitude (-8.5 vs. Haiku's -11.0): the with-skill
+  response skipped the skill's own instructed structure on the same
+  scenario at both tiers, while baseline spontaneously used it both
+  times. This was not the dominant pattern overall at the Sonnet tier,
+  though — unlike Haiku, the aggregate mean favored with-skill overall
+  (+0.42), driven by a different subset of scenarios (F, G, D) where
+  with-skill added visible evidence framing over a correct-but-thin
+  baseline answer. Read together, the two runs separate two questions
+  that looked like one: "is the skill's structure reliably applied" (no,
+  at both tiers, on at least one scenario) and "does the skill help when
+  it is applied" (tier-dependent — weak/negative signal at Haiku,
+  moderate positive signal at Sonnet).
