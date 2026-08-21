@@ -1,0 +1,53 @@
+name: CI
+
+on:
+  pull_request:
+    branches: [main, develop]
+  push:
+    branches: [main, develop]
+
+jobs:
+  validate-skill:
+    name: Validate SKILL.md
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install pyyaml
+      - run: python scripts/validate_skill.py
+
+  link-check:
+    name: Check markdown links
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: gaurav-nelson/github-action-markdown-link-check@v1
+        with:
+          use-quiet-mode: "yes"
+          config-file: ".github/markdown-link-check.json"
+
+  package-skill:
+    name: Verify .skill packaging
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python scripts/package_skill.py "$RUNNER_TEMP"
+      - run: test -f "$RUNNER_TEMP/evidence-driven-engineering.skill"
+
+  skill-change-test-record:
+    name: Check for behavioral test record
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - run: |
+          python scripts/check_test_record.py \
+            "origin/${{ github.base_ref }}" \
+            HEAD
