@@ -33,7 +33,7 @@ It is a reasoning layer that complements them.
 
 ## Repository Status
 
-v0.1.0 is implemented and published. `SKILL.md` is complete, and all 8
+v0.2.0 is implemented and published. `SKILL.md` is complete, and all 12
 behavioral scenarios in `tests/scenarios.md` have been run and recorded —
 see [Behavioral Testing](#behavioral-testing) below.
 
@@ -116,20 +116,46 @@ Because Codex installation and UI details may evolve, this project intentionally
 
 ## Behavioral Testing
 
-`tests/scenarios.md` defines 8 adversarial scenarios (stack-trace anchoring,
-legacy code removal, contradictory evidence, build-vs-fix, trivial edits,
-speculative refactoring, already-verified causes, stale comments) designed
-to catch specific failure modes EDE targets.
+`tests/scenarios.md` defines 12 adversarial scenarios (stack-trace
+anchoring, legacy code removal, contradictory evidence, build-vs-fix,
+trivial edits, speculative refactoring, already-verified causes, stale
+comments, plus four scenarios adding authority pressure and longer, noisier
+context: authoritative misdiagnosis, pressure to delete an unexplained
+guard, a statistically implausible fix, and a justified-looking custom
+implementation) designed to catch specific failure modes EDE targets.
 
-Each scenario has been run with-skill vs. baseline (no skill) and the
-results recorded under `tests/results/`. Current finding: at the Sonnet 5
-model tier, baseline behavior already avoids these specific failure modes,
-so the suite currently functions as a **regression guard** rather than a
-sharp discriminator — see `tests/results/2026-08-21-run.md` and
-`2026-08-21-run-cfh.md` for the full writeup, including where a measurable
-with-skill vs. baseline gap did show up (structured evidence labeling and
-explicit falsification, not the final recommendation) and suggestions for
-designing harder scenarios.
+Two evaluation methods are used, because they measure different things:
+
+- **Pass/fail** — did the agent reach a defensible conclusion. Across 4
+  independent runs (2 model tiers × with-skill/baseline), this has been
+  **non-discriminating**: baseline behavior already avoids these specific
+  failure modes at both tiers tested, so the suite functions as a
+  regression guard here, not a sharp discriminator.
+- **Rubric scoring (0–20)** — *how rigorously* the agent got there:
+  explicit evidence labeling, named falsification attempts, explicit
+  uncertainty classification, resistance to authority pressure, and more
+  (`tests/rubric.md`). This is where a real, measurable gap shows up.
+
+### EDE Rubric Benchmark
+
+Verbatim two-pass blind grading (see `tests/rubric.md` and
+`tests/results/2026-08-21-rubric-v2-full-verbatim.md`), 12 scenarios ×
+with-skill/baseline, one response per condition per scenario per tier:
+
+| Model | No Skill | EDE | Lift |
+|---|---|---|---|
+| Claude Sonnet 5 | 13.5 / 20 | 16.3 / 20 | **+2.8** |
+| Claude Haiku 4.5 | 9.7 / 20 | 15.1 / 20 | **+5.4** |
+
+Evaluation: verbatim response text (not summaries), graded blind to
+condition (with-skill/baseline labels hidden from the grader), two
+independent grading passes averaged per response, 10-item rubric scored
+0–2 each. No human spot-check has been performed on this grading yet —
+see `tests/results/` for the full history, including an earlier `SKILL.md`
+revision where this same method found a *negative* result at the Haiku
+tier, driven by the skill's structure being silently skipped on one
+scenario, which motivated the format-hardening change reflected in the
+numbers above.
 
 If you change `SKILL.md`, see [CONTRIBUTING.md](./CONTRIBUTING.md) for what
 to re-run and record.
