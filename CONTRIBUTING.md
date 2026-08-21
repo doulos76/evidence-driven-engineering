@@ -5,38 +5,58 @@ This repository follows [Git Flow](https://nvie.com/posts/a-successful-git-branc
 ## Branch model at a glance
 
 ```mermaid
-%%{init: { 'gitGraph': { 'mainBranchName': 'main' } } }%%
+%%{init: { 'gitGraph': { 'mainBranchName': 'main', 'showCommitLabel': false } } }%%
 gitGraph
-    commit id: "v0.1.0" tag: "v0.1.0"
-    branch develop
+    commit tag: "v0.1.0"
+    branch develop order: 2
     checkout develop
-    commit id: "sync"
-    branch feature/example
+    commit
+    branch feature/example order: 3
     checkout feature/example
-    commit id: "work"
-    commit id: "more work"
+    commit
+    commit
     checkout develop
-    merge feature/example id: "PR into develop"
-    branch release/0.2.0
+    merge feature/example
+    branch release/0.2.0 order: 1
     checkout release/0.2.0
-    commit id: "stabilize"
+    commit
     checkout main
-    merge release/0.2.0 id: "PR into main" tag: "v0.2.0"
+    merge release/0.2.0 tag: "v0.2.0"
     checkout develop
-    merge main id: "sync back"
+    merge main
     checkout main
-    branch hotfix/urgent-fix
+    branch hotfix/urgent-fix order: 1
     checkout hotfix/urgent-fix
-    commit id: "fix"
+    commit
     checkout main
-    merge hotfix/urgent-fix id: "PR into main" tag: "v0.2.1"
+    merge hotfix/urgent-fix tag: "v0.2.1"
     checkout develop
-    merge main id: "sync back "
+    merge main
 ```
 
 - `main` only ever receives merges from `release/*` or `hotfix/*`, each tagged.
 - `develop` receives merges from `feature/*`, `chore/*`, `docs/*`, `test/*` branches, and is synced back from `main` after every release or hotfix.
 - Both `main` and `develop` are branch-protected: no direct pushes, no force-push, no deletion — all changes go through a PR.
+
+The same flow, as a base-branch summary per workflow:
+
+```mermaid
+flowchart LR
+    subgraph Regular work
+        A["feature/* · chore/* · docs/* · test/*"] -->|"branch from"| D1[develop]
+        A -->|"PR into"| D1
+    end
+    subgraph Release
+        D2[develop] -->|"branch from"| R["release/x.y.z"]
+        R -->|"PR into, then tag"| M1[main]
+        M1 -->|"merge back"| D2
+    end
+    subgraph Hotfix
+        M2[main] -->|"branch from"| H["hotfix/*"]
+        H -->|"PR into, then tag"| M2
+        M2 -->|"merge back"| D3[develop]
+    end
+```
 
 ## Branches
 
