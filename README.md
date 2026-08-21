@@ -33,7 +33,7 @@ It is a reasoning layer that complements them.
 
 ## Repository Status
 
-v0.1.0 is implemented and published. `SKILL.md` is complete, and all 12
+v0.2.0 is implemented and published. `SKILL.md` is complete, and all 12
 behavioral scenarios in `tests/scenarios.md` have been run and recorded —
 see [Behavioral Testing](#behavioral-testing) below.
 
