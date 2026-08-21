@@ -158,7 +158,9 @@ scenario, which motivated the format-hardening change reflected in the
 numbers above.
 
 If you change `SKILL.md`, see [CONTRIBUTING.md](./CONTRIBUTING.md) for what
-to re-run and record.
+to re-run and record. See [TODO.md](./TODO.md) for known follow-up work,
+including a human spot-check of the LLM grading above that hasn't been
+done yet.
 
 ## Contributing
 
