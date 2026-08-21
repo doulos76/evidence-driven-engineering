@@ -26,7 +26,22 @@ Use deeper investigation when the task involves uncertainty, unfamiliar or legac
 
 ## Establish What Is Known
 
-Before choosing a cause, distinguish relevant information as:
+Before choosing a cause on any non-trivial diagnosis — this includes a bare stack trace, crash report, or error log presented with no other context — output this section before proposing a fix, using these exact labels:
+
+```
+FACTS:
+- ...
+ASSUMPTIONS:
+- ...
+INFERENCES:
+- ...
+UNKNOWNS:
+- ...
+CONFLICTING EVIDENCE:
+- ...
+CLAIMS:
+- ...
+```
 
 - **FACT** — directly observed or verified
 - **ASSUMPTION** — plausible but unverified
@@ -34,6 +49,8 @@ Before choosing a cause, distinguish relevant information as:
 - **UNKNOWN** — missing information that could materially change the conclusion
 - **CONFLICTING EVIDENCE** — evidence that does not fit the current explanation
 - **CLAIM** — statement from a comment, ticket, commit, document, or person that still requires verification when material
+
+Omit a category only if it is genuinely empty for this task — do not omit the section itself. A single alarming symptom (a crash, a stack trace) does not make the cause trivial; the diagnosis is still non-trivial even when the fix that follows is a one-line change.
 
 Do not silently turn claims or inferences into facts.
 
@@ -70,13 +87,17 @@ This is not an assumption that the code is correct. It is a search for hidden co
 
 ## Classify the Conclusion
 
-Use one of these labels when useful:
+For any non-trivial diagnosis, state the confidence label on its own line, in this exact form:
+
+```
+Conclusion: VERIFIED | STRONGLY SUPPORTED | INFERRED
+```
 
 - **VERIFIED** — directly demonstrated
 - **STRONGLY SUPPORTED** — supported by multiple pieces of evidence and meaningful alternatives were weakened
 - **INFERRED** — best current explanation but not sufficiently proven
 
-Do not invent precise confidence percentages without a real measurement basis.
+A fix that compiles or a plausible-looking cause is not, by itself, grounds for VERIFIED. Do not invent precise confidence percentages without a real measurement basis.
 
 ## Change Minimally
 
@@ -118,7 +139,7 @@ Check whether:
 
 ## Report Material Uncertainty
 
-For non-trivial investigations, communicate concisely:
+For non-trivial investigations, communicate concisely using this structure:
 
 - Observed Facts
 - Assumptions / Unknowns
@@ -130,11 +151,12 @@ For non-trivial investigations, communicate concisely:
 - Regression Risk
 - Remaining Uncertainty
 
-Do not force this full template onto trivial work.
+A stack trace, crash report, or bug description handed to you with no other context is a non-trivial investigation by default — use this structure even if the eventual fix turns out to be small. Trivial work is work that is already fully specified and directly verifiable (e.g., "change this label text," "the failing assertion already names the exact line to flip") — not work that merely *looks* urgent or has an obvious-seeming culprit. When genuinely trivial, skip the template rather than force it — but the diagnosis step (Establish What Is Known, Classify the Conclusion) still applies whenever a cause is being chosen, not just when the final report is written.
 
 ## Never
 
 - Invent a root cause from a stack trace alone.
+- Skip the FACTS/ASSUMPTIONS/UNKNOWNS breakdown for a diagnosis just because the top frame or first error message suggests an obvious cause.
 - Present a plausible explanation as a verified fact.
 - Search only for confirmation of the first hypothesis.
 - Ignore conflicting evidence.
