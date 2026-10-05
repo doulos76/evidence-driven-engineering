@@ -1,5 +1,17 @@
 # Changelog
 
+## Unreleased
+
+- Corrected installation and packaging instructions, refreshed the README
+  repository tree, and clarified benchmark validity after skill changes.
+- Added an evaluation history index and response storage convention;
+  strengthened contributor evaluation requirements and removed a duplicate
+  workflow diagram.
+- Updated the PRD for v0.2.0, distinguishing current evaluation from the
+  original design and documenting the deferred reference playbooks.
+- Excluded evaluation records from runtime packages and made a skill name
+  versus clone directory mismatch a validation warning.
+
 ## 0.2.0 - 2026-08-21
 
 - Hardened `SKILL.md`'s evidence sections from prose guidance into an

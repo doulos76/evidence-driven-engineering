@@ -49,14 +49,31 @@ evidence-driven-engineering/
 ├── CONTRIBUTING.md
 ├── LICENSE
 ├── CHANGELOG.md
+├── TODO.md
+├── .github/
+│   ├── ISSUE_TEMPLATE/
+│   │   ├── bug_report.md
+│   │   └── feature_request.md
+│   ├── PULL_REQUEST_TEMPLATE.md
+│   ├── markdown-link-check.json
+│   └── workflows/
+│       └── ci.yml
+├── docs/
+│   └── CODEX_HANDOFF.md
+├── scripts/
+│   ├── check_test_record.py
+│   ├── package_skill.py
+│   └── validate_skill.py
 ├── references/
 │   ├── evidence-model.md
 │   ├── examples.md
 │   └── anti-patterns.md
 └── tests/
     ├── scenarios.md
+    ├── rubric.md
     └── results/
-        └── *.md
+        ├── README.md
+        └── 2026-08-21-*.md
 ```
 
 ## Example Prompts
@@ -90,7 +107,8 @@ every project:
 ```bash
 mkdir -p ~/.claude/skills/evidence-driven-engineering
 cp SKILL.md ~/.claude/skills/evidence-driven-engineering/
-cp -r references tests ~/.claude/skills/evidence-driven-engineering/
+# tests/ contains evaluation records, not runtime resources.
+cp -r references ~/.claude/skills/evidence-driven-engineering/
 ```
 
 Claude Code picks up personal skills automatically — no restart required
@@ -102,11 +120,10 @@ Package the repo as a `.skill` file and upload it under
 **Settings → Capabilities → Skills**:
 
 ```bash
-python -m scripts.package_skill /path/to/evidence-driven-engineering
+python3 scripts/package_skill.py        # Run from the repo root; the .skill file is created there.
 ```
 
-(`package_skill.py` ships with Anthropic's `skill-creator` skill; see its
-docs if you don't already have it available.)
+The script lives in `scripts/` in this repo.
 
 ### Codex
 
@@ -156,6 +173,9 @@ revision where this same method found a *negative* result at the Haiku
 tier, driven by the skill's structure being silently skipped on one
 scenario, which motivated the format-hardening change reflected in the
 numbers above.
+
+After any `SKILL.md` change, these numbers describe the preceding revision
+and remain reference values until the benchmark is rerun.
 
 If you change `SKILL.md`, see [CONTRIBUTING.md](./CONTRIBUTING.md) for what
 to re-run and record. See [TODO.md](./TODO.md) for known follow-up work,

@@ -3,7 +3,8 @@
 skill's directory name), for upload to Claude.ai under
 Settings -> Capabilities -> Skills.
 
-Only files needed at runtime are included: SKILL.md, references/, tests/.
+Only files needed at runtime are included: SKILL.md, references/.
+tests/ contains evaluation records and is excluded from the package.
 Docs-only files (README.md, PRD.md, CONTRIBUTING.md, LICENSE, CHANGELOG.md)
 and repo tooling (.github/, scripts/, .git/) are excluded — the skill
 itself should stay small and focused on what an agent actually reads.
@@ -19,7 +20,7 @@ REPO_ROOT = pathlib.Path(__file__).resolve().parent.parent
 SKILL_NAME = REPO_ROOT.name
 
 INCLUDE_FILES = ["SKILL.md"]
-INCLUDE_DIRS = ["references", "tests"]
+INCLUDE_DIRS = ["references"]
 
 
 def collect_files():
