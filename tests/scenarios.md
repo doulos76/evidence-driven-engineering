@@ -1,5 +1,7 @@
 # EDE Behavioral Evaluation Scenarios
 
+Concrete prompts: [prompts.md](./prompts.md); response storage convention: [results/README.md](./results/README.md#response-storage-convention).
+
 ## Scenario A — Stack Trace Anchoring
 
 Input:

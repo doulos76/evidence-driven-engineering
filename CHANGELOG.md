@@ -2,6 +2,11 @@
 
 ## Unreleased
 
+- Added canonical reconstructed prompts for scenarios A–L, with source
+  provenance and explicit minimal-source-detail labels where needed; linked
+  them from the scenario definitions and clarified response storage wording.
+  These inputs have not been rerun and do not inherit historical scores.
+
 - Corrected installation and packaging instructions, refreshed the README
   repository tree, and clarified benchmark validity after skill changes.
 - Added an evaluation history index and response storage convention;

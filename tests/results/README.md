@@ -20,7 +20,7 @@ and finally the v2 full evaluation.
 
 ## Response Storage Convention
 
-For WP2 and future evaluations, preserve original response text as follows:
+For future evaluation runs, preserve original response text as follows:
 
 - Directory: `tests/results/responses/<YYYY-MM-DD>-<run-name>/`.
 - Filename: `<scenario>-<condition>-<tier>[-rN].md`, for example
