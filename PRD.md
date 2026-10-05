@@ -9,12 +9,12 @@
 
 - Product: Evidence Driven Engineering (EDE)
 - Type: Codex Agent Skill / Engineering Judgment Framework
-- Version: v0.1.0 PRD
-- Primary target: OpenAI Codex
+- Version: PRD, updated for v0.3.0
+- Primary target: Agent Skills compatible tools (Claude Code, Claude.ai, Codex)
 - Secondary target: Agent Skills compatible tools
 - Distribution: Public GitHub repository
 - License recommendation: MIT
-- Status: Draft for implementation
+- Status: Shipped through v0.3.0; maintained as reference spec
 
 ---
 
@@ -559,7 +559,6 @@ evidence-driven-engineering/
 ├── LICENSE
 ├── CHANGELOG.md
 ├── references/
-│   ├── evidence-model.md
 │   ├── examples.md
 │   └── anti-patterns.md
 └── tests/
@@ -645,6 +644,11 @@ Target:
 
 ## 18. Evaluation Plan
 
+The current authoritative evaluation is defined in
+[tests/scenarios.md](./tests/scenarios.md) (12 scenarios, A–L) and
+[tests/rubric.md](./tests/rubric.md). The A–G list below preserves the
+original evaluation design as a historical record.
+
 EDE should be evaluated against baseline Codex behavior.
 
 ### Scenario A — Stack Trace Anchoring
@@ -664,6 +668,8 @@ Pass:
 - agent checks callers/tests/history/version constraints before deleting behavior
 
 ### Scenario C — Confirmation Bias
+
+Note: the implemented scenario is named "Contradictory Evidence".
 
 Prompt:
 - provide evidence supporting H1 plus subtle evidence contradicting H1
@@ -709,22 +715,22 @@ Pass:
 
 MVP is complete when:
 
-- [ ] repository contains a valid `SKILL.md`
-- [ ] skill has name and description metadata
-- [ ] skill states the four EDE pillars
-- [ ] skill implements risk-adaptive depth
-- [ ] skill distinguishes facts from assumptions/unknowns
-- [ ] skill includes falsification behavior
-- [ ] skill includes context reconstruction before legacy changes
-- [ ] skill prefers minimal evidence-supported changes
-- [ ] skill requires verification proportional to the claim
-- [ ] skill reports remaining uncertainty
-- [ ] skill avoids fake numerical confidence
-- [ ] skill does not force heavyweight workflow for trivial work
-- [ ] README explains installation and usage
-- [ ] at least seven behavioral test scenarios exist
-- [ ] public repository contains a license
-- [ ] examples contain no proprietary code or private data
+- [x] repository contains a valid `SKILL.md`
+- [x] skill has name and description metadata
+- [x] skill states the four EDE pillars
+- [x] skill implements risk-adaptive depth
+- [x] skill distinguishes facts from assumptions/unknowns
+- [x] skill includes falsification behavior
+- [x] skill includes context reconstruction before legacy changes
+- [x] skill prefers minimal evidence-supported changes
+- [x] skill requires verification proportional to the claim
+- [x] skill reports remaining uncertainty
+- [x] skill avoids fake numerical confidence
+- [x] skill does not force heavyweight workflow for trivial work
+- [x] README explains installation and usage
+- [x] at least seven behavioral test scenarios exist
+- [x] public repository contains a license
+- [x] examples contain no proprietary code or private data
 
 ---
 
@@ -746,6 +752,10 @@ Reason:
 A single core skill is easier to evaluate and avoids unclear skill-selection behavior.
 
 ### v0.2
+
+Status note: the four playbooks planned below were not implemented and
+remain deferred. The shipped v0.2.0 instead delivered `SKILL.md` format
+hardening and rubric evaluation (see [CHANGELOG.md](./CHANGELOG.md)).
 
 Add reference playbooks:
 
@@ -837,7 +847,7 @@ Requirements:
 - Implement SKILL.md using the Agent Skills format.
 - Keep SKILL.md operational and concise; move deeper explanations to references/.
 - Create README.md with purpose, philosophy, installation, usage examples, and limitations.
-- Create references/evidence-model.md, references/examples.md, and references/anti-patterns.md.
+- Create references/examples.md and references/anti-patterns.md.
 - Create tests/scenarios.md containing the behavioral scenarios from the PRD plus expected pass/fail criteria.
 - Add MIT LICENSE and CHANGELOG.md.
 - Do not invent unsupported Codex-specific configuration files.

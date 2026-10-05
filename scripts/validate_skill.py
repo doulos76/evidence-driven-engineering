@@ -5,7 +5,7 @@ Checks:
 - the file starts with a `---` delimited frontmatter block
 - the frontmatter is valid YAML
 - required fields (name, description) are present and non-empty
-- name matches the skill's directory name (the repo root)
+- warn if name differs from the skill's directory name (the repo root)
 """
 
 import pathlib
@@ -54,8 +54,8 @@ def main():
     expected_name = REPO_ROOT.name
     actual_name = frontmatter["name"]
     if actual_name != expected_name:
-        fail(
-            f"frontmatter name '{actual_name}' does not match "
+        print(
+            f"WARN: frontmatter name '{actual_name}' does not match "
             f"repository directory name '{expected_name}'"
         )
 

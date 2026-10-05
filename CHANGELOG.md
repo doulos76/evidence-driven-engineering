@@ -1,5 +1,43 @@
 # Changelog
 
+## 0.3.0 - 2026-10-05
+
+- Added `Decide Architecture on Evidence` and `Going Deeper` to `SKILL.md`,
+  preserving all existing instructions, and aligned Example 1 with the v2
+  evidence blocks and conclusion format.
+- Removed the redundant evidence taxonomy reference and its documentation
+  pointers; added scenario M and its new architecture-decision prompt.
+- Behavioral revalidation performed for the `SKILL.md` additions:
+  scenario M (with-skill versus baseline), regression A/B/E (with-skill),
+  one-pass blind rubric grading, verbatim responses stored under
+  `tests/results/responses/` — no regression found; see
+  `tests/results/2026-10-05-wp3-spotcheck.md`. The README benchmark
+  remains a reference value for the preceding skill revision until a
+  full rerun.
+- Full rubric rerun of all 13 scenarios at both tiers with freshly
+  generated baselines (60 verbatim responses stored, two-pass blind
+  grading): Haiku 4.5 +2.3 (16.2 → 18.5 of 20), Sonnet 5.5 at the ceiling
+  (19.8 → 19.9). With-skill pass/fail 30/30. Not comparable to the 0.2.0
+  numbers; an environment confound is documented. README benchmark
+  updated; human spot-check materials prepared, verdict pending. See
+  `tests/results/2026-10-05-rubric-v03-full-verbatim.md`.
+- Rewrote `TODO.md` to the remaining open items.
+
+- Added canonical reconstructed prompts for scenarios A–L, with source
+  provenance and explicit minimal-source-detail labels where needed; linked
+  them from the scenario definitions and clarified response storage wording.
+  These inputs have not been rerun and do not inherit historical scores.
+
+- Corrected installation and packaging instructions, refreshed the README
+  repository tree, and clarified benchmark validity after skill changes.
+- Added an evaluation history index and response storage convention;
+  strengthened contributor evaluation requirements and removed a duplicate
+  workflow diagram.
+- Updated the PRD for v0.2.0, distinguishing current evaluation from the
+  original design and documenting the deferred reference playbooks.
+- Excluded evaluation records from runtime packages and made a skill name
+  versus clone directory mismatch a validation warning.
+
 ## 0.2.0 - 2026-08-21
 
 - Hardened `SKILL.md`'s evidence sections from prose guidance into an
