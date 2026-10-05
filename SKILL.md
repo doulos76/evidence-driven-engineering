@@ -85,6 +85,16 @@ Ask:
 
 This is not an assumption that the code is correct. It is a search for hidden constraints.
 
+## Decide Architecture on Evidence
+
+For architecture and design decisions, apply the same discipline:
+
+- Separate currently measured constraints (FACTS) from anticipated future needs (ASSUMPTIONS).
+- Compare at least two viable options against the constraints actually in evidence — including keeping the current design.
+- Prefer the option that satisfies verified constraints with the least irreversible commitment.
+- Record UNKNOWNS, and what evidence would trigger revisiting the decision, in the decision record.
+- Do not redesign architecture in response to a local bug without evidence that the design caused it.
+
 ## Classify the Conclusion
 
 For any non-trivial diagnosis, state the confidence label on its own line, in this exact form:
@@ -169,3 +179,8 @@ A stack trace, crash report, or bug description handed to you with no other cont
 - Treat compilation alone as proof that a behavioral bug is fixed.
 - Hide material uncertainty.
 - Add process overhead disproportionate to task risk.
+
+## Going Deeper
+
+- Worked bad/better examples of these rules: `references/examples.md`
+- Named failure modes to self-check against: `references/anti-patterns.md`

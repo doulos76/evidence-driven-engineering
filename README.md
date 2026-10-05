@@ -65,7 +65,6 @@ evidence-driven-engineering/
 │   ├── package_skill.py
 │   └── validate_skill.py
 ├── references/
-│   ├── evidence-model.md
 │   ├── examples.md
 │   └── anti-patterns.md
 └── tests/

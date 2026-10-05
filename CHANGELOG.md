@@ -2,6 +2,17 @@
 
 ## Unreleased
 
+- Added `Decide Architecture on Evidence` and `Going Deeper` to `SKILL.md`,
+  preserving all existing instructions, and aligned Example 1 with the v2
+  evidence blocks and conclusion format.
+- Removed the redundant evidence taxonomy reference and its documentation
+  pointers; added scenario M and its new architecture-decision prompt.
+- Behavioral revalidation will be performed by Claude in a follow-up:
+  scenario M (with-skill versus baseline), regression A/B/E (with-skill),
+  one-pass rubric grading, and original response storage under
+  `tests/results/responses/`. Existing benchmarks remain reference values
+  for the preceding skill revision until remeasurement.
+
 - Added canonical reconstructed prompts for scenarios A–L, with source
   provenance and explicit minimal-source-detail labels where needed; linked
   them from the scenario definitions and clarified response storage wording.
