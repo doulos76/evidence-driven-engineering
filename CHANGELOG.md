@@ -2,6 +2,19 @@
 
 ## Unreleased
 
+- Added `Decide Architecture on Evidence` and `Going Deeper` to `SKILL.md`,
+  preserving all existing instructions, and aligned Example 1 with the v2
+  evidence blocks and conclusion format.
+- Removed the redundant evidence taxonomy reference and its documentation
+  pointers; added scenario M and its new architecture-decision prompt.
+- Behavioral revalidation performed for the `SKILL.md` additions:
+  scenario M (with-skill versus baseline), regression A/B/E (with-skill),
+  one-pass blind rubric grading, verbatim responses stored under
+  `tests/results/responses/` — no regression found; see
+  `tests/results/2026-10-05-wp3-spotcheck.md`. The README benchmark
+  remains a reference value for the preceding skill revision until a
+  full rerun.
+
 - Added canonical reconstructed prompts for scenarios A–L, with source
   provenance and explicit minimal-source-detail labels where needed; linked
   them from the scenario definitions and clarified response storage wording.

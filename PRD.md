@@ -559,7 +559,6 @@ evidence-driven-engineering/
 ├── LICENSE
 ├── CHANGELOG.md
 ├── references/
-│   ├── evidence-model.md
 │   ├── examples.md
 │   └── anti-patterns.md
 └── tests/
@@ -848,7 +847,7 @@ Requirements:
 - Implement SKILL.md using the Agent Skills format.
 - Keep SKILL.md operational and concise; move deeper explanations to references/.
 - Create README.md with purpose, philosophy, installation, usage examples, and limitations.
-- Create references/evidence-model.md, references/examples.md, and references/anti-patterns.md.
+- Create references/examples.md and references/anti-patterns.md.
 - Create tests/scenarios.md containing the behavioral scenarios from the PRD plus expected pass/fail criteria.
 - Add MIT LICENSE and CHANGELOG.md.
 - Do not invent unsupported Codex-specific configuration files.

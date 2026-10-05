@@ -12,7 +12,8 @@ records document the evaluation method and prior skill revisions.
 | [2026-08-21-rubric-haiku-verbatim.md](./2026-08-21-rubric-haiku-verbatim.md) | Rubric, verbatim two-pass, SKILL v1 | Superseded (v1 text basis) |
 | [2026-08-21-rubric-sonnet-verbatim.md](./2026-08-21-rubric-sonnet-verbatim.md) | Rubric, verbatim two-pass, SKILL v1 | Superseded (v1 text basis) |
 | [2026-08-21-skillmd-format-hardening.md](./2026-08-21-skillmd-format-hardening.md) | v1→v2 change spot-check (A/B/E) | Valid (change rationale record) |
-| [2026-08-21-rubric-v2-full-verbatim.md](./2026-08-21-rubric-v2-full-verbatim.md) | Rubric, verbatim two-pass, both tiers, SKILL v2 | **Current authoritative** |
+| [2026-08-21-rubric-v2-full-verbatim.md](./2026-08-21-rubric-v2-full-verbatim.md) | Rubric, verbatim two-pass, both tiers, SKILL v2 | **Current authoritative benchmark** (describes SKILL revision `c210165`) |
+| [2026-10-05-wp3-spotcheck.md](./2026-10-05-wp3-spotcheck.md) | Regression spot-check of the v0.3-cycle SKILL.md additions (scenario M new, A/B/E regression); first run using `prompts.md` and `responses/` storage | Valid (regression gate, not a benchmark) |
 
 Recommended reading order: the `run*` pass/fail records (non-discrimination),
 then `rubric-haiku` (negative result), verbatim regrading, format hardening,

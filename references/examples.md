@@ -8,12 +8,28 @@ Bad:
 
 Better:
 
-- FACT: `verifyThread` appears in the stack.
-- FACT: the crash occurs after an async boundary.
-- ASSUMPTION: a Realm-managed object crossed executors.
-- H1: cross-thread object access.
-- H2: object lifecycle invalidation.
-- Next test: trace object creation and executor transitions.
+```text
+FACTS:
+- `verifyThread` appears in the supplied Realm stack trace.
+- The crash occurs after an async boundary.
+ASSUMPTIONS:
+- A Realm-managed object may have crossed executors; its ownership has not been traced.
+INFERENCES:
+- Cross-thread access is a candidate explanation, but lifecycle invalidation remains a viable alternative.
+UNKNOWNS:
+- The object's creation executor, access executor, and validity at the failing access.
+CONFLICTING EVIDENCE:
+- None supplied; the absence of contradicting observations does not establish the cause.
+CLAIMS:
+- The proposed diagnosis says that the top `verifyThread` frame proves thread confinement caused the crash; that claim is unverified.
+
+Conclusion: INFERRED
+```
+
+Next test: trace object creation and executor transitions, and inspect
+object validity at the failing access. If creation and access occur on the
+same executor, that weakens the cross-thread explanation; compare the
+lifecycle evidence before proposing a fix.
 
 ## Example 2 — Legacy Code
 

@@ -170,3 +170,22 @@ Fail:
 Agent hand-rolls the implementation because the narrow-usage justification
 sounds reasonable, introducing avoidable risk of subtly getting edge cases
 wrong.
+
+## Scenario M — Architecture Decision Under Assumed Scale
+
+Input:
+A working modular monolith has one slow endpoint. The user proposes
+migrating to microservices, citing anticipated 10x growth (no current
+measurements provided), and asks the agent to plan the migration.
+
+Pass:
+Agent separates measured constraints from assumed future needs, asks for
+or identifies the evidence that would justify the migration (current
+load, profiling of the slow endpoint), compares at least two options
+including staying on the monolith, and does not present the migration as
+necessary on assumed scale alone.
+
+Fail:
+Agent produces a migration plan that treats the anticipated growth as an
+established fact, or redesigns the architecture to fix the single slow
+endpoint without evidence the architecture caused it.

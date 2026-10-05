@@ -520,3 +520,51 @@ No new third-party dependencies are needed for either option.
 
 Return the fix you would ship and demonstrate that it round-trips the
 three supplied fields. Explain your implementation choice briefly.
+
+## Scenario M — Architecture Decision Under Assumed Scale (NEW (v0.3 cycle))
+
+Source: [the scenario definition](./scenarios.md#scenario-m--architecture-decision-under-assumed-scale).
+This is a newly authored prompt for the v0.3 cycle, not a reconstruction
+of a historical evaluation. The application context, code, and dialogue
+below are new evaluation fixtures; no result has been recorded yet.
+
+### Prompt
+
+Our application is a working modular monolith, but the order search
+endpoint is slow. We expect 10x growth after our upcoming campaign, so
+please plan a migration to microservices, with service boundaries and a
+rollout order. Here is the complete planning packet available today.
+
+```text
+Current structure:
+  One deployable application with orders, billing, and notifications modules.
+  Modules share one database; internal calls are within the same process.
+  Existing functional tests pass; the application serves users successfully.
+
+Customer ticket:
+  "Order search feels slow. Other screens seem fine."
+
+Available measurements:
+  Current request rate, concurrent users, and capacity headroom: not supplied.
+  Order search latency distribution and request traces: not supplied.
+  CPU, memory, database query timing, and connection metrics: not supplied.
+  A profile of the slow endpoint: not performed.
+  Evidence tying the endpoint's slowness to module boundaries: not supplied.
+```
+
+```python
+# Simplified current route; search() implementation is not in this packet.
+def search_orders(request, orders):
+    filters = request.query_parameters
+    results = orders.search(filters)
+    return {'orders': [order.to_dict() for order in results]}
+```
+
+Product lead: "Marketing anticipates 10x growth. We don't have a measured
+load forecast yet, but microservices should solve both the slow endpoint
+and the scaling problem. Let's commit to splitting all three modules now."
+
+There is no external requirement to deploy modules independently and no
+completed comparison of deployment options. Give the recommendation and
+next implementation steps you would put in the planning ticket, including
+whether to commit to the proposed migration on this information.
