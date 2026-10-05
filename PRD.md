@@ -9,12 +9,12 @@
 
 - Product: Evidence Driven Engineering (EDE)
 - Type: Codex Agent Skill / Engineering Judgment Framework
-- Version: PRD, updated for v0.2.0
+- Version: PRD, updated for v0.3.0
 - Primary target: Agent Skills compatible tools (Claude Code, Claude.ai, Codex)
 - Secondary target: Agent Skills compatible tools
 - Distribution: Public GitHub repository
 - License recommendation: MIT
-- Status: Shipped through v0.2.0; maintained as reference spec
+- Status: Shipped through v0.3.0; maintained as reference spec
 
 ---
 

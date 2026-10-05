@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 0.3.0 - 2026-10-05
 
 - Added `Decide Architecture on Evidence` and `Going Deeper` to `SKILL.md`,
   preserving all existing instructions, and aligned Example 1 with the v2
