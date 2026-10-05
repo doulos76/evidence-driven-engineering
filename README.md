@@ -154,9 +154,28 @@ Two evaluation methods are used, because they measure different things:
 
 ### EDE Rubric Benchmark
 
-Verbatim two-pass blind grading (see `tests/rubric.md` and
-`tests/results/2026-08-21-rubric-v2-full-verbatim.md`), 12 scenarios ×
-with-skill/baseline, one response per condition per scenario per tier:
+Current run (`SKILL.md` at `7c00e4e`, 2026-10-05): verbatim two-pass blind
+grading (see `tests/rubric.md` and
+`tests/results/2026-10-05-rubric-v03-full-verbatim.md`), 13 scenarios ×
+with-skill/freshly generated baseline, one response per cell per tier
+(two for scenarios A and G):
+
+| Model | No Skill | EDE | Lift |
+|---|---|---|---|
+| Claude Sonnet 5.5 | 19.8 / 20 | 19.9 / 20 | **+0.1** (ceiling) |
+| Claude Haiku 4.5 | 16.2 / 20 | 18.5 / 20 | **+2.3** |
+
+How to read this: at Haiku the skill is at or above baseline on 12 of 13
+scenarios, with no over-processing of the trivial-edit scenario; at
+Sonnet both conditions sit at the rubric ceiling, so the run cannot show a
+benefit there. The numbers are **not comparable** to the v0.2.0 benchmark
+below (different model versions, regenerated baselines, Korean-language
+responses), and the generation environment carried user-level
+instructions that likely inflate baselines — see the results file's
+limitations before citing them.
+
+Previous benchmark (v0.2.0, `SKILL.md` v2, 12 scenarios, 2026-08-21,
+`tests/results/2026-08-21-rubric-v2-full-verbatim.md`):
 
 | Model | No Skill | EDE | Lift |
 |---|---|---|---|
@@ -167,11 +186,12 @@ Evaluation: verbatim response text (not summaries), graded blind to
 condition (with-skill/baseline labels hidden from the grader), two
 independent grading passes averaged per response, 10-item rubric scored
 0–2 each. No human spot-check has been performed on this grading yet —
-see `tests/results/` for the full history, including an earlier `SKILL.md`
+materials are prepared in
+`tests/results/2026-10-05-human-spotcheck-materials.md`. See
+`tests/results/` for the full history, including an earlier `SKILL.md`
 revision where this same method found a *negative* result at the Haiku
 tier, driven by the skill's structure being silently skipped on one
-scenario, which motivated the format-hardening change reflected in the
-numbers above.
+scenario, which motivated the format-hardening change.
 
 After any `SKILL.md` change, these numbers describe the preceding revision
 and remain reference values until the benchmark is rerun.

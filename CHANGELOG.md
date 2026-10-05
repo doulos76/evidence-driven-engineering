@@ -14,6 +14,14 @@
   `tests/results/2026-10-05-wp3-spotcheck.md`. The README benchmark
   remains a reference value for the preceding skill revision until a
   full rerun.
+- Full rubric rerun of all 13 scenarios at both tiers with freshly
+  generated baselines (60 verbatim responses stored, two-pass blind
+  grading): Haiku 4.5 +2.3 (16.2 → 18.5 of 20), Sonnet 5.5 at the ceiling
+  (19.8 → 19.9). With-skill pass/fail 30/30. Not comparable to the 0.2.0
+  numbers; an environment confound is documented. README benchmark
+  updated; human spot-check materials prepared, verdict pending. See
+  `tests/results/2026-10-05-rubric-v03-full-verbatim.md`.
+- Rewrote `TODO.md` to the remaining open items.
 
 - Added canonical reconstructed prompts for scenarios A–L, with source
   provenance and explicit minimal-source-detail labels where needed; linked
