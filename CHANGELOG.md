@@ -7,11 +7,13 @@
   evidence blocks and conclusion format.
 - Removed the redundant evidence taxonomy reference and its documentation
   pointers; added scenario M and its new architecture-decision prompt.
-- Behavioral revalidation will be performed by Claude in a follow-up:
+- Behavioral revalidation performed for the `SKILL.md` additions:
   scenario M (with-skill versus baseline), regression A/B/E (with-skill),
-  one-pass rubric grading, and original response storage under
-  `tests/results/responses/`. Existing benchmarks remain reference values
-  for the preceding skill revision until remeasurement.
+  one-pass blind rubric grading, verbatim responses stored under
+  `tests/results/responses/` — no regression found; see
+  `tests/results/2026-10-05-wp3-spotcheck.md`. The README benchmark
+  remains a reference value for the preceding skill revision until a
+  full rerun.
 
 - Added canonical reconstructed prompts for scenarios A–L, with source
   provenance and explicit minimal-source-detail labels where needed; linked
