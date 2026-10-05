@@ -79,24 +79,6 @@ flowchart LR
 
 ## Workflow
 
-```mermaid
-flowchart LR
-    subgraph Regular work
-        A["feature/* · chore/* · docs/* · test/*"] -->|"branch from"| D1[develop]
-        A -->|"PR into"| D1
-    end
-    subgraph Release
-        D2[develop] -->|"branch from"| R["release/x.y.z"]
-        R -->|"PR into, then tag"| M1[main]
-        M1 -->|"merge back"| D2
-    end
-    subgraph Hotfix
-        M2[main] -->|"branch from"| H["hotfix/*"]
-        H -->|"PR into, then tag"| M2
-        M2 -->|"merge back"| D3[develop]
-    end
-```
-
 ### Regular work (features, fixes, docs, tests, chores)
 
 ```bash
@@ -154,9 +136,18 @@ Use [Conventional Commits](https://www.conventionalcommits.org/) style
 ## Skill content changes
 
 Changes to `SKILL.md` are the highest-leverage changes in this repo — they
-alter agent behavior directly. For any non-trivial change to `SKILL.md`:
+alter agent behavior directly. Pass/fail scenario reruns alone are
+insufficient: they were non-discriminating across four independent runs
+(see the [evaluation history](./tests/results/README.md)).
 
-- Run (or re-run) the relevant scenarios in `tests/scenarios.md` with-skill
-  vs. baseline, and record the result under `tests/results/`.
-- Note in the PR description whether the change is expected to affect any
-  existing behavioral test result.
+- **Minimum for every non-trivial change:** rerun the affected scenarios in
+  `tests/scenarios.md` with-skill and perform a rubric spot-check using
+  verbatim responses, grading blind to condition, with at least one pass.
+  Save the original responses under `tests/results/responses/` following
+  the [response storage convention](./tests/results/README.md#response-storage-convention),
+  and record the results under `tests/results/`.
+- **Full evaluation for structural changes** (such as adding or deleting
+  sections or changing the format): rerun all scenarios at both model
+  tiers, with-skill and baseline, using verbatim two-pass blind rubric
+  grading, and update the README benchmark.
+- State in the PR description which evaluation standard was applied.
