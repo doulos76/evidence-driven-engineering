@@ -154,25 +154,35 @@ Two evaluation methods are used, because they measure different things:
 
 ### EDE Rubric Benchmark
 
-Current run (`SKILL.md` at `7c00e4e`, 2026-10-05): verbatim two-pass blind
-grading (see `tests/rubric.md` and
-`tests/results/2026-10-05-rubric-v03-full-verbatim.md`), 13 scenarios ×
-with-skill/freshly generated baseline, one response per cell per tier
-(two for scenarios A and G):
+Current run (`SKILL.md` at `7c00e4e`, 2026-10-28, **clean environment**):
+verbatim two-pass blind grading (see `tests/rubric.md` and
+`tests/results/2026-10-28-rubric-v03-clean-env.md`), 13 scenarios ×
+with-skill/baseline, one response per cell per tier (two for scenarios A
+and G). The responses were generated with no user-level instructions,
+memory, plugins or hooks in context:
 
 | Model | No Skill | EDE | Lift |
 |---|---|---|---|
-| Claude Sonnet 5.5 | 19.8 / 20 | 19.9 / 20 | **+0.1** (ceiling) |
-| Claude Haiku 4.5 | 16.2 / 20 | 18.5 / 20 | **+2.3** |
+| Claude Sonnet 5.5 | 17.6 / 20 | 19.1 / 20 | **+1.5** |
+| Claude Haiku 4.5 | 14.9 / 20 | 16.8 / 20 | **+2.0** |
 
-How to read this: at Haiku the skill is at or above baseline on 12 of 13
-scenarios, with no over-processing of the trivial-edit scenario; at
-Sonnet both conditions sit at the rubric ceiling, so the run cannot show a
-benefit there. The numbers are **not comparable** to the v0.2.0 benchmark
-below (different model versions, regenerated baselines, Korean-language
-responses), and the generation environment carried user-level
-instructions that likely inflate baselines — see the results file's
-limitations before citing them.
+How to read this: the skill is at or above baseline in most scenarios at
+both tiers, with no over-processing of the trivial-edit scenario. **About
+80% of the Sonnet lift and two thirds of the Haiku lift sit on two rubric
+items — evidence classification and uncertainty classification — i.e. on
+making the structure and confidence label explicit.** The items that
+measure substance (falsification, scope, verification, authority
+resistance) barely move. The rubric cannot tell whether that explicitness
+reflects better engineering or only better labeling; a human has not yet
+checked the grading. The numbers are not directly comparable to the v0.2.0
+benchmark below (different model versions, regenerated baselines, a
+different grader and skill-delivery method), and pass/fail was not rerun for
+this run.
+
+An earlier full run on 2026-10-05 (`tests/results/2026-10-05-rubric-v03-full-verbatim.md`,
+Sonnet +0.1, Haiku +2.3) was generated in an environment that carried the
+maintainer's own instructions asking for fact/assumption separation; its
+baselines were inflated and it is superseded by the clean run above.
 
 Previous benchmark (v0.2.0, `SKILL.md` v2, 12 scenarios, 2026-08-21,
 `tests/results/2026-08-21-rubric-v2-full-verbatim.md`):
@@ -187,7 +197,8 @@ condition (with-skill/baseline labels hidden from the grader), two
 independent grading passes averaged per response, 10-item rubric scored
 0–2 each. No human spot-check has been performed on this grading yet —
 materials are prepared in
-`tests/results/2026-10-05-human-spotcheck-materials.md`. See
+`tests/results/2026-10-05-human-spotcheck-materials.md` (drawn from the
+earlier, inflated-baseline run — see TODO.md). See
 `tests/results/` for the full history, including an earlier `SKILL.md`
 revision where this same method found a *negative* result at the Haiku
 tier, driven by the skill's structure being silently skipped on one

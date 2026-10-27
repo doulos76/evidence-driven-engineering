@@ -1,43 +1,45 @@
 # TODO
 
-Follow-up work, updated after the v0.3-cycle full rerun
-(`tests/results/2026-10-05-rubric-v03-full-verbatim.md`). Not committed to
-a timeline — pick up when there's a reason to.
+Follow-up work, updated after the clean-environment rerun
+(`tests/results/2026-10-28-rubric-v03-clean-env.md`). Not committed to a
+timeline — pick up when there's a reason to.
 
-Done in this cycle and removed from the list: pass/fail rerun against the
-current `SKILL.md` (with-skill 30/30 PASS), `tests/results/README.md`
+Done and removed from the list: the environment-confound rerun (Sonnet
++1.50, Haiku +1.96 in a clean environment, versus +0.12 / +2.29 with the
+maintainer's instructions present), pass/fail against the current
+`SKILL.md` (30/30 in the 2026-10-05 run), the `tests/results/README.md`
 index, the updated CONTRIBUTING.md evaluation bar, scenario prompts in
 `tests/prompts.md`, and n=2 on scenarios A and G.
 
 ## 1. Human spot-check of LLM rubric grading
 
-Still open, and now the most important item. The rubric benchmark is
-entirely LLM-graded (two independent passes by one grader model family);
-no human has read the responses. Materials are prepared in
-`tests/results/2026-10-05-human-spotcheck-materials.md` (Haiku scenario A,
-+7.8, and scenario G, +3.5, side by side). A human needs to read them and
-fill in the verdict section — if the spot-check does not confirm the
-grading, that outranks the benchmark itself.
+Still open, and now sharper. In the clean run, items 1 (evidence
+classification) and 5 (uncertainty classification) account for about 80%
+of the Sonnet lift and two thirds of the Haiku lift, while the
+substance-measuring items (falsification, scope, verification, authority
+resistance) barely move — so whether the lift reflects better engineering
+or better labeling is exactly what a human has to judge. Materials in
+`tests/results/2026-10-05-human-spotcheck-materials.md` were drawn from the
+earlier inflated-baseline run; redraw the pairs from the clean run
+(`responses/2026-10-28-v03-clean/`, per-item scores and grader notes in
+`2026-10-28-v03-clean-grading-sheet.json`), preferably including the
+scenarios with the largest lifts (Haiku G +5.5, C +4.5; Sonnet M +3.0).
 
-## 2. Clean rerun without environment confound
+## 2. Pass/fail on the clean run
 
-The v0.3 run's baselines show the evidence structure unprompted, very
-likely because the generation environment carries user-level instructions
-asking for exactly that. Rerun the baseline (and with-skill) generation in
-an environment without such instructions, ideally in English to match the
-2026-08-21 runs, before reading the Sonnet-tier "no lift" result (+0.12,
-12 of 13 scenarios at the 20/20 ceiling) as "no benefit."
+The 2026-10-28 run graded the rubric only. Judge the 30 with-skill
+responses against `tests/scenarios.md` as well.
 
-## 3. A harder scenario set for the stronger tier
+## 3. A second grader family
 
-At Sonnet the rubric saturates. Add adversarial variants (stacked
-authority pressure, partially supported cases, longer noisy context) —
-scenario M in particular needs a harder version, since baseline already
-refuses an evidence-free migration — and consider a third tier (Claude
-Opus) to check whether the larger-benefit-at-smaller-models trend holds.
+Both grading passes used one model (`claude-opus-5-5`). Re-grade a sample
+with a different grader (another model family, or a human) to check the
+item-level pattern above is not a grader artifact.
 
-## 4. More repeats
+## 4. A harder scenario set and more repeats
 
-Only scenarios A and G ran n=2. Haiku with-skill G scored 18.0 and 15.5
-across repeats, so single-sample cells are noisy; 2–3 repeats everywhere
-would give a variance estimate for every scenario.
+Add adversarial variants (stacked authority pressure, partially supported
+cases, longer noisy context) — the baseline already scores 2.00 on
+authority resistance, so scenarios I and J cannot show an effect — consider
+a third tier (Claude Opus), and run 2–3 repeats everywhere: only scenarios A
+and G ran n=2, and single-response cells swing by a point or more.

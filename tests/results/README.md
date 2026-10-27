@@ -13,15 +13,21 @@ records document the evaluation method and prior skill revisions.
 | [2026-08-21-rubric-sonnet-verbatim.md](./2026-08-21-rubric-sonnet-verbatim.md) | Rubric, verbatim two-pass, SKILL v1 | Superseded (v1 text basis) |
 | [2026-08-21-skillmd-format-hardening.md](./2026-08-21-skillmd-format-hardening.md) | v1→v2 change spot-check (A/B/E) | Valid (change rationale record) |
 | [2026-08-21-rubric-v2-full-verbatim.md](./2026-08-21-rubric-v2-full-verbatim.md) | Rubric, verbatim two-pass, both tiers, SKILL v2 | Superseded for the current `SKILL.md` (describes revision `c210165`); kept as the v0.2.0 benchmark record |
-| [2026-10-05-rubric-v03-full-verbatim.md](./2026-10-05-rubric-v03-full-verbatim.md) | Full rerun of all 13 scenarios, both tiers, with-skill and regenerated baseline, verbatim two-pass blind rubric, SKILL `7c00e4e` (responses in `responses/2026-10-05-v03-full/`) | **Current authoritative benchmark** (supersedes the 2026-08-21 v2 run; not directly comparable — see its limitations) |
+| [2026-10-28-rubric-v03-clean-env.md](./2026-10-28-rubric-v03-clean-env.md) | Full rerun in a clean environment (no user instructions, memory, plugins or hooks), 13 scenarios, both tiers, with-skill and baseline, two-pass blind rubric by `claude-opus-5-5`; per-item grading sheet in `2026-10-28-v03-clean-grading-sheet.json` (responses in `responses/2026-10-28-v03-clean/`) | **Current authoritative benchmark** |
+| [2026-10-05-rubric-v03-full-verbatim.md](./2026-10-05-rubric-v03-full-verbatim.md) | Full rerun of all 13 scenarios, both tiers, with-skill and regenerated baseline, verbatim two-pass blind rubric, SKILL `7c00e4e` (responses in `responses/2026-10-05-v03-full/`) | Superseded by the 2026-10-28 clean-environment run (its baselines carried an environment confound); kept as the record of that finding |
 | [2026-10-05-human-spotcheck-materials.md](./2026-10-05-human-spotcheck-materials.md) | Selected response pairs and checklist for the human spot-check of the grading | Open — verdict section awaits a human reader |
 | [2026-10-05-wp3-spotcheck.md](./2026-10-05-wp3-spotcheck.md) | Regression spot-check of the v0.3-cycle SKILL.md additions (scenario M new, A/B/E regression); first run using `prompts.md` and `responses/` storage | Valid (regression gate, not a benchmark) |
 
 Recommended reading order: the `run*` pass/fail records (non-discrimination),
 then `rubric-haiku` (negative result), verbatim regrading, format hardening,
-and finally the v2 full evaluation.
+then the 2026-10-05 run (inflated baselines) and finally the
+2026-10-28 clean-environment run.
 
 ## Response Storage Convention
+
+From the 2026-10-28 run on, also store the per-item grading sheet and the
+blind-ID mapping next to the results (`<date>-<run>-grading-sheet.json`);
+earlier runs kept only totals.
 
 For future evaluation runs, preserve original response text as follows:
 

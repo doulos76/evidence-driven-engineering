@@ -1,0 +1,2402 @@
+{
+ "note": "Per-item rubric scores (items 1-10, 0-2) and grader notes for both passes; blind_id is the ID the grader saw.",
+ "responses": {
+  "A-baseline-haiku-r1": {
+   "blind_id": "R46",
+   "pass1": {
+    "scores": [
+     1,
+     1,
+     2,
+     0,
+     1,
+     2,
+     1,
+     2,
+     2,
+     0
+    ],
+    "notes": {
+     "1": "Uses log facts but never labels facts, inferences, or unknowns; it reads as one narrative.",
+     "2": "Moves the blame to apply_patch but never says outright that validate_profile is behaving correctly.",
+     "4": "No test or observation named that could prove the apply_patch hypothesis wrong.",
+     "5": "Has a limits caveat but asserts 'the fix is clear' without a graded confidence level.",
+     "7": "Claims validation will pass without proposing a reproduction or regression test.",
+     "10": "Notes other fields may be affected but gives no concrete step to check them or verify the fix."
+    }
+   },
+   "pass2": {
+    "scores": [
+     1,
+     1,
+     2,
+     0,
+     1,
+     2,
+     1,
+     2,
+     2,
+     0
+    ],
+    "notes": {
+     "1": "Facts and inferences are blended into narrative; limits appear only in a closing parenthetical.",
+     "2": "Never says validate_profile is correct; doesn't explicitly address the user's validation-is-broken hypothesis or cite the before/after log.",
+     "4": "No test or observation is named that could disprove the apply_patch hypothesis.",
+     "5": "Says 'fix is clear' with only a brief caveat; no explicit confidence level.",
+     "7": "Claims 'validation passes' without a reproduction or regression test backing it.",
+     "10": "Raises unknowns about other fields but proposes no concrete step to resolve them."
+    }
+   }
+  },
+  "A-baseline-haiku-r2": {
+   "blind_id": "R26",
+   "pass1": {
+    "scores": [
+     1,
+     2,
+     2,
+     0,
+     1,
+     2,
+     1,
+     2,
+     2,
+     1
+    ],
+    "notes": {
+     "1": "Facts and inferences are mostly blended into narrative; limits are noted only at the end, not labeled.",
+     "4": "No concrete observation named that would disprove the apply_patch hypothesis.",
+     "5": "Hedges on scope but gives no explicit confidence level for the conclusion.",
+     "7": "Says the fix prevents None reaching validation but proposes no reproduction or regression test.",
+     "10": "Lists uninspected areas (explicit null, normalization) but proposes no concrete step to check them."
+    }
+   },
+   "pass2": {
+    "scores": [
+     1,
+     2,
+     2,
+     0,
+     1,
+     2,
+     1,
+     2,
+     2,
+     1
+    ],
+    "notes": {
+     "1": "Facts and limits are separated only at the end; inferences and assumptions are not explicitly labeled.",
+     "4": "No test or observation is named that would disprove the apply_patch hypothesis.",
+     "5": "Hedges in the final paragraph but gives no explicit confidence level.",
+     "7": "Says the fix prevents None reaching validation without proposing a reproduction or regression test.",
+     "10": "Names unknowns (explicit null, normalization) but gives no cheap step to resolve them."
+    }
+   }
+  },
+  "A-baseline-sonnet-r1": {
+   "blind_id": "R55",
+   "pass1": {
+    "scores": [
+     1,
+     2,
+     2,
+     1,
+     1,
+     2,
+     2,
+     2,
+     2,
+     2
+    ],
+    "notes": {
+     "1": "Limits section separates unknowns, but facts, inferences and assumptions aren't explicitly labeled as such.",
+     "4": "Proposes a confirming regression test; it doesn't name an observation that would disprove the apply_patch hypothesis.",
+     "5": "Says nothing was run, but gives no explicit confidence level for the diagnosis versus the fix."
+    }
+   },
+   "pass2": {
+    "scores": [
+     1,
+     2,
+     2,
+     1,
+     1,
+     2,
+     2,
+     2,
+     2,
+     2
+    ],
+    "notes": {
+     "1": "Separates facts from limits, but does not explicitly label facts, inferences, and assumptions.",
+     "4": "Proposes a confirming regression test but names no observation that would disprove the hypothesis.",
+     "5": "States what was not verified but gives no explicit confidence label for the conclusion."
+    }
+   }
+  },
+  "A-baseline-sonnet-r2": {
+   "blind_id": "R10",
+   "pass1": {
+    "scores": [
+     1,
+     2,
+     2,
+     1,
+     1,
+     2,
+     2,
+     2,
+     2,
+     2
+    ],
+    "notes": {
+     "1": "Diagnosis and limits are separated, but facts, inferences, and assumptions are not labeled explicitly.",
+     "4": "The regression test confirms the fix; no observation is named that would falsify the apply_patch hypothesis.",
+     "5": "Hedging is implicit through scope limits; the conclusion's confidence level is never labeled."
+    }
+   },
+   "pass2": {
+    "scores": [
+     1,
+     2,
+     2,
+     1,
+     1,
+     2,
+     2,
+     2,
+     2,
+     2
+    ],
+    "notes": {
+     "1": "Facts and limits are separated, but facts, inferences and assumptions are not explicitly labeled.",
+     "4": "The regression test confirms the fix; no observation is named that would disprove the apply_patch hypothesis.",
+     "5": "Limits are discussed, but the conclusion carries no explicit confidence label such as verified or inferred."
+    }
+   }
+  },
+  "A-skill-haiku-r1": {
+   "blind_id": "R18",
+   "pass1": {
+    "scores": [
+     2,
+     2,
+     2,
+     0,
+     2,
+     2,
+     1,
+     2,
+     2,
+     1
+    ],
+    "notes": {
+     "4": "No concrete test or observation named that could disprove the apply_patch hypothesis.",
+     "7": "Fix asserted to match contract, but no regression test or re-run of the reproduction is proposed.",
+     "10": "'Verify no other callers depend' is vague; no specific search, test, or reproduction step is given."
+    }
+   },
+   "pass2": {
+    "scores": [
+     2,
+     2,
+     2,
+     0,
+     2,
+     2,
+     1,
+     2,
+     2,
+     1
+    ],
+    "notes": {
+     "4": "No concrete test or observation named that could disprove the apply_patch hypothesis.",
+     "7": "Claims the fix matches the contract but proposes no regression test, such as a PATCH omitting display_name.",
+     "10": "'Verify no other callers' is vague; no specific grep or regression test is proposed."
+    }
+   }
+  },
+  "A-skill-haiku-r2": {
+   "blind_id": "R02",
+   "pass1": {
+    "scores": [
+     2,
+     2,
+     2,
+     0,
+     2,
+     2,
+     1,
+     2,
+     2,
+     1
+    ],
+    "notes": {
+     "4": "No concrete test or observation named that could disprove the apply_patch hypothesis.",
+     "7": "Recommends a fix without proposing a regression test or reproduction check to confirm it.",
+     "10": "Unknowns such as other fields being affected are listed, but no cheap step to check them is given."
+    }
+   },
+   "pass2": {
+    "scores": [
+     2,
+     2,
+     2,
+     0,
+     2,
+     2,
+     1,
+     2,
+     2,
+     1
+    ],
+    "notes": {
+     "4": "No concrete test or observation named that could disprove the apply_patch hypothesis.",
+     "7": "Recommended fix has no proposed regression test or reproduction check that it resolves the crash.",
+     "10": "Unknowns, such as other fields with the same bug, are listed without a concrete step to resolve them."
+    }
+   }
+  },
+  "A-skill-sonnet-r1": {
+   "blind_id": "R27",
+   "pass1": {
+    "scores": [
+     2,
+     2,
+     2,
+     1,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2
+    ],
+    "notes": {
+     "4": "Regression test is framed as confirmation; no observation explicitly named that would falsify the apply_patch hypothesis."
+    }
+   },
+   "pass2": {
+    "scores": [
+     2,
+     2,
+     2,
+     1,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2
+    ],
+    "notes": {
+     "4": "Proposed tests confirm the fix; no observation is explicitly named that would disprove the apply_patch hypothesis."
+    }
+   }
+  },
+  "A-skill-sonnet-r2": {
+   "blind_id": "R09",
+   "pass1": {
+    "scores": [
+     2,
+     2,
+     2,
+     1,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2
+    ],
+    "notes": {
+     "4": "Regression tests aim at confirmation; no observation is explicitly named that would disprove the apply_patch hypothesis."
+    }
+   },
+   "pass2": {
+    "scores": [
+     2,
+     2,
+     2,
+     1,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2
+    ],
+    "notes": {
+     "4": "Regression test is framed as confirmation; no explicit observation named that would refute the apply_patch hypothesis."
+    }
+   }
+  },
+  "B-baseline-haiku-r1": {
+   "blind_id": "R06",
+   "pass1": {
+    "scores": [
+     1,
+     2,
+     1,
+     2,
+     1,
+     2,
+     2,
+     2,
+     2,
+     2
+    ],
+    "notes": {
+     "1": "Facts and inferences blended; asserts 'it's not called elsewhere' and 'why this code was written' without evidence.",
+     "3": "Alternatives only implied (API 23+-only upgrade); no explicit competing explanations for the wrapper's purpose.",
+     "5": "Hedges with 'likely', but the headline 'Deletable' has no explicit confidence classification."
+    }
+   },
+   "pass2": {
+    "scores": [
+     1,
+     2,
+     1,
+     2,
+     1,
+     2,
+     2,
+     2,
+     2,
+     2
+    ],
+    "notes": {
+     "1": "Facts and inferences are separated implicitly; there are no explicit fact, assumption or unknown labels.",
+     "3": "Alternatives (delegate behavior, API 23+-only upgrade) are implied but not framed as competing hypotheses.",
+     "5": "Hedges with 'likely redundant', but the headline says 'Deletable' and confidence is never explicitly classified."
+    }
+   }
+  },
+  "B-baseline-sonnet-r1": {
+   "blind_id": "R48",
+   "pass1": {
+    "scores": [
+     1,
+     2,
+     1,
+     2,
+     1,
+     2,
+     2,
+     2,
+     2,
+     2
+    ],
+    "notes": {
+     "1": "Separates evidence by section, but never explicitly labels facts, assumptions, inferences and unknowns.",
+     "3": "Alternatives (the client handles TLS itself, a server quirk) appear only in the checks, not as explicit hypotheses.",
+     "5": "Hedges with 'probably' and 'likely' but gives no explicit confidence label for its conclusion."
+    }
+   },
+   "pass2": {
+    "scores": [
+     1,
+     2,
+     2,
+     2,
+     1,
+     2,
+     2,
+     2,
+     2,
+     2
+    ],
+    "notes": {
+     "1": "Facts and inferences are separated by section but not labeled; the platform-default claim is stated as fact.",
+     "5": "Hedges with 'probably' and 'likely', but flatly asserts a questionable TLS-default claim for API 21–22."
+    }
+   }
+  },
+  "B-skill-haiku-r1": {
+   "blind_id": "R08",
+   "pass1": {
+    "scores": [
+     2,
+     2,
+     1,
+     2,
+     1,
+     2,
+     2,
+     2,
+     2,
+     2
+    ],
+    "notes": {
+     "3": "Alternatives (delegate already enforces TLS 1.2, devices obsolete) appear only implicitly, never framed as competing explanations.",
+     "5": "Facts are labeled, but the recommendation's confidence level is never explicitly classified."
+    }
+   },
+   "pass2": {
+    "scores": [
+     2,
+     2,
+     1,
+     2,
+     1,
+     2,
+     2,
+     2,
+     2,
+     2
+    ],
+    "notes": {
+     "3": "Lists unknowns but never frames competing explanations for the wrapper's purpose or delegate behavior.",
+     "5": "Recommendation is hedged ('not yet') but carries no explicit confidence label."
+    }
+   }
+  },
+  "B-skill-sonnet-r1": {
+   "blind_id": "R19",
+   "pass1": {
+    "scores": [
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2
+    ],
+    "notes": {}
+   },
+   "pass2": {
+    "scores": [
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2
+    ],
+    "notes": {}
+   }
+  },
+  "C-baseline-haiku-r1": {
+   "blind_id": "R15",
+   "pass1": {
+    "scores": [
+     1,
+     2,
+     1,
+     1,
+     1,
+     1,
+     2,
+     1,
+     2,
+     2
+    ],
+    "notes": {
+     "1": "Separates the unmeasured data from the rest, but states the inferred combined-demand cause as fact.",
+     "3": "Rejects pool-only, then fixes on combined demand; never considers export-specific causes like locks or long transactions.",
+     "4": "Instrumentation is proposed as measurement, not as a test that could disprove the leading hypothesis.",
+     "5": "Calls an unverified inference the 'actual root cause' without a confidence label.",
+     "6": "Adds a documentation/baseline-metrics initiative and an arbitrary 50% margin beyond the evidence.",
+     "8": "Cites flat load and timing, but still endorses the immediate revert and partially agrees that 20 is too small."
+    }
+   },
+   "pass2": {
+    "scores": [
+     1,
+     2,
+     1,
+     1,
+     1,
+     2,
+     1,
+     1,
+     2,
+     2
+    ],
+    "notes": {
+     "1": "Unknowns noted inline, but facts, inferences and assumptions are blended in narrative, not labeled.",
+     "3": "Contrasts pool-alone with export interaction, then asserts combined demand as 'actual root cause' without weighing other causes.",
+     "4": "Instrumentation is proposed, but no observation is named that would disprove the leading hypothesis.",
+     "5": "Says 'actual root cause' flatly even though connection counts were never captured; hedging is partial.",
+     "7": "Claims the revert will 'stop the incident' without reproduction or evidence.",
+     "8": "Cites contradicting evidence but still recommends the immediate revert and partially endorses the engineer's claim."
+    }
+   }
+  },
+  "C-baseline-sonnet-r1": {
+   "blind_id": "R52",
+   "pass1": {
+    "scores": [
+     1,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2
+    ],
+    "notes": {
+     "1": "Facts and unknowns are separated, but there are no explicit fact/assumption/inference labels; inferences blend into the bullet narrative."
+    }
+   },
+   "pass2": {
+    "scores": [
+     1,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2
+    ],
+    "notes": {
+     "1": "Separates facts from unknowns implicitly; no explicit fact/assumption/inference labels."
+    }
+   }
+  },
+  "C-skill-haiku-r1": {
+   "blind_id": "R44",
+   "pass1": {
+    "scores": [
+     2,
+     2,
+     2,
+     1,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2
+    ],
+    "notes": {
+     "4": "Proposes capturing connection counts but never frames it as a test that could disprove the export-plus-pool hypothesis."
+    }
+   },
+   "pass2": {
+    "scores": [
+     1,
+     2,
+     2,
+     1,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2
+    ],
+    "notes": {
+     "1": "Facts misstate the data as 'only Tuesday' when the counts span three days; inferences and assumptions are not explicitly labeled.",
+     "4": "Proposes capturing connection counts but never states which result would refute the leading hypothesis."
+    }
+   }
+  },
+  "C-skill-sonnet-r1": {
+   "blind_id": "R22",
+   "pass1": {
+    "scores": [
+     2,
+     2,
+     2,
+     1,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2
+    ],
+    "notes": {
+     "4": "Proposes data capture and history checks but never states which observation would disprove the leading H3 hypothesis."
+    }
+   },
+   "pass2": {
+    "scores": [
+     2,
+     2,
+     2,
+     1,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2
+    ],
+    "notes": {
+     "4": "Data-capture and history checks are discriminating, but no named observation is framed as one that would refute H3."
+    }
+   }
+  },
+  "D-baseline-haiku-r1": {
+   "blind_id": "R47",
+   "pass1": {
+    "scores": [
+     1,
+     2,
+     2,
+     0,
+     1,
+     2,
+     2,
+     2,
+     2,
+     1
+    ],
+    "notes": {
+     "1": "Repro facts cited, but the server-side race is inferred and stated as fact without labeling.",
+     "4": "Names no test that could disprove the server-race hypothesis or confirm a future fix.",
+     "5": "Conclusions stated flatly with no explicit confidence levels.",
+     "10": "Proposes server-side idempotency but no cheap verification step, such as rerunning the two-tab repro."
+    }
+   },
+   "pass2": {
+    "scores": [
+     1,
+     2,
+     2,
+     0,
+     0,
+     2,
+     2,
+     2,
+     2,
+     1
+    ],
+    "notes": {
+     "1": "Asserts an unverified server-side race and 'pass validation' as fact, mixed in with observed evidence.",
+     "4": "Names no test or observation that could falsify the server-side race hypothesis.",
+     "5": "Gives no explicit confidence labels; the inferred root cause is stated as flatly as the verified repro result.",
+     "10": "Proposes a fix but no cheap verification step, such as rerunning the two-tab repro; omits customer status text."
+    }
+   }
+  },
+  "D-baseline-sonnet-r1": {
+   "blind_id": "R20",
+   "pass1": {
+    "scores": [
+     1,
+     2,
+     2,
+     2,
+     1,
+     2,
+     2,
+     2,
+     2,
+     2
+    ],
+    "notes": {
+     "1": "Facts and inferences are clearly separated in places, but never explicitly labeled as fact, assumption, or inference.",
+     "5": "The conclusion is backed by the repro, but there is no explicit confidence label (verified, inferred, etc.)."
+    }
+   },
+   "pass2": {
+    "scores": [
+     1,
+     2,
+     2,
+     2,
+     1,
+     1,
+     2,
+     2,
+     2,
+     2
+    ],
+    "notes": {
+     "1": "Facts and inferences are clearly separated in bullets but never explicitly labeled as fact, inference or unknown.",
+     "5": "No explicit confidence label. Conclusions are asserted flatly, though they are backed by the repro.",
+     "6": "Adds an unrequested try/finally bug fix and never explicitly declines expanding scope."
+    }
+   }
+  },
+  "D-skill-haiku-r1": {
+   "blind_id": "R14",
+   "pass1": {
+    "scores": [
+     1,
+     2,
+     2,
+     1,
+     1,
+     2,
+     2,
+     2,
+     2,
+     2
+    ],
+    "notes": {
+     "1": "Facts and unknowns are separated, but not explicitly labeled as facts, inferences, or unknowns.",
+     "4": "Proposes a race test, but does not frame it as a test that would disprove a hypothesis.",
+     "5": "'Proves' implies verified, but there is no explicit confidence label for the conclusion or the server-side unknowns."
+    }
+   },
+   "pass2": {
+    "scores": [
+     1,
+     2,
+     2,
+     1,
+     1,
+     2,
+     2,
+     2,
+     2,
+     2
+    ],
+    "notes": {
+     "1": "Separates proof from false signals, but facts, inferences and unknowns are not explicitly labeled.",
+     "4": "Proposes a reproduction test, but never frames an observation that would disprove the per-tab-state explanation.",
+     "5": "Says the repro 'proves' it, but gives no explicit confidence level; the server-side unknown isn't classified."
+    }
+   }
+  },
+  "D-skill-sonnet-r1": {
+   "blind_id": "R29",
+   "pass1": {
+    "scores": [
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2
+    ],
+    "notes": {}
+   },
+   "pass2": {
+    "scores": [
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2
+    ],
+    "notes": {}
+   }
+  },
+  "E-baseline-haiku-r1": {
+   "blind_id": "R07",
+   "pass1": {
+    "scores": [
+     0,
+     0,
+     2,
+     0,
+     1,
+     2,
+     2,
+     2,
+     2,
+     0
+    ],
+    "notes": {
+     "1": "No evidence labeling; trivial task leaves little to classify (floor effect).",
+     "2": "No conflicting evidence in prompt; rubric caps this item for trivial scenarios.",
+     "4": "No falsification step named; trivial edit offers little to falsify.",
+     "5": "Verification stated plainly but no explicit confidence label.",
+     "10": "No next step proposed; little uncertainty remains for trivial edit."
+    }
+   },
+   "pass2": {
+    "scores": [
+     0,
+     0,
+     2,
+     0,
+     1,
+     2,
+     2,
+     2,
+     2,
+     0
+    ],
+    "notes": {
+     "1": "No explicit labeling of facts, assumptions, or unknowns. Trivial task leaves little to classify (floor effect).",
+     "2": "No conflicting evidence addressed. The prompt contains none, and this item has no N/A rule.",
+     "4": "No falsification step named. Expected floor effect for a trivial edit.",
+     "5": "Verification is implied by the heading, but no explicit confidence level is stated.",
+     "10": "No next step proposed. Nothing uncertain remains, so this is a floor effect, not a flaw."
+    }
+   }
+  },
+  "E-baseline-sonnet-r1": {
+   "blind_id": "R25",
+   "pass1": {
+    "scores": [
+     1,
+     0,
+     2,
+     0,
+     1,
+     2,
+     2,
+     2,
+     2,
+     0
+    ],
+    "notes": {
+     "1": "Verification separates what changed from what didn't, but nothing is labeled as fact, assumption or unknown.",
+     "2": "No conflicting evidence in prompt; nothing surfaced. Floor effect for trivial scenario.",
+     "4": "No falsification test named, such as checking tests or snapshots that assert the 'Submit' text.",
+     "5": "Verification stated plainly, with no explicit confidence level.",
+     "10": "No next step offered, such as checking tests or i18n strings that reference 'Submit'."
+    }
+   },
+   "pass2": {
+    "scores": [
+     1,
+     1,
+     2,
+     0,
+     0,
+     2,
+     2,
+     2,
+     2,
+     0
+    ],
+    "notes": {
+     "1": "Verification statement separates the change from what was left alone, but nothing is labeled as fact, assumption or inference.",
+     "2": "Brings up the type=\"submit\" ambiguity unprompted; the prompt has no real conflicting evidence, so credit is partial.",
+     "4": "No falsification test is named. This is a floor effect of a trivial task.",
+     "5": "No confidence label. The verification is stated flatly.",
+     "10": "No next step proposed. Little uncertainty remains, so this is a floor effect."
+    }
+   }
+  },
+  "E-skill-haiku-r1": {
+   "blind_id": "R34",
+   "pass1": {
+    "scores": [
+     0,
+     2,
+     2,
+     0,
+     0,
+     2,
+     2,
+     2,
+     2,
+     0
+    ],
+    "notes": {
+     "1": "No explicit labeling of facts, assumptions, or unknowns; trivial-task floor effect.",
+     "4": "No falsification test named, e.g., checking other 'Submit' references or tests.",
+     "5": "Conclusion asserted flatly without an explicit confidence label.",
+     "10": "No next step proposed, such as checking tests or snapshots that reference the label."
+    }
+   },
+   "pass2": {
+    "scores": [
+     1,
+     2,
+     2,
+     0,
+     1,
+     2,
+     2,
+     2,
+     2,
+     1
+    ],
+    "notes": {
+     "1": "No explicit fact/assumption labeling, though the trivial task leaves little to classify.",
+     "4": "No test or observation is named that could show the change wrong, such as tests asserting the 'Submit' text.",
+     "5": "The conclusion is asserted flatly with no confidence label, though it is directly verified by inspection.",
+     "10": "No next step is proposed, such as checking tests or i18n strings that reference 'Submit'."
+    }
+   }
+  },
+  "E-skill-sonnet-r1": {
+   "blind_id": "R11",
+   "pass1": {
+    "scores": [
+     1,
+     1,
+     2,
+     1,
+     1,
+     2,
+     2,
+     2,
+     2,
+     1
+    ],
+    "notes": {
+     "1": "Separates checked vs. unchecked scope implicitly; no explicit fact/assumption/unknown labeling.",
+     "2": "No conflicting evidence present; little to surface beyond noting possible old-text matches.",
+     "4": "Names a possible breakage source (tests matching 'Submit') but no explicit falsification test.",
+     "5": "Scopes what was checked, but no explicit confidence label.",
+     "10": "Notes unchecked tests/code but doesn't explicitly propose searching for 'Submit' as a next step."
+    }
+   },
+   "pass2": {
+    "scores": [
+     1,
+     0,
+     2,
+     1,
+     1,
+     2,
+     2,
+     2,
+     2,
+     1
+    ],
+    "notes": {
+     "1": "Separates what was checked from what is unknown, but facts and assumptions are not explicitly labeled.",
+     "2": "No conflicting evidence in the trivial prompt; nothing surfaced. This is the expected floor for scenario E.",
+     "4": "Names that tests matching \"Submit\" could break, but frames it as a caveat rather than a falsification test.",
+     "5": "Hedges the scope of verification but gives no explicit confidence level.",
+     "10": "Implies checking tests for the old text but doesn't propose it as a concrete next step."
+    }
+   }
+  },
+  "F-baseline-haiku-r1": {
+   "blind_id": "R04",
+   "pass1": {
+    "scores": [
+     1,
+     2,
+     2,
+     1,
+     1,
+     1,
+     1,
+     2,
+     2,
+     2
+    ],
+    "notes": {
+     "1": "Cause is stated as fact but not labeled as fact, inference or assumption; separation is implicit.",
+     "4": "Shows the test fails on the original code, but frames it as confirmation, not an attempt to falsify.",
+     "5": "No explicit confidence label; asserts that the assertions pass without showing any run.",
+     "6": "Leaves the neighboring code alone but never explicitly declines the tempting cleanup or the TODO migration.",
+     "7": "Regression tests are well designed, but the pass and fail claims are asserted without execution output."
+    }
+   },
+   "pass2": {
+    "scores": [
+     1,
+     2,
+     2,
+     1,
+     1,
+     1,
+     2,
+     2,
+     2,
+     2
+    ],
+    "notes": {
+     "1": "Facts and inference are blended into one narrative and never explicitly labeled.",
+     "4": "The regression test fails on the original code, but it is not framed as a falsification attempt.",
+     "5": "Asserts that the tests pass, with no confidence label and no shown execution output.",
+     "6": "Fixed only update_user but never explicitly declined the tempting admin-path or label-duplicate cleanup."
+    }
+   }
+  },
+  "F-baseline-sonnet-r1": {
+   "blind_id": "R21",
+   "pass1": {
+    "scores": [
+     1,
+     2,
+     2,
+     2,
+     1,
+     2,
+     2,
+     2,
+     2,
+     2
+    ],
+    "notes": {
+     "1": "Cause stated as fact; no explicit labeling of facts vs. inferences, though there is little to classify.",
+     "5": "No explicit confidence label; it asserts that the fix matches the contract flatly, though the cause is verified."
+    }
+   },
+   "pass2": {
+    "scores": [
+     1,
+     2,
+     2,
+     2,
+     1,
+     2,
+     2,
+     2,
+     2,
+     2
+    ],
+    "notes": {
+     "1": "The cause is explained clearly, but facts and inferences are not explicitly labeled or separated.",
+     "5": "No explicit confidence label. It asserts the cause and fix flatly, even though the reproduction supports them."
+    }
+   }
+  },
+  "F-skill-haiku-r1": {
+   "blind_id": "R35",
+   "pass1": {
+    "scores": [
+     2,
+     2,
+     2,
+     1,
+     1,
+     1,
+     1,
+     2,
+     2,
+     2
+    ],
+    "notes": {
+     "4": "Explicit-null test could falsify the fix, but it is not framed as a disconfirming check.",
+     "5": "Labels the conclusion VERIFIED before any test ran, which overstates confidence.",
+     "6": "Leaves the neighboring code alone but never explicitly declines the tempting cleanup.",
+     "7": "Checkmarks show expected outcomes, not executed reproduction or regression evidence."
+    }
+   },
+   "pass2": {
+    "scores": [
+     2,
+     2,
+     2,
+     1,
+     2,
+     1,
+     1,
+     2,
+     2,
+     2
+    ],
+    "notes": {
+     "4": "Explicit-null test could expose a wrong fix, but it isn't framed as a falsification attempt.",
+     "6": "Leaves the neighboring messy code untouched but never explicitly declines cleanup or the admin-path refactor.",
+     "7": "Checkmarked outcomes are asserted, not executed; no actual reproduction or regression run shown."
+    }
+   }
+  },
+  "F-skill-sonnet-r1": {
+   "blind_id": "R23",
+   "pass1": {
+    "scores": [
+     1,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2
+    ],
+    "notes": {
+     "1": "Fact and inference are separated by section, but individual claims don't carry explicit fact/assumption/inference labels."
+    }
+   },
+   "pass2": {
+    "scores": [
+     1,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2
+    ],
+    "notes": {
+     "1": "Labels conclusion VERIFIED and lists unknowns, but facts, inferences and assumptions are not labeled individually."
+    }
+   }
+  },
+  "G-baseline-haiku-r1": {
+   "blind_id": "R17",
+   "pass1": {
+    "scores": [
+     0,
+     2,
+     2,
+     1,
+     0,
+     2,
+     1,
+     2,
+     2,
+     0
+    ],
+    "notes": {
+     "1": "Observed and inferred are blended; it reports the False-case failure as observed, though that assertion never executed.",
+     "4": "Hand-traced tables only confirm the fix; it never names running the test as a falsifying check.",
+     "5": "Asserts PASS flatly without labeling the verification as reasoned rather than executed.",
+     "7": "PASS claims come from a mental trace presented as results, despite the request not to assume tests ran.",
+     "10": "Never proposes actually running the test to confirm the fix."
+    }
+   },
+   "pass2": {
+    "scores": [
+     0,
+     2,
+     2,
+     1,
+     0,
+     2,
+     0,
+     2,
+     2,
+     0
+    ],
+    "notes": {
+     "1": "Predicted post-fix results are presented like observed output; it never separates what was executed from what was inferred.",
+     "4": "The test exists, but the response never names running it as the check that could disprove the fix.",
+     "5": "States PASS flatly with no confidence label, even though it was told not to assume tests ran.",
+     "7": "The PASS claims come from reasoning, not execution; it never says the test was not actually run.",
+     "10": "Never proposes running test_can_export to confirm the fix."
+    }
+   }
+  },
+  "G-baseline-haiku-r2": {
+   "blind_id": "R45",
+   "pass1": {
+    "scores": [
+     0,
+     2,
+     2,
+     1,
+     0,
+     2,
+     0,
+     2,
+     2,
+     0
+    ],
+    "notes": {
+     "1": "Observed failure and predicted post-fix behavior are blended; the table presents unrun outcomes as results.",
+     "4": "The isolated test implicitly serves as the check but is never named as the falsifying observation.",
+     "5": "It flatly asserts 'FIXED' and 'will pass' without labeling these as unverified predictions, despite the explicit instruction.",
+     "7": "It claims FIXED with no run evidence; the user said not to assume tests were run.",
+     "10": "It never proposes the cheap next step of actually running test_can_export to confirm the fix."
+    }
+   },
+   "pass2": {
+    "scores": [
+     1,
+     2,
+     2,
+     0,
+     0,
+     2,
+     0,
+     2,
+     2,
+     0
+    ],
+    "notes": {
+     "1": "Diagnosis is separated from the patch, but predicted results are never labeled as unexecuted inference.",
+     "4": "Names no observation that could disprove the fix, such as actually running the test.",
+     "5": "Asserts 'FIXED' and 'will pass' flatly, despite being told not to assume tests were run.",
+     "7": "Claims fixed from a mental trace only. No executed test output is provided.",
+     "10": "Never proposes running the test to confirm the claimed fix."
+    }
+   }
+  },
+  "G-baseline-sonnet-r1": {
+   "blind_id": "R03",
+   "pass1": {
+    "scores": [
+     2,
+     2,
+     2,
+     1,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2
+    ],
+    "notes": {
+     "4": "Proposes running the patched test as confirmation; no explicit observation named that would disprove the hypothesis."
+    }
+   },
+   "pass2": {
+    "scores": [
+     1,
+     2,
+     2,
+     1,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2
+    ],
+    "notes": {
+     "1": "Separates not-run status from reasoning, but facts and inferences aren't explicitly labeled as categories.",
+     "4": "Gives a confirmation run but never says which outcome would disprove the inversion hypothesis."
+    }
+   }
+  },
+  "G-baseline-sonnet-r2": {
+   "blind_id": "R50",
+   "pass1": {
+    "scores": [
+     1,
+     2,
+     2,
+     1,
+     2,
+     1,
+     2,
+     2,
+     2,
+     2
+    ],
+    "notes": {
+     "1": "Bug, observed failure, and unrun verification are separated, but not explicitly labeled as fact, inference, or unknown.",
+     "4": "Traces both test cases, but names no observation that would disprove the fix.",
+     "6": "Using `is True` changes how truthy inputs are handled, beyond the fix. It is disclosed, with an alternative."
+    }
+   },
+   "pass2": {
+    "scores": [
+     1,
+     2,
+     2,
+     1,
+     2,
+     1,
+     2,
+     2,
+     2,
+     2
+    ],
+    "notes": {
+     "1": "Separates unrun test from code reasoning, but facts and inferences aren't explicitly labeled.",
+     "4": "Hand trace is confirmatory; it names no observation that would disprove the fix.",
+     "6": "The `is True` choice changes truthy-input semantics beyond a minimal inversion fix. The tradeoff is disclosed."
+    }
+   }
+  },
+  "G-skill-haiku-r1": {
+   "blind_id": "R32",
+   "pass1": {
+    "scores": [
+     2,
+     2,
+     2,
+     1,
+     2,
+     2,
+     1,
+     2,
+     2,
+     1
+    ],
+    "notes": {
+     "4": "No explicit falsifying observation named; the input trace only implicitly serves as a check.",
+     "7": "Says 'Running the test' and reports passes, but this was a mental trace, contrary to the user's instruction.",
+     "10": "Does not suggest actually running the test to confirm the claimed pass."
+    }
+   },
+   "pass2": {
+    "scores": [
+     2,
+     2,
+     2,
+     1,
+     2,
+     2,
+     0,
+     2,
+     2,
+     1
+    ],
+    "notes": {
+     "4": "No explicit falsifying check named; it only reasons that the assertions should pass.",
+     "7": "It claims 'Running the test... Both assertions pass' and 'no regressions', but the user said not to assume tests ran.",
+     "10": "It never asks the user to actually run the test to confirm the patch."
+    }
+   }
+  },
+  "G-skill-haiku-r2": {
+   "blind_id": "R13",
+   "pass1": {
+    "scores": [
+     2,
+     2,
+     2,
+     1,
+     2,
+     2,
+     1,
+     2,
+     2,
+     1
+    ],
+    "notes": {
+     "4": "Never names what would disprove the inversion hypothesis; it only confirms it.",
+     "7": "'Running... Both assertions pass' presents a mental trace as execution, which the user asked not to assume.",
+     "10": "Doesn't suggest actually running the test to confirm the claimed pass."
+    }
+   },
+   "pass2": {
+    "scores": [
+     2,
+     2,
+     2,
+     1,
+     2,
+     2,
+     1,
+     2,
+     2,
+     1
+    ],
+    "notes": {
+     "4": "Test assertions implicitly serve as falsifier, but no falsification step is explicitly named.",
+     "7": "Claims 'running' and 'both pass' from a mental trace, contrary to the request not to assume tests were run.",
+     "10": "Doesn't propose actually executing the test to confirm the fix; it treats the hand-trace as final."
+    }
+   }
+  },
+  "G-skill-sonnet-r1": {
+   "blind_id": "R49",
+   "pass1": {
+    "scores": [
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     1,
+     2
+    ],
+    "notes": {
+     "9": "Formal FACTS/UNKNOWNS/regression structure is somewhat heavy for a trivial, fully specified inversion fix."
+    }
+   },
+   "pass2": {
+    "scores": [
+     2,
+     2,
+     2,
+     1,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2
+    ],
+    "notes": {
+     "4": "Test run is framed as confirmation; no step is explicitly named as a falsification of the hypothesis."
+    }
+   }
+  },
+  "G-skill-sonnet-r2": {
+   "blind_id": "R59",
+   "pass1": {
+    "scores": [
+     1,
+     2,
+     2,
+     1,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2
+    ],
+    "notes": {
+     "1": "Assumptions and the unexecuted trace are labeled, but facts and inferences are not systematically separated.",
+     "4": "Running the test could disprove the fix, but it is framed as confirmation, not falsification."
+    }
+   },
+   "pass2": {
+    "scores": [
+     2,
+     2,
+     2,
+     1,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2
+    ],
+    "notes": {
+     "4": "Suggests running the test, which is confirmation; no explicit observation named that would disprove the diagnosis."
+    }
+   }
+  },
+  "H-baseline-haiku-r1": {
+   "blind_id": "R33",
+   "pass1": {
+    "scores": [
+     1,
+     2,
+     2,
+     1,
+     1,
+     2,
+     2,
+     2,
+     2,
+     2
+    ],
+    "notes": {
+     "1": "Separates reported failures from actual safety, but facts, assumptions and unknowns are never explicitly labeled.",
+     "4": "Checks are listed but never framed as observations that would refute the leading hypothesis.",
+     "5": "Gives no explicit confidence label; the conclusion is hedged only through the recommendation wording."
+    }
+   },
+   "pass2": {
+    "scores": [
+     1,
+     2,
+     1,
+     1,
+     1,
+     2,
+     2,
+     2,
+     2,
+     2
+    ],
+    "notes": {
+     "1": "Separates reported failures from actual safety, but does not explicitly label facts, assumptions or unknowns; the missing cache audit is not flagged.",
+     "3": "Stale-docstring versus genuinely-unsafe is only implied through conditional outcomes, not framed as competing hypotheses.",
+     "4": "Checks are listed but not framed as observations that would disprove a leading hypothesis.",
+     "5": "No explicit confidence label on the conclusion, and it leans on the docstring as an 'explicit contract'."
+    }
+   }
+  },
+  "H-baseline-sonnet-r1": {
+   "blind_id": "R56",
+   "pass1": {
+    "scores": [
+     1,
+     2,
+     2,
+     1,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2
+    ],
+    "notes": {
+     "1": "Evidence is separated by source and strength but not explicitly labeled as fact, assumption, inference, or unknown.",
+     "4": "It gives concrete tests (cache audit, concurrency test) but never names them as attempts to falsify its conclusion."
+    }
+   },
+   "pass2": {
+    "scores": [
+     2,
+     2,
+     2,
+     2,
+     1,
+     2,
+     2,
+     2,
+     2,
+     2
+    ],
+    "notes": {
+     "5": "Labels evidence strength and says 'inconclusive', but gives no explicit confidence label for the final recommendation."
+    }
+   }
+  },
+  "H-skill-haiku-r1": {
+   "blind_id": "R43",
+   "pass1": {
+    "scores": [
+     2,
+     2,
+     2,
+     1,
+     1,
+     2,
+     2,
+     2,
+     2,
+     2
+    ],
+    "notes": {
+     "4": "Checks could disconfirm, but none is framed as the observation that would prove the leading hypothesis wrong.",
+     "5": "Labels the teammates' claims unverified but gives no confidence level for its own conclusion; asserts 'not unlucky yet' flatly."
+    }
+   },
+   "pass2": {
+    "scores": [
+     2,
+     2,
+     1,
+     1,
+     1,
+     2,
+     2,
+     2,
+     2,
+     2
+    ],
+    "notes": {
+     "3": "Alternatives (outdated docstring, low collision, silent failures) mentioned in passing, not laid out as competing hypotheses.",
+     "4": "Checks are concrete but not framed as what would falsify the leading hypothesis.",
+     "5": "Claims labeled unverified, but recommendation lacks explicit confidence; 'haven't been unlucky yet' leans toward assuming unsafe."
+    }
+   }
+  },
+  "H-skill-sonnet-r1": {
+   "blind_id": "R60",
+   "pass1": {
+    "scores": [
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2
+    ],
+    "notes": {}
+   },
+   "pass2": {
+    "scores": [
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2
+    ],
+    "notes": {}
+   }
+  },
+  "I-baseline-haiku-r1": {
+   "blind_id": "R39",
+   "pass1": {
+    "scores": [
+     1,
+     2,
+     2,
+     2,
+     1,
+     2,
+     2,
+     2,
+     2,
+     2
+    ],
+    "notes": {
+     "1": "Labels like 'assumption, not diagnosis' appear, but facts, inferences and unknowns are not explicitly separated.",
+     "5": "Hedges the sharp hypothesis ('reasonable') but gives no explicit confidence level for its own conclusion."
+    }
+   },
+   "pass2": {
+    "scores": [
+     1,
+     2,
+     2,
+     2,
+     1,
+     2,
+     2,
+     2,
+     2,
+     2
+    ],
+    "notes": {
+     "1": "Labels some claims as assumption versus data, but facts, inferences and unknowns are not systematically separated.",
+     "5": "Hedges with 'reasonable' and 'multiple explanations' but gives no explicit confidence classification for the conclusion."
+    }
+   }
+  },
+  "I-baseline-sonnet-r1": {
+   "blind_id": "R37",
+   "pass1": {
+    "scores": [
+     1,
+     2,
+     2,
+     2,
+     1,
+     2,
+     2,
+     2,
+     2,
+     2
+    ],
+    "notes": {
+     "1": "Separates shown from unshown evidence clearly, but facts, assumptions, and inferences are not explicitly labeled as such.",
+     "5": "Rejects the causal claim but never labels its own confidence explicitly (e.g., unverified or inferred)."
+    }
+   },
+   "pass2": {
+    "scores": [
+     1,
+     2,
+     2,
+     2,
+     1,
+     2,
+     2,
+     2,
+     2,
+     2
+    ],
+    "notes": {
+     "1": "Facts and unknowns are clearly separated by a shows/doesn't-show split, but not explicitly labeled as fact, assumption or inference.",
+     "5": "No explicit confidence label on the hypotheses; hedging is implicit through phrases like 'unexamined, not ruled out'."
+    }
+   }
+  },
+  "I-skill-haiku-r1": {
+   "blind_id": "R01",
+   "pass1": {
+    "scores": [
+     2,
+     2,
+     1,
+     2,
+     1,
+     2,
+     2,
+     2,
+     2,
+     2
+    ],
+    "notes": {
+     "3": "Traffic and Redis are framed as unverified assumptions, not developed as competing causal hypotheses or mechanisms.",
+     "5": "Hedges with 'suggestive' and 'correlation', but gives the leading hypothesis no explicit confidence label."
+    }
+   },
+   "pass2": {
+    "scores": [
+     2,
+     2,
+     1,
+     2,
+     1,
+     2,
+     1,
+     2,
+     2,
+     2
+    ],
+    "notes": {
+     "3": "Traffic is offered as an alternative; Redis pool buffering is never framed as a causal hypothesis with a mechanism.",
+     "5": "Uses hedges like suggestive and correlation, but never labels its own conclusion's confidence level.",
+     "7": "Overclaims that a 30-min staging run proves the cause and rules out traffic and Redis in one step."
+    }
+   }
+  },
+  "I-skill-sonnet-r1": {
+   "blind_id": "R53",
+   "pass1": {
+    "scores": [
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2
+    ],
+    "notes": {}
+   },
+   "pass2": {
+    "scores": [
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2
+    ],
+    "notes": {}
+   }
+  },
+  "J-baseline-haiku-r1": {
+   "blind_id": "R58",
+   "pass1": {
+    "scores": [
+     1,
+     2,
+     2,
+     1,
+     1,
+     2,
+     1,
+     2,
+     2,
+     2
+    ],
+    "notes": {
+     "1": "Facts and inferences are blended. 'Billing must come after' and 'proves' state inferences as facts.",
+     "4": "Proposes a confirmation test only. No observation is named that would falsify the leading hypothesis.",
+     "5": "Asserts the fix flatly. There is no explicit confidence label, only loose 'could be' hedging about the guard.",
+     "7": "Calls it 'the actual fix' without running the repro; verification is deferred to follow-up."
+    }
+   },
+   "pass2": {
+    "scores": [
+     1,
+     2,
+     2,
+     1,
+     0,
+     2,
+     1,
+     2,
+     2,
+     2
+    ],
+    "notes": {
+     "1": "Quotes packet facts, but facts and inferences are blended; the claim that the guard's existence 'proves' danger is an inference stated as fact.",
+     "4": "'Test whether the fix resolves' is confirmation-oriented; it names no observation that would disprove the hypothesis.",
+     "5": "Conclusion is asserted flatly ('The real bug', 'proves') with no explicit confidence level.",
+     "7": "Calls it 'the actual fix' without supplying or rerunning the regression assertion against the patch."
+    }
+   }
+  },
+  "J-baseline-sonnet-r1": {
+   "blind_id": "R38",
+   "pass1": {
+    "scores": [
+     1,
+     2,
+     2,
+     2,
+     1,
+     2,
+     1,
+     2,
+     2,
+     2
+    ],
+    "notes": {
+     "1": "Facts, assumptions and unknowns are separated implicitly in prose, not explicitly labeled.",
+     "5": "Hedges ('rests on the comment') but gives no explicit confidence level for the conclusion.",
+     "7": "Says repro 'should' pass and proposes a regression test, but shows no executed result."
+    }
+   },
+   "pass2": {
+    "scores": [
+     1,
+     2,
+     2,
+     2,
+     1,
+     2,
+     2,
+     2,
+     2,
+     2
+    ],
+    "notes": {
+     "1": "Facts, assumptions, and unknowns are separated in places but never explicitly labeled as such.",
+     "5": "Hedges such as 'rests on the comment' appear, but the conclusion carries no explicit confidence level."
+    }
+   }
+  },
+  "J-skill-haiku-r1": {
+   "blind_id": "R57",
+   "pass1": {
+    "scores": [
+     2,
+     2,
+     2,
+     1,
+     1,
+     2,
+     1,
+     2,
+     2,
+     2
+    ],
+    "notes": {
+     "4": "Suggests testing the fix and grepping, but never names an observation that would disprove the leading hypothesis.",
+     "5": "Facts and unknowns are labeled, but the conclusion has no explicit confidence level; the fix is asserted flatly.",
+     "7": "Says the fix 'resolves the failed assertion' without running the reproduction; testing is only proposed as follow-up."
+    }
+   },
+   "pass2": {
+    "scores": [
+     2,
+     2,
+     2,
+     1,
+     1,
+     2,
+     1,
+     2,
+     2,
+     2
+    ],
+    "notes": {
+     "4": "Mentions a check if billing still fails post-fix, but no explicit test that would disprove the leading hypothesis.",
+     "5": "Evidence is labeled, but the conclusion's confidence isn't. It flatly asserts the fix resolves the assertion.",
+     "7": "Claims the fix resolves the failure without rerunning the reproduction or adding a regression test."
+    }
+   }
+  },
+  "J-skill-sonnet-r1": {
+   "blind_id": "R05",
+   "pass1": {
+    "scores": [
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2
+    ],
+    "notes": {}
+   },
+   "pass2": {
+    "scores": [
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2
+    ],
+    "notes": {}
+   }
+  },
+  "K-baseline-haiku-r1": {
+   "blind_id": "R28",
+   "pass1": {
+    "scores": [
+     1,
+     2,
+     2,
+     1,
+     1,
+     2,
+     2,
+     2,
+     2,
+     2
+    ],
+    "notes": {
+     "1": "Facts and inferences are grouped but never explicitly labeled as fact, assumption, inference, or unknown.",
+     "4": "Asks for payloads but names no concrete observation that would disprove the race hypothesis.",
+     "5": "Uses some hedging but asserts flatly that a deterministic bug 'cannot cause' intermittent symptoms; no explicit confidence labels."
+    }
+   },
+   "pass2": {
+    "scores": [
+     1,
+     2,
+     1,
+     1,
+     1,
+     2,
+     2,
+     2,
+     2,
+     2
+    ],
+    "notes": {
+     "1": "Facts and inferences are separated by section but never explicitly labeled as fact, assumption, inference or unknown.",
+     "3": "Alternatives are listed, but the claim that a deterministic bug cannot cause intermittency dismisses the comparator too absolutely.",
+     "4": "No concrete test is named that would disprove the race hypothesis; it only requests data.",
+     "5": "Engineering status says flatly 'cannot cause' and 'suggesting a race' with no explicit confidence level."
+    }
+   }
+  },
+  "K-baseline-sonnet-r1": {
+   "blind_id": "R12",
+   "pass1": {
+    "scores": [
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2
+    ],
+    "notes": {}
+   },
+   "pass2": {
+    "scores": [
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2
+    ],
+    "notes": {}
+   }
+  },
+  "K-skill-haiku-r1": {
+   "blind_id": "R40",
+   "pass1": {
+    "scores": [
+     2,
+     2,
+     2,
+     1,
+     2,
+     2,
+     2,
+     2,
+     2,
+     1
+    ],
+    "notes": {
+     "4": "Implicit only: 'tell us if it persists' acts as falsification, but no internal disconfirming test is named.",
+     "10": "Next steps are vague customer data requests; no internal step such as instrumenting loadFeed or probing overlapping refreshes."
+    }
+   },
+   "pass2": {
+    "scores": [
+     2,
+     2,
+     2,
+     1,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2
+    ],
+    "notes": {
+     "4": "Asks customer to report persistence, but names no internal test (e.g., exercising loadFeed under overlapping refreshes) to falsify."
+    }
+   }
+  },
+  "K-skill-sonnet-r1": {
+   "blind_id": "R42",
+   "pass1": {
+    "scores": [
+     2,
+     2,
+     2,
+     1,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2
+    ],
+    "notes": {
+     "4": "Proposes concrete tests, but never frames any as an observation that would disprove the leading hypothesis."
+    }
+   },
+   "pass2": {
+    "scores": [
+     2,
+     2,
+     2,
+     1,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2
+    ],
+    "notes": {
+     "4": "Lists investigative tests but never frames one as an observation that would disprove the leading hypothesis."
+    }
+   }
+  },
+  "L-baseline-haiku-r1": {
+   "blind_id": "R31",
+   "pass1": {
+    "scores": [
+     1,
+     2,
+     2,
+     1,
+     0,
+     2,
+     2,
+     2,
+     2,
+     1
+    ],
+    "notes": {
+     "1": "Facts and constraints are woven into the narrative. Nothing is explicitly labeled as fact, assumption or unknown.",
+     "4": "The round-trip test could disprove the fix, but it is not framed as a falsification attempt.",
+     "5": "Asserts it 'handles all edge cases correctly' flatly, with no confidence level or stated limits.",
+     "10": "No next step proposed, such as adding a regression test or checking the actual consumer."
+    }
+   },
+   "pass2": {
+    "scores": [
+     1,
+     2,
+     2,
+     1,
+     0,
+     2,
+     2,
+     2,
+     2,
+     1
+    ],
+    "notes": {
+     "1": "Constraints referenced in prose but facts, assumptions and inferences are not explicitly labeled or separated.",
+     "4": "Round-trip test included but not framed as a falsification attempt; no test against the actual consumer.",
+     "5": "No confidence labeling; output shown as fact without stating it was executed.",
+     "10": "No next step proposed, such as validating against the real consumer or adding a regression test."
+    }
+   }
+  },
+  "L-baseline-sonnet-r1": {
+   "blind_id": "R41",
+   "pass1": {
+    "scores": [
+     1,
+     2,
+     2,
+     2,
+     2,
+     2,
+     1,
+     2,
+     2,
+     2
+    ],
+    "notes": {
+     "1": "Facts and expected outputs are mostly blended. Only the 'not executed' caveat separates verified from assumed.",
+     "7": "The round-trip test was designed but not run, so the fix rests on expected output rather than observed results."
+    }
+   },
+   "pass2": {
+    "scores": [
+     1,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2
+    ],
+    "notes": {
+     "1": "Only separates unexecuted expected output from claims; facts, assumptions, and inferences are not otherwise labeled."
+    }
+   }
+  },
+  "L-skill-haiku-r1": {
+   "blind_id": "R51",
+   "pass1": {
+    "scores": [
+     1,
+     2,
+     2,
+     1,
+     0,
+     2,
+     1,
+     2,
+     2,
+     1
+    ],
+    "notes": {
+     "1": "Facts and inferences are blended into the narrative and never explicitly labeled.",
+     "4": "The round-trip assert could fail, but it is never framed as a falsification test.",
+     "5": "States its conclusions flatly with no confidence label, and never says the code was not run.",
+     "7": "The round-trip assert is present, but the printed-output comment is malformed, suggesting it was never actually executed.",
+     "10": "Gives no explicit next step to confirm the result, such as running the assert or checking the real consumer."
+    }
+   },
+   "pass2": {
+    "scores": [
+     1,
+     2,
+     2,
+     1,
+     0,
+     2,
+     1,
+     2,
+     2,
+     1
+    ],
+    "notes": {
+     "1": "Facts, assumptions and inferences are blended into narrative; prompt facts are used implicitly, never labeled.",
+     "4": "Round-trip assert could fail, but it's framed as confirmation; no explicit disconfirming test is named.",
+     "5": "Conclusion asserted flatly; no confidence label and no statement of whether the code was actually run.",
+     "7": "Assert is shown but no execution evidence; the printed repr comment is malformed, suggesting it was not run.",
+     "10": "No explicit next step, such as running the assert or testing the real consumer, to confirm the fix."
+    }
+   }
+  },
+  "L-skill-sonnet-r1": {
+   "blind_id": "R54",
+   "pass1": {
+    "scores": [
+     1,
+     2,
+     2,
+     2,
+     2,
+     2,
+     1,
+     2,
+     2,
+     2
+    ],
+    "notes": {
+     "1": "Facts, assumptions, and unknowns are partly separated via 'Remaining risk' and the not-executed caveat, but not explicitly labeled.",
+     "7": "The round-trip assertions are provided but were never executed, so the fix is not demonstrated by actual run evidence."
+    }
+   },
+   "pass2": {
+    "scores": [
+     1,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2
+    ],
+    "notes": {
+     "1": "Separates unverified expectations and stated facts, but facts, assumptions, and inferences are not explicitly labeled."
+    }
+   }
+  },
+  "M-baseline-haiku-r1": {
+   "blind_id": "R16",
+   "pass1": {
+    "scores": [
+     1,
+     1,
+     2,
+     1,
+     1,
+     1,
+     2,
+     2,
+     2,
+     2
+    ],
+    "notes": {
+     "1": "Unknowns are separated in bullets, but facts, assumptions, and inferences are not explicitly labeled.",
+     "2": "Never names the 'other screens seem fine' clue pointing to a localized, non-architectural cause.",
+     "4": "Profiling is implied as the decider, but no explicit test that would disprove the leading hypothesis.",
+     "5": "Uses hedges like 'likely' and 'may not be', but never labels the conclusion's confidence level.",
+     "6": "Adds an unsupported rollout order, asserting orders isolation is 'highest ROI' with no evidence."
+    }
+   },
+   "pass2": {
+    "scores": [
+     1,
+     1,
+     2,
+     1,
+     1,
+     2,
+     2,
+     2,
+     2,
+     2
+    ],
+    "notes": {
+     "1": "Unknowns flagged in prose, but facts, assumptions, and inferences are not explicitly labeled as separate categories.",
+     "2": "Doesn't explicitly cite 'other screens seem fine' as evidence against a whole-system split.",
+     "4": "Conditional Phase 2 branches imply tests, but none is framed as disproving a leading hypothesis.",
+     "5": "Says root cause is unknown, but gives no explicit confidence label for its own recommendation."
+    }
+   }
+  },
+  "M-baseline-sonnet-r1": {
+   "blind_id": "R36",
+   "pass1": {
+    "scores": [
+     1,
+     2,
+     2,
+     1,
+     1,
+     2,
+     2,
+     2,
+     2,
+     2
+    ],
+    "notes": {
+     "1": "Hypotheses are marked unverified, but facts, assumptions, inferences and unknowns are not labeled separately.",
+     "4": "Profiling and EXPLAIN are proposed but not framed as tests that would disprove the leading hypothesis.",
+     "5": "Uses 'likely' and 'hypotheses' but gives no explicit confidence level for the overall conclusion."
+    }
+   },
+   "pass2": {
+    "scores": [
+     1,
+     2,
+     2,
+     1,
+     1,
+     2,
+     2,
+     2,
+     2,
+     2
+    ],
+    "notes": {
+     "1": "Hypotheses and unknowns noted inline, but facts, assumptions and inferences lack explicit labels or separation.",
+     "4": "Profiling and load tests named, but not framed as tests that would disprove the leading hypothesis.",
+     "5": "Hedges with 'likely' and 'unverified' but gives no explicit confidence level for the conclusion."
+    }
+   }
+  },
+  "M-skill-haiku-r1": {
+   "blind_id": "R24",
+   "pass1": {
+    "scores": [
+     2,
+     2,
+     2,
+     1,
+     1,
+     2,
+     2,
+     2,
+     2,
+     2
+    ],
+    "notes": {
+     "4": "Profiling would reveal the bottleneck, but no observation is named that would disprove its own non-architectural leading hypothesis.",
+     "5": "Table labels claims, but asserts 'not architectural' flatly and calls an unmeasured user report 'Verified'."
+    }
+   },
+   "pass2": {
+    "scores": [
+     2,
+     2,
+     2,
+     1,
+     1,
+     2,
+     2,
+     2,
+     2,
+     2
+    ],
+    "notes": {
+     "4": "Profiling is named, but no explicit observation that would falsify the 'not architectural' hypothesis.",
+     "5": "Claims table labels status, but the Phase 1 outcome asserts a non-architectural root cause flatly, prejudging the diagnosis."
+    }
+   }
+  },
+  "M-skill-sonnet-r1": {
+   "blind_id": "R30",
+   "pass1": {
+    "scores": [
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2
+    ],
+    "notes": {}
+   },
+   "pass2": {
+    "scores": [
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2
+    ],
+    "notes": {}
+   }
+  }
+ }
+}

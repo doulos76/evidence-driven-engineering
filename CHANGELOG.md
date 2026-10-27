@@ -1,5 +1,17 @@
 # Changelog
 
+## Unreleased
+
+- Reran the full 13-scenario rubric in a clean environment (no user
+  instructions, memory, plugins or hooks; 60 verbatim responses, two-pass
+  blind grading by `claude-opus-5-5`, per-item grading sheet stored):
+  Sonnet 5.5 17.6 → 19.1 (+1.5), Haiku 4.5 14.9 → 16.8 (+2.0). This shows the
+  2026-10-05 run's baselines were inflated by the maintainer's own
+  instructions. About 80% (Sonnet) and 66% (Haiku) of the lift sits on the
+  evidence-classification and uncertainty-classification items. README
+  benchmark and `TODO.md` updated; the earlier run is marked superseded. See
+  `tests/results/2026-10-28-rubric-v03-clean-env.md`.
+
 ## 0.3.0 - 2026-10-05
 
 - Added `Decide Architecture on Evidence` and `Going Deeper` to `SKILL.md`,
