@@ -15,8 +15,8 @@ calibrated than responses without them.
 ## What the data show
 
 - Responses losing at least one point on Q1 or Q5 (two-pass average below 2):
-  **{cnt['skill'][0]} of {cnt['skill'][1]} with-skill Haiku responses** versus
-  **{cnt['baseline'][0]} of {cnt['baseline'][1]} baseline Haiku responses**.
+  **14 of 15 with-skill Haiku responses** versus
+  **11 of 15 baseline Haiku responses**.
 - The failure modes are **the same in both conditions at similar frequency.**
   Counts below are the preparer's manual reading of the grader's notes
   (not an automated classification; the notes themselves are model output):
@@ -82,6 +82,6 @@ is a cost to watch. With single samples per cell, use 2–3 repeats.
 ## Limitations
 
 Haiku only; single samples; counts are a manual reading of model-written
-notes; the raw responses were spot-checked (four) rather than all read; and a
+notes; the raw responses were spot-checked (five files: F, J, M and G ×2) rather than all read; and a
 Sonnet-tier baseline is already near ceiling on Q1/Q5, so Sonnet cannot show
 whether such wording helps.
