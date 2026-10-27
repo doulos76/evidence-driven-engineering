@@ -69,7 +69,9 @@ evidence-driven-engineering/
 │   └── anti-patterns.md
 └── tests/
     ├── scenarios.md
-    ├── rubric.md
+    ├── rubric.md          (v2: structure and substance scored separately)
+    ├── rubric-v1.md       (superseded; graded every run through 2026-10-28)
+    ├── tools/regrade.py
     └── results/
         ├── README.md
         └── 2026-08-21-*.md
@@ -150,12 +152,13 @@ Two evaluation methods are used, because they measure different things:
 - **Rubric scoring (0–20)** — *how rigorously* the agent got there:
   explicit evidence labeling, named falsification attempts, explicit
   uncertainty classification, resistance to authority pressure, and more
-  (`tests/rubric.md`). This is where a real, measurable gap shows up.
+  (`tests/rubric-v1.md`; v2, `tests/rubric.md`, scores structure and
+substance separately). This is where a measurable gap shows up.
 
 ### EDE Rubric Benchmark
 
 Current run (`SKILL.md` at `7c00e4e`, 2026-10-28, **clean environment**):
-verbatim two-pass blind grading (see `tests/rubric.md` and
+verbatim two-pass blind grading (rubric v1, `tests/rubric-v1.md`; see
 `tests/results/2026-10-28-rubric-v03-clean-env.md`), 13 scenarios ×
 with-skill/baseline, one response per cell per tier (two for scenarios A
 and G). The responses were generated with no user-level instructions,

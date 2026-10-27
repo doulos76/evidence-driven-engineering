@@ -19,6 +19,10 @@ records document the evaluation method and prior skill revisions.
 | [2026-10-05-human-spotcheck-materials.md](./2026-10-05-human-spotcheck-materials.md) | Earlier pairs drawn from the 2026-10-05 run | Superseded by the 2026-10-28 materials |
 | [2026-10-05-wp3-spotcheck.md](./2026-10-05-wp3-spotcheck.md) | Regression spot-check of the v0.3-cycle SKILL.md additions (scenario M new, A/B/E regression); first run using `prompts.md` and `responses/` storage | Valid (regression gate, not a benchmark) |
 
+Every result file listed here was graded with `../rubric-v1.md`; links to
+`rubric.md` inside them mean that file. Runs graded with the v2 rubric are
+recorded as new files.
+
 Recommended reading order: the `run*` pass/fail records (non-discrimination),
 then `rubric-haiku` (negative result), verbatim regrading, format hardening,
 then the 2026-10-05 run (inflated baselines) and finally the
