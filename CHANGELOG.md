@@ -2,6 +2,13 @@
 
 ## Unreleased
 
+- Judged pass/fail on all 60 clean-run responses, both conditions: 60/60 PASS
+  (non-discriminating, as in earlier runs). Analyzed why Haiku's evidence
+  labels did not improve classification accuracy or calibration: the same
+  overclaims occur with and without the skill, and with the skill several gain
+  a `VERIFIED` label; recorded candidate `SKILL.md` wording (untested, not
+  applied). See `tests/results/2026-10-28-haiku-label-analysis.md` and
+  `tests/results/2026-10-28-clean-run-pass-fail.md`; `TODO.md` updated.
 - Re-graded the 60 clean-run responses with rubric v2 (240 grader calls, clean
   environment, label-stripped sensitivity check): structure lift +1.8
   (Sonnet 5.5) / +1.7 (Haiku 4.5), substance lift +0.5 / +0.6 — below the
