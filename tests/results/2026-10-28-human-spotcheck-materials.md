@@ -149,10 +149,38 @@ Grader's reasons for points not awarded (pass 1 note, else pass 2):
 - The grader docked the with-skill response one point on item 4 (tests not framed as disproving a hypothesis).
 - Reading: when the baseline already contains the substance, the rubric scores the two about equally — consistent with the lift elsewhere being driven by what the baseline omits or leaves unlabeled.
 
-## Human verdict (to be filled in by a human reader)
+## Human verdict (recorded)
 
-- Pair 1, Haiku G — does the grading match your independent judgment? (yes/no + notes):
-- Pair 2, Haiku C — (yes/no + notes):
-- Pair 3, Sonnet M — (yes/no + notes):
-- Pair 4, Sonnet K (control) — (yes/no + notes):
-- Overall: is the measured lift (Sonnet +1.50, Haiku +1.96) better engineering, better labeling, or both? What would change your answer?:
+One reader (the maintainer), four pairs. **How the reading was done:** the
+reader judged from condensed side-by-side summaries of each pair written by the
+preparer in chat (task, key points of each response, the grader's totals),
+not from the raw response files, and the preparer's framing may have
+influenced the answers. Answers are recorded as given.
+
+| Pair | Same conclusion and action? | Which response has better content? | AI grader's lift |
+|---|---|---|---|
+| 1. Haiku G | Same | ② Similar content, labels differ | +5.5 |
+| 2. Haiku C | Same | ④ Unsure | +4.5 |
+| 3. Sonnet M | Same | ① With-skill response better | +3.0 |
+| 4. Sonnet K (control) | Same | ① With-skill response better | −1.0 |
+
+**Overall impression:** ② — the skill improves the *labeling and structure*
+of responses while the content stays similar. No reason was given.
+
+Preparer's reading of how this compares with the grader (not the reader's words):
+
+- **Pair 1 (G):** the reader found the content the same, so the grader's
+  +5.5 on this pair is **not supported** — it rewarded labels. This is the
+  concern TODO item 1 raised, observed on one pair.
+- **Pair 3 (M):** the reader agrees with the grader's direction (+3.0).
+- **Pair 4 (K):** the reader preferred the with-skill response, while the grader
+  scored it one point *below* the baseline — a disagreement in the other
+  direction.
+- **Pair 2 (C):** undecided; no check possible.
+- The per-pair answers are mixed (two pairs favored the with-skill response on
+  content, one found it equal, one unsure) and the overall impression is "labels
+  only", so this one-reader result is **suggestive, not conclusive**. It is
+  consistent with the item-level finding that about 80% (Sonnet) and 66%
+  (Haiku) of the measured lift sits on the label-sensitive items 1 and 5,
+  and it shows the rubric both over-rewards labels (G) and, in K, under-rewards
+  an addition the reader valued.

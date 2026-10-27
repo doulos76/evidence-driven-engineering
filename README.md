@@ -173,8 +173,11 @@ items — evidence classification and uncertainty classification — i.e. on
 making the structure and confidence label explicit.** The items that
 measure substance (falsification, scope, verification, authority
 resistance) barely move. The rubric cannot tell whether that explicitness
-reflects better engineering or only better labeling; a human has not yet
-checked the grading. The numbers are not directly comparable to the v0.2.0
+reflects better engineering or only better labeling. A first human spot-check
+(one reader, four response pairs) found the same conclusions and actions in
+all four pairs, judged the content equal on one pair and better with the skill
+on two, and overall read the skill as improving labeling and structure more
+than content — suggestive, not conclusive. The numbers are not directly comparable to the v0.2.0
 benchmark below (different model versions, regenerated baselines, a
 different grader and skill-delivery method), and pass/fail was not rerun for
 this run.
@@ -195,10 +198,8 @@ Previous benchmark (v0.2.0, `SKILL.md` v2, 12 scenarios, 2026-08-21,
 Evaluation: verbatim response text (not summaries), graded blind to
 condition (with-skill/baseline labels hidden from the grader), two
 independent grading passes averaged per response, 10-item rubric scored
-0–2 each. No human spot-check has been performed on this grading yet —
-materials are prepared in
-`tests/results/2026-10-05-human-spotcheck-materials.md` (drawn from the
-earlier, inflated-baseline run — see TODO.md). See
+0–2 each. A single-reader human spot-check of four pairs is recorded in
+`tests/results/2026-10-28-human-spotcheck-materials.md`. See
 `tests/results/` for the full history, including an earlier `SKILL.md`
 revision where this same method found a *negative* result at the Haiku
 tier, driven by the skill's structure being silently skipped on one

@@ -2,6 +2,12 @@
 
 ## Unreleased
 
+- Recorded a first human spot-check of the rubric grading (one reader, four
+  pairs from the clean run): same conclusions and actions throughout; content
+  equal on one pair, better with the skill on two, unsure on one; overall
+  impression that the skill improves labeling and structure more than
+  content. README and `TODO.md` updated; see
+  `tests/results/2026-10-28-human-spotcheck-materials.md`.
 - Reran the full 13-scenario rubric in a clean environment (no user
   instructions, memory, plugins or hooks; 60 verbatim responses, two-pass
   blind grading by `claude-opus-5-5`, per-item grading sheet stored):

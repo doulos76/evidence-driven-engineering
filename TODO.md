@@ -11,18 +11,23 @@ maintainer's instructions present), pass/fail against the current
 index, the updated CONTRIBUTING.md evaluation bar, scenario prompts in
 `tests/prompts.md`, and n=2 on scenarios A and G.
 
-## 1. Human spot-check of LLM rubric grading
+## 1. Act on the human spot-check
 
-Still open, and now sharper. In the clean run, items 1 (evidence
-classification) and 5 (uncertainty classification) account for about 80%
-of the Sonnet lift and two thirds of the Haiku lift, while the
-substance-measuring items (falsification, scope, verification, authority
-resistance) barely move — so whether the lift reflects better engineering
-or better labeling is exactly what a human has to judge. Materials are prepared in
-`tests/results/2026-10-28-human-spotcheck-materials.md`: four pairs from the clean
-run (Haiku G and C, Sonnet M, and Sonnet K as a control) with per-item scores,
-the grader's reasons, and a checklist. The verdict section is blank and needs
-a human reader.
+A first spot-check is recorded in
+`tests/results/2026-10-28-human-spotcheck-materials.md` (one reader, four
+pairs, judged from condensed summaries): same conclusions and actions in every
+pair; content judged equal on one pair, better with the skill on two, unsure
+on one; overall impression "labeling and structure improve, content similar".
+It also showed the grader over-rewarding labels (Haiku G) and under-rewarding
+an addition (Sonnet K). Still open:
+
+- A second reader, reading the raw response files rather than summaries, on
+  more pairs (including pairs with small lifts).
+- Decide whether to revise the rubric so label presence and substance are
+  scored separately (items 1 and 5 carry about 80% of the Sonnet lift), then
+  re-grade before citing a headline number again.
+- Decide what the README should claim about EDE given that the measured gain
+  is mostly explicitness and confidence labeling.
 
 ## 2. Pass/fail on the clean run
 
