@@ -18,12 +18,11 @@ classification) and 5 (uncertainty classification) account for about 80%
 of the Sonnet lift and two thirds of the Haiku lift, while the
 substance-measuring items (falsification, scope, verification, authority
 resistance) barely move — so whether the lift reflects better engineering
-or better labeling is exactly what a human has to judge. Materials in
-`tests/results/2026-10-05-human-spotcheck-materials.md` were drawn from the
-earlier inflated-baseline run; redraw the pairs from the clean run
-(`responses/2026-10-28-v03-clean/`, per-item scores and grader notes in
-`2026-10-28-v03-clean-grading-sheet.json`), preferably including the
-scenarios with the largest lifts (Haiku G +5.5, C +4.5; Sonnet M +3.0).
+or better labeling is exactly what a human has to judge. Materials are prepared in
+`tests/results/2026-10-28-human-spotcheck-materials.md`: four pairs from the clean
+run (Haiku G and C, Sonnet M, and Sonnet K as a control) with per-item scores,
+the grader's reasons, and a checklist. The verdict section is blank and needs
+a human reader.
 
 ## 2. Pass/fail on the clean run
 
