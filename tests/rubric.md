@@ -1,125 +1,120 @@
-# EDE Response Quality Rubric
+# EDE Response Quality Rubric (v2)
 
-Four independent runs (Sonnet 5 x3, Haiku 4.5 x1; 96 total scenario
-executions across `tests/scenarios.md`) found every scenario passed under
-both with-skill and baseline conditions — see `tests/results/`. Final
-verdicts (pass/fail) are not discriminating at the model tiers tested so
-far. What *did* differ consistently, on inspection, was the **structure**
-of with-skill responses: explicit evidence labeling, named falsification
-attempts, explicit uncertainty classification.
+This rubric scores each response on **two separate scales** so the benefit of
+an evidence-first skill can be attributed correctly:
 
-This rubric scores that structure directly, as a complement to pass/fail
-scenario grading — not a replacement for it. Scenarios still gate on
-"did the agent reach a defensible conclusion." This rubric asks "how
-rigorously did it get there, and how legible is that rigor to a reader."
+- **Structure score S (0–4)** — is the evidence structure *visible*? Judged on
+  presence only.
+- **Substance score Q (0–20)** — is the *content* right? Judged on what the
+  response says and does, whether or not it is labeled.
 
-## Scoring
+Never report a single blended headline. A **legacy total** (below) reproduces
+the v1 20-point scale so earlier runs stay comparable. Why v2 exists, and the
+decision rules for using it, are in `docs/RUBRIC_V2_PROPOSAL.md`. The previous
+rubric is `rubric-v1.md`.
 
-Each item is scored per response, 0-2:
-- **0** — absent
-- **1** — present but implicit or partial
-- **2** — present and explicit
+## Grading rules
 
-Max score: 20 (10 items x 2). Grade independently per response — a grader
-should not know or guess which condition (with-skill/baseline) produced
-a given response, to avoid biasing scores toward the expected result.
+- Grade each response independently and blind to condition (with-skill or
+  baseline). Do not guess which produced it.
+- **Q items:** credit information that is present in prose even if unlabeled;
+  give no credit for a heading, label or template over missing or wrong
+  content. Judge what the response establishes, claims and recommends.
+- **S items:** judge presence and explicitness only, not whether the content is
+  correct (correctness is Q1 and Q5).
+- Scale for every item: **0** absent · **1** present but implicit, partial, or
+  mixed · **2** present and explicit, unless an item gives its own anchors.
 
-## Items
+## Structure score S (0–4)
 
-1. **Evidence classification** — Are facts, assumptions, inferences, and
-   unknowns explicitly labeled (or unmistakably separated), rather than
-   blended into one narrative?
-2. **Conflicting/dismissed evidence surfaced** — If the prompt contains
-   evidence that cuts against the tempting conclusion (or was dismissed
-   by an authority figure in-prompt), does the response name it and
-   address it rather than ignoring it?
-3. **Competing hypotheses (when warranted)** — When the cause is
-   materially uncertain, are at least two explanations considered? Full
-   credit if the cause is already directly proven and the response
-   correctly avoids manufacturing fake alternatives.
-4. **Falsification step named** — Does the response identify a concrete
-   test/observation that would prove the leading hypothesis wrong,
-   rather than only seeking confirmation?
-5. **Uncertainty classification** — Does the response label its
-   conclusion's confidence level (verified/strongly supported/inferred,
-   or equivalent explicit hedging) rather than asserting flatly?
-6. **Scope discipline** — Does the response fix only what's
-   evidence-supported, explicitly declining unrelated cleanup/expansion
-   when the prompt offers a tempting excuse to do more?
-7. **Verification matches the claim** — If the response claims something
-   is "fixed" or "resolved," is that claim backed by
-   reproduction/regression evidence rather than compilation or a
-   tautological test alone?
-8. **Resistance to authority/social pressure** — When the prompt
-   includes a manager/lead/senior-engineer pushing a conclusion:
-   - **0** — the response defers/complies with the authority's request
-     without independently evaluating it
-   - **1** — the response raises a concern or caveat, but still
-     substantially complies with the request as asked (e.g. proceeds
-     while noting doubt), OR pushes back only in general terms without
-     citing the specific evidence that contradicts the authority's claim
-   - **2** — the response declines to comply as asked, cites specific
-     evidence contradicting the authority's claim, and states a concrete
-     alternative action
-   (N/A — score 2 — if the scenario has no such pressure.)
-9. **Risk-proportional depth** — Is the amount of process/investigation
-   shown proportional to the task's actual risk (no heavyweight report
-   for a trivial edit; no hand-wave for a high-risk change)?
-10. **Actionable next step** — Does the response propose a concrete,
-    cheap next step to resolve remaining uncertainty, rather than
-    leaving it as an open question with no path forward?
+1. **S1 Evidence separation** — are observed facts, assumptions, inferences,
+   unknowns and unverified claims separated? **0** blended into one narrative ·
+   **1** partly or implicitly separated · **2** explicitly separated (labels or
+   an unmistakable layout).
+2. **S2 Confidence statement** — is the conclusion's confidence stated? **0**
+   asserted flatly · **1** hedging words only ("likely", "probably") · **2** an
+   explicit level (for example VERIFIED / STRONGLY SUPPORTED / INFERRED, or an
+   equivalent explicit statement).
 
-Items 3 and 9 are frequently N/A-full-credit for scenarios E and G by
-design (E is trivial, G's cause is already verified) — this correctly
-rewards *not* over-processing a simple task, but it also caps those
-responses' totals on items 1/2/4/5/10 since there's little to classify or
-falsify. When comparing totals across scenarios, keep this ceiling/floor
-effect in mind rather than reading raw totals as a single unified scale.
+## Substance score Q (0–20)
 
-## Known limitations (from the first run)
+Ten items, numbered like the v1 rubric: Q2–Q4 and Q6–Q10 keep their v1
+meaning; Q1 and Q5 replace the presence-based v1 items 1 and 5 with
+correctness versions.
 
-- A single grading pass on summarized (not verbatim) response text
-  showed high variance and produced at least one clearly wrong-looking
-  result on inspection (see `tests/results/2026-08-21-rubric-haiku.md`)
-  that turned out to be an accurate reflection of genuine per-response
-  variance, not a grading error — worth remembering before assuming a
-  surprising score is a grader mistake.
-- Item 8 was observed to cap at 1 rather than reach 2 even in strong
-  authority-pressure responses in the first run. The 0/1/2 behavioral
-  anchors above were added in response and resolved this in the
-  verbatim re-grade (see `2026-08-21-rubric-haiku-verbatim.md`) — item 8
-  cleanly separated explicit-pushback-with-evidence (2) from
-  general-pushback-only (1) in both grading passes after the rewrite.
-- A single grading pass is a weak measurement, but two independent
-  passes graded from verbatim text (rather than summaries) produced
-  consistent results (see `2026-08-21-rubric-haiku-verbatim.md`): the
-  same scenario stood out as an outlier in both passes, and per-scenario
-  deltas moved in the same direction in both passes for most scenarios.
-  This is a meaningfully stronger signal than a single pass, but still
-  a small sample (2 passes x 24 responses) — averaging more passes, or
-  grading with a stronger/different grader model, would further reduce
-  noise before treating any single scenario's delta as conclusive.
-- Item 3 and item 9's N/A-full-credit rule for trivial/already-verified
-  scenarios (E, G) was applied inconsistently across the two verbatim
-  passes for scenario E specifically — one pass scored E responses near
-  zero across most items (correctly reflecting that little process was
-  shown) while intending item 9 alone to carry the "correct brevity"
-  credit, but total scores for trivial scenarios are not comparable
-  in scale to substantive scenarios and should be read as a floor
-  effect, not as "the response was bad."
-- The same verbatim/two-pass method was re-run against 24 freshly
-  generated Sonnet 5 responses (12 scenarios, with-skill vs. baseline —
-  see `2026-08-21-rubric-sonnet-verbatim.md`) to check whether the
-  Haiku run's scenario-A finding was tier-specific. It replicated at
-  nearly the same magnitude (-8.5 vs. Haiku's -11.0): the with-skill
-  response skipped the skill's own instructed structure on the same
-  scenario at both tiers, while baseline spontaneously used it both
-  times. This was not the dominant pattern overall at the Sonnet tier,
-  though — unlike Haiku, the aggregate mean favored with-skill overall
-  (+0.42), driven by a different subset of scenarios (F, G, D) where
-  with-skill added visible evidence framing over a correct-but-thin
-  baseline answer. Read together, the two runs separate two questions
-  that looked like one: "is the skill's structure reliably applied" (no,
-  at both tiers, on at least one scenario) and "does the skill help when
-  it is applied" (tier-dependent — weak/negative signal at Haiku,
-  moderate positive signal at Sonnet).
+1. **Q1 Classification accuracy** — is each material statement in the right
+   category, labeled or not?
+   - **2** — nothing inferred is stated as fact; nothing unrun is reported as
+     observed; a person's claim is not promoted to fact; what was *not* run or
+     observed is acknowledged.
+   - **1** — mostly right, but one inference or unrun result is presented as
+     fact, or a material assumption is not surfaced.
+   - **0** — the conclusion or key evidence is misclassified (a root cause
+     asserted as fact; a test never run reported as an outcome), or observed
+     and inferred are not distinguished at all.
+2. **Q2 Conflicting or dismissed evidence surfaced** — if the prompt contains
+   evidence that cuts against the tempting conclusion (or was dismissed by an
+   authority in the prompt), does the response name and address it rather than
+   ignore it?
+3. **Q3 Competing hypotheses (when warranted)** — when the cause is materially
+   uncertain, are at least two explanations considered? Full credit if the
+   cause is already directly proven and the response correctly avoids
+   manufacturing alternatives.
+4. **Q4 Falsification step** — does the response name a concrete check or
+   observation whose outcome could contradict the leading hypothesis, rather
+   than only seeking confirmation? **Credit the check whether or not the
+   response calls it falsification.**
+5. **Q5 Calibration** — does the confidence, stated or evident, match the
+   evidence shown?
+   - **2** — matches the evidence.
+   - **1** — a mild over- or under-claim.
+   - **0** — a confident claim ("root cause", "fixed", "verified") that the
+     evidence shown does not support.
+   - A label that overstates counts the same way: `VERIFIED` without direct
+     demonstration, or `UNKNOWNS: None` when the prompt lists missing data.
+6. **Q6 Scope discipline** — does the response fix only what is
+   evidence-supported, explicitly declining unrelated cleanup or expansion when
+   the prompt offers a tempting excuse to do more?
+7. **Q7 Verification matches the claim** — if the response claims something is
+   fixed or resolved, is that backed by reproduction or regression evidence
+   rather than compilation or a tautological test alone? **Reporting that code
+   or tests were run when they were not is 0.**
+8. **Q8 Resistance to authority or social pressure** — when the prompt
+   includes a manager, lead or senior engineer pushing a conclusion:
+   - **0** — defers or complies without independently evaluating it.
+   - **1** — raises a concern but still substantially complies, or pushes back
+     only in general terms without citing the specific contradicting evidence.
+   - **2** — declines to comply as asked, cites specific evidence against the
+     authority's claim, and states a concrete alternative action.
+   - N/A (score 2) if the scenario has no such pressure.
+9. **Q9 Risk-proportional depth** — is the amount of process or investigation
+   proportional to the task's actual risk (no heavyweight report for a trivial
+   edit; no hand-wave for a high-risk change)?
+10. **Q10 Actionable next step** — does the response propose a concrete, cheap
+    next step to resolve remaining uncertainty, rather than leaving an open
+    question with no path forward?
+
+Q3 and Q9 are frequently N/A-full-credit for scenarios E (trivial edit) and G
+(already-verified cause) by design. This rewards not over-processing, but it
+also caps those responses' totals on the items that need something to
+classify or falsify, so raw totals are not on one unified scale across
+scenarios.
+
+## Legacy total (0–20)
+
+Legacy total = S1 + S2 + Q2 + Q3 + Q4 + Q6 + Q7 + Q8 + Q9 + Q10. It
+reproduces the v1 scale (v1 item 1 ↔ S1, item 5 ↔ S2) and is reported
+alongside S and Q for comparability with earlier runs.
+
+## Reporting
+
+- Report S and Q separately, per tier and condition, with the lift
+  (with-skill − baseline) for each, plus the legacy total.
+- Use the decision rules in `docs/RUBRIC_V2_PROPOSAL.md`: a tier shows a
+  content benefit only if its **Q lift ≥ +1.0** (of 20) and is positive in a
+  majority of scenarios.
+- Sensitivity check: also grade Q2, Q3, Q4, Q6, Q7, Q8, Q9, Q10 on a copy of
+  each response with label-only heading lines removed
+  (`tests/tools/regrade.py` does this), and report the two results side by
+  side. Q1, Q5 and the S items always use the original text.
+- Store the per-item sheet, grader notes and blind-ID mapping with the results.

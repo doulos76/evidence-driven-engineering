@@ -2,6 +2,14 @@
 
 ## Unreleased
 
+- Adopted rubric v2 (`tests/rubric.md`): structure (S, 0–4) and substance
+  (Q, 0–20) are scored separately, with new correctness items for
+  classification accuracy and calibration, an explicit anchor for reporting
+  unrun tests as run, and credit for falsifying checks however named; a
+  legacy total keeps v1 comparability. The previous rubric is
+  `tests/rubric-v1.md`. Added `tests/tools/regrade.py` (blinding,
+  label-stripped copies, grading, collection) and recorded the decisions in
+  `docs/RUBRIC_V2_PROPOSAL.md`. No re-grade has been run yet.
 - Recorded a first human spot-check of the rubric grading (one reader, four
   pairs from the clean run): same conclusions and actions throughout; content
   equal on one pair, better with the skill on two, unsure on one; overall

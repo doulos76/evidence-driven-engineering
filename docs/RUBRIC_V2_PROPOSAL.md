@@ -1,8 +1,9 @@
 # Rubric v2 proposal — score structure and substance separately
 
-Status: **proposal, not adopted.** `tests/rubric.md` is unchanged. Nothing
-below has been run. This document is committed before any re-grading so the
-decision rules cannot be tuned to the results.
+Status: **adopted** (decisions recorded at the end). `tests/rubric.md` is now
+the v2 rubric and the old one is `tests/rubric-v1.md`. This document was
+committed before any re-grading so the decision rules cannot be tuned to the
+results.
 
 ## Why
 
@@ -101,9 +102,9 @@ the old 20-point rubric so earlier runs stay comparable.
 
 ## Grading protocol changes
 
-1. **Two graders from different families**, not one model run twice. A
-   non-Claude grader would have to be run by the maintainer (for example in the
-   Codex window) from a prepared prompt file.
+1. ~~Two graders from different families.~~ **Not adopted** (maintainer
+   decision): grading uses one model family (`claude-opus-5-5`), two passes, as
+   before. This remains a limitation.
 2. **Sensitivity check — label-stripped text.** Grade the eight carried-over Q
    items on a copy of each response with label-only lines (`FACTS:`,
    `ASSUMPTIONS:`, `Conclusion: …` and similar headings) removed, so a grader
@@ -159,14 +160,14 @@ the maintainer's own instructions; this needs the maintainer's consent again.
   response more safely. The proposal only makes the benefit measurable by
   component.
 
-## Decisions needed
+## Decisions (recorded from the maintainer)
 
-1. Adopt the S/Q split (and the two new Q items)?
-2. Confirm or change the decision rules (Q lift ≥ +1.0 and majority of
-   scenarios).
-3. Add a second grader family run by the maintainer?
-4. Include the label-stripped sensitivity check?
-5. A second human reader on raw files, and who?
+1. Adopt the S/Q split and the two new Q items — **adopted**.
+2. Decision rules (Q lift ≥ +1.0 and positive in a majority of scenarios) —
+   **confirmed**.
+3. Second grader family — **not used**.
+4. Label-stripped sensitivity check — **included**.
+5. Second human reader on raw files — **not planned**.
 
 ## If adopted
 
