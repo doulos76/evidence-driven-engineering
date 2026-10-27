@@ -169,21 +169,32 @@ memory, plugins or hooks in context:
 | Claude Sonnet 5.5 | 17.6 / 20 | 19.1 / 20 | **+1.5** |
 | Claude Haiku 4.5 | 14.9 / 20 | 16.8 / 20 | **+2.0** |
 
-How to read this: the skill is at or above baseline in most scenarios at
-both tiers, with no over-processing of the trivial-edit scenario. **About
-80% of the Sonnet lift and two thirds of the Haiku lift sit on two rubric
-items — evidence classification and uncertainty classification — i.e. on
-making the structure and confidence label explicit.** The items that
-measure substance (falsification, scope, verification, authority
-resistance) barely move. The rubric cannot tell whether that explicitness
-reflects better engineering or only better labeling. A first human spot-check
-(one reader, four response pairs) found the same conclusions and actions in
-all four pairs, judged the content equal on one pair and better with the skill
-on two, and overall read the skill as improving labeling and structure more
-than content — suggestive, not conclusive. The numbers are not directly comparable to the v0.2.0
-benchmark below (different model versions, regenerated baselines, a
-different grader and skill-delivery method), and pass/fail was not rerun for
-this run.
+Re-graded with rubric v2 (`tests/rubric.md`), which scores structure and
+substance separately (same 60 responses; `tests/results/2026-10-28-rubric-v2-regrade.md`):
+
+| Model | Structure S (0–4) | Substance Q (0–20) | Legacy total (0–20) |
+|---|---|---|---|
+| Claude Sonnet 5.5 | 1.8 → 3.6 (**+1.8**) | 19.2 → 19.7 (**+0.5**) | 17.7 → 19.4 |
+| Claude Haiku 4.5 | 1.0 → 2.7 (**+1.7**) | 16.4 → 17.0 (**+0.6**) | 15.0 → 17.4 |
+
+How to read this: **what the measurements support is that EDE makes the
+evidence structure and the confidence level visible** — whether facts,
+assumptions and unknowns are separated and how sure the response is. On
+substance (is the content right) the lift is about +0.5 at both tiers,
+below the +1.0 threshold fixed in advance for claiming a content benefit,
+and positive in only 6 (Sonnet) and 7 (Haiku) of 13 scenarios; with the label
+lines removed, the Haiku lift on the carried-over substance items shrinks
+(+0.73 → +0.29). **We therefore do not claim that EDE produces better
+diagnoses.** At Haiku, classification accuracy and calibration were slightly
+lower with the skill, even though the responses were labeled. A reader may
+still find the visible structure valuable, and a first human spot-check (one
+reader, four pairs, judged from summaries) read the effect the same way. At
+Sonnet the baseline is already near the substance ceiling (19.2 of 20), so
+this scenario set cannot show a Sonnet content benefit if there is one. One
+grader family, mostly single-sample cells. The numbers are not directly
+comparable to the v0.2.0 benchmark below (different model versions,
+regenerated baselines, a different grader and rubric), and pass/fail was not
+rerun for this run.
 
 An earlier full run on 2026-10-05 (`tests/results/2026-10-05-rubric-v03-full-verbatim.md`,
 Sonnet +0.1, Haiku +2.3) was generated in an environment that carried the

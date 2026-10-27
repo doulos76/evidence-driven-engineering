@@ -2,6 +2,14 @@
 
 ## Unreleased
 
+- Re-graded the 60 clean-run responses with rubric v2 (240 grader calls, clean
+  environment, label-stripped sensitivity check): structure lift +1.8
+  (Sonnet 5.5) / +1.7 (Haiku 4.5), substance lift +0.5 / +0.6 — below the
+  pre-stated +1.0 threshold, so the README no longer implies better diagnoses and
+  states that the measured benefit is evidence structure and confidence
+  labeling. At Haiku, classification accuracy and calibration were slightly
+  lower with the skill. See `tests/results/2026-10-28-rubric-v2-regrade.md`;
+  `TODO.md` rewritten.
 - Adopted rubric v2 (`tests/rubric.md`): structure (S, 0–4) and substance
   (Q, 0–20) are scored separately, with new correctness items for
   classification accuracy and calibration, an explicit anchor for reporting
