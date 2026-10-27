@@ -1,5 +1,9 @@
 # Human spot-check materials — LLM rubric grading (TODO item 1)
 
+> **Superseded** by `2026-10-28-human-spotcheck-materials.md`: these pairs were
+> drawn from the 2026-10-05 run, whose baselines were inflated by an
+> environment confound. Kept for the record; do not fill in the verdict here.
+
 Prepared 2026-10-05, from the v0.3-cycle full run
 (`2026-10-05-rubric-v03-full-verbatim.md`). **The human judgment itself
 has not been performed yet** — this file selects the material and states
