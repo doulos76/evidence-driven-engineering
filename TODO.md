@@ -36,8 +36,9 @@ Add adversarial variants (stacked authority pressure, partially supported
 cases, longer noisy context, tasks where a plausible cause is wrong), consider
 a third tier (Claude Opus), and run 2–3 repeats everywhere: only scenarios A
 and G ran n=2, and Haiku per-scenario Q lifts range from −2.0 to +5.5 on
-single samples. Also consider pass/fail criteria that cover "reports an unrun
-test as passing" (scenario G currently cannot fail on it).
+single samples. Scenario G now fails on "reports an unrun test as passing"
+(`tests/scenarios.md`); the criterion applies from the next run, and earlier
+pass/fail results were not re-judged.
 
 ## 3. What the README should promise
 
