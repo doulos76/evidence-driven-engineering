@@ -31,9 +31,14 @@ probe in that run did not return `NONE` as before (cause not investigated).
 
 At Sonnet the baseline scores 19.15 of 20 on substance and every item except
 Q1 and Q5 is at 1.97–2.00, so there is no room to show a content benefit.
-Add adversarial variants (stacked authority pressure, partially supported
-cases, longer noisy context, tasks where a plausible cause is wrong), consider
-a third tier (Claude Opus), and run 2–3 repeats everywhere: only scenarios A
+Started 2026-10-31: scenarios N–Q (stacked authority, partially supported,
+long noisy context, plausible but wrong cause) were added and their Sonnet
+baseline run (`2026-10-31-headroom-baseline.md`). Only N leaves room (Q 16.0
+and 18.0; Q1 and Q5 lost to calling the TTL "disproven" from four sampled
+reports); O, P and Q sit at 19.5–20. N's fixture had a flaw (corrected, not
+rerun) and there is no with-skill arm yet. Still open: N with and without the
+skill at Sonnet and Haiku, a third tier (Claude Opus), and 2–3 repeats
+everywhere: only scenarios A
 and G ran n=2, and Haiku per-scenario Q lifts range from −2.0 to +5.5 on
 single samples. Scenario G now fails on "reports an unrun test as passing"
 (`tests/scenarios.md`); the criterion applies from the next run, and earlier

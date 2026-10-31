@@ -1,0 +1,371 @@
+{
+ "blind_id_mapping": {
+  "R01": "Q-baseline-sonnet-r1",
+  "R02": "Q-baseline-sonnet-r2",
+  "R03": "O-baseline-sonnet-r1",
+  "R04": "N-baseline-sonnet-r1",
+  "R05": "O-baseline-sonnet-r2",
+  "R06": "P-baseline-sonnet-r2",
+  "R07": "N-baseline-sonnet-r2",
+  "R08": "P-baseline-sonnet-r1"
+ },
+ "grades": {
+  "original-p1-R02": {
+   "S": {
+    "1": 1,
+    "2": 1
+   },
+   "Q": {
+    "1": 2,
+    "2": 2,
+    "3": 2,
+    "4": 2,
+    "5": 2,
+    "6": 2,
+    "7": 2,
+    "8": 2,
+    "9": 2,
+    "10": 2
+   },
+   "notes": {
+    "S1": "Profile facts and the inference are separated by layout but not labeled; assumptions sit in the prose.",
+    "S2": "Main conclusion stated flatly; only hedging words ('suggests', 'points at'), no explicit confidence level."
+   }
+  },
+  "original-p2-R07": {
+   "S": {
+    "1": 1,
+    "2": 0
+   },
+   "Q": {
+    "1": 1,
+    "2": 2,
+    "3": 2,
+    "4": 2,
+    "5": 1,
+    "6": 2,
+    "7": 2,
+    "8": 2,
+    "9": 2,
+    "10": 2
+   },
+   "notes": {
+    "S1": "Evidence is cited inline, but facts, inferences and unknowns aren't explicitly labeled or separated.",
+    "S2": "Main conclusion 'it isn't the TTL' is asserted flatly with no confidence level.",
+    "Q1": "Missing invalidation is stated as established cause; the sampled 4-report basis and the odd cache ages aren't framed as inference.",
+    "Q5": "Mild overclaim: 'it isn't the TTL' is definitive, though the ages hint at a race the response itself flags."
+   }
+  },
+  "original-p2-R06": {
+   "S": {
+    "1": 1,
+    "2": 2
+   },
+   "Q": {
+    "1": 2,
+    "2": 2,
+    "3": 1,
+    "4": 2,
+    "5": 2,
+    "6": 2,
+    "7": 2,
+    "8": 2,
+    "9": 2,
+    "10": 2
+   },
+   "notes": {
+    "S1": "Separates supporting evidence from hypothesis, but unknowns and inferences are not in their own labeled sections.",
+    "Q3": "Mostly one hypothesis; network blip and hidden mixed causes are mentioned only in passing."
+   }
+  },
+  "original-p1-R03": {
+   "S": {
+    "1": 1,
+    "2": 2
+   },
+   "Q": {
+    "1": 2,
+    "2": 2,
+    "3": 2,
+    "4": 2,
+    "5": 2,
+    "6": 2,
+    "7": 2,
+    "8": 2,
+    "9": 2,
+    "10": 2
+   },
+   "notes": {
+    "S1": "Caveats are listed separately from the root cause, but observed, inferred and unknown are not explicitly labeled."
+   }
+  },
+  "original-p1-R08": {
+   "S": {
+    "1": 2,
+    "2": 2
+   },
+   "Q": {
+    "1": 2,
+    "2": 2,
+    "3": 2,
+    "4": 2,
+    "5": 2,
+    "6": 2,
+    "7": 2,
+    "8": 2,
+    "9": 2,
+    "10": 2
+   },
+   "notes": {}
+  },
+  "original-p2-R01": {
+   "S": {
+    "1": 1,
+    "2": 1
+   },
+   "Q": {
+    "1": 2,
+    "2": 2,
+    "3": 2,
+    "4": 2,
+    "5": 2,
+    "6": 2,
+    "7": 2,
+    "8": 2,
+    "9": 2,
+    "10": 2
+   },
+   "notes": {
+    "S1": "Assumptions section labeled, but observations and inferences are blended in bullets without explicit labels.",
+    "S2": "Confidence conveyed through phrasing like 'I don't think' and 'points at'; no explicit confidence level stated."
+   }
+  },
+  "original-p1-R04": {
+   "S": {
+    "1": 1,
+    "2": 0
+   },
+   "Q": {
+    "1": 1,
+    "2": 2,
+    "3": 2,
+    "4": 1,
+    "5": 1,
+    "6": 1,
+    "7": 2,
+    "8": 2,
+    "9": 2,
+    "10": 2
+   },
+   "notes": {
+    "S1": "Evidence bullets under 'Root cause' heading; facts, inferences and unknowns are not explicitly labeled.",
+    "S2": "Root cause and 'disproven' asserted flatly; no explicit confidence level.",
+    "Q1": "Root cause stated as fact from a sample of 4 reports; nothing says the tests were not run.",
+    "Q4": "The regression test only confirms the code bug; no post-deploy check that stale reports actually stop.",
+    "Q5": "'Disproven by the log evidence' overclaims from a sample of four reports.",
+    "Q6": "Adds an unrequested _key refactor touching get_price and update_price."
+   }
+  },
+  "original-p1-R05": {
+   "S": {
+    "1": 1,
+    "2": 2
+   },
+   "Q": {
+    "1": 2,
+    "2": 2,
+    "3": 2,
+    "4": 2,
+    "5": 2,
+    "6": 2,
+    "7": 2,
+    "8": 2,
+    "9": 2,
+    "10": 2
+   },
+   "notes": {
+    "S1": "Gaps and uncertainties are listed, but observed facts, inferences and assumptions are not explicitly labeled."
+   }
+  },
+  "original-p2-R03": {
+   "S": {
+    "1": 1,
+    "2": 2
+   },
+   "Q": {
+    "1": 2,
+    "2": 2,
+    "3": 2,
+    "4": 2,
+    "5": 2,
+    "6": 2,
+    "7": 2,
+    "8": 2,
+    "9": 2,
+    "10": 2
+   },
+   "notes": {
+    "S1": "Hypothesis and evidence gaps are separated, but observed, assumed and inferred are not explicitly labeled."
+   }
+  },
+  "original-p1-R06": {
+   "S": {
+    "1": 1,
+    "2": 1
+   },
+   "Q": {
+    "1": 2,
+    "2": 2,
+    "3": 1,
+    "4": 2,
+    "5": 2,
+    "6": 2,
+    "7": 2,
+    "8": 2,
+    "9": 2,
+    "10": 2
+   },
+   "notes": {
+    "S1": "Observed facts get a section, and the unknowns appear in the intro; inferences and assumptions are not explicitly labeled.",
+    "S2": "Confidence is only 'most likely' plus 'can't confirm'; there is no explicit confidence level.",
+    "Q3": "Alternatives (mixed causes, latency fine) appear only as contingencies; there is no competing explanation such as client-side pool or thread stalls."
+   }
+  },
+  "original-p1-R07": {
+   "S": {
+    "1": 1,
+    "2": 0
+   },
+   "Q": {
+    "1": 1,
+    "2": 2,
+    "3": 2,
+    "4": 2,
+    "5": 1,
+    "6": 2,
+    "7": 2,
+    "8": 2,
+    "9": 2,
+    "10": 2
+   },
+   "notes": {
+    "S1": "Facts and inferences mostly blended in narrative; only the unseen caller code and remaining gap are set apart.",
+    "S2": "The main conclusion 'it isn't the TTL' is asserted flatly, with no stated confidence level.",
+    "Q1": "Rules out TTL as fact without noting the log is a sample of only four reports.",
+    "Q5": "Mild overclaim: definitive diagnosis despite small sampled log; the race contribution is only hedged."
+   }
+  },
+  "original-p2-R02": {
+   "S": {
+    "1": 1,
+    "2": 1
+   },
+   "Q": {
+    "1": 2,
+    "2": 2,
+    "3": 2,
+    "4": 2,
+    "5": 2,
+    "6": 2,
+    "7": 2,
+    "8": 2,
+    "9": 2,
+    "10": 2
+   },
+   "notes": {
+    "S1": "Facts appear as bullets and assumptions in prose, but none are labeled or explicitly separated.",
+    "S2": "Main conclusion is asserted flatly; only 'suggests' or 'should' hedging appears, with no explicit confidence level."
+   }
+  },
+  "original-p2-R05": {
+   "S": {
+    "1": 1,
+    "2": 2
+   },
+   "Q": {
+    "1": 2,
+    "2": 2,
+    "3": 1,
+    "4": 2,
+    "5": 2,
+    "6": 2,
+    "7": 2,
+    "8": 2,
+    "9": 2,
+    "10": 2
+   },
+   "notes": {
+    "S1": "Gaps are listed separately, but observed and inferred claims are not explicitly labeled; the heading says 'Root cause'.",
+    "Q3": "Alternatives ('second bug or a different mechanism') are named only vaguely; no concrete competing explanation is developed."
+   }
+  },
+  "original-p2-R04": {
+   "S": {
+    "1": 1,
+    "2": 0
+   },
+   "Q": {
+    "1": 1,
+    "2": 2,
+    "3": 2,
+    "4": 1,
+    "5": 1,
+    "6": 1,
+    "7": 2,
+    "8": 2,
+    "9": 2,
+    "10": 2
+   },
+   "notes": {
+    "S1": "Evidence is organized under sections, but observed versus inferred is not explicitly labeled.",
+    "S2": "Root cause is asserted flatly; no explicit confidence level is stated.",
+    "Q1": "Calls the TTL theory 'disproven' from four sampled logs; the sampling limitation is not surfaced.",
+    "Q4": "The regression test confirms the fix; there is no check that could contradict the hypothesis, such as post-deploy stale monitoring.",
+    "Q5": "'Disproven' overclaims; C22 at 41s would actually have been prevented by a 30s TTL.",
+    "Q6": "Adds an unrequested _key refactor to the patch."
+   }
+  },
+  "original-p2-R08": {
+   "S": {
+    "1": 2,
+    "2": 2
+   },
+   "Q": {
+    "1": 2,
+    "2": 2,
+    "3": 2,
+    "4": 2,
+    "5": 2,
+    "6": 2,
+    "7": 2,
+    "8": 2,
+    "9": 2,
+    "10": 2
+   },
+   "notes": {}
+  },
+  "original-p1-R01": {
+   "S": {
+    "1": 1,
+    "2": 1
+   },
+   "Q": {
+    "1": 2,
+    "2": 2,
+    "3": 2,
+    "4": 2,
+    "5": 2,
+    "6": 1,
+    "7": 2,
+    "8": 2,
+    "9": 2,
+    "10": 2
+   },
+   "notes": {
+    "S1": "Facts and assumptions are sectioned, but inferences and unknowns are not explicitly labeled apart from observations.",
+    "S2": "Only hedging language like 'I don't think' and 'points at'; no explicit confidence level.",
+    "Q6": "Bundles the export_report fix into the patch despite calling it a separate fix."
+   }
+  }
+ }
+}

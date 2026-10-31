@@ -5,7 +5,10 @@
 set -uo pipefail
 
 REPO="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
-RESP="$REPO/tests/results/responses/2026-10-31-wording-ab"
+RESP="${RESP:-$REPO/tests/results/responses/2026-10-31-wording-ab}"
+GEN_ARGS="${GEN_ARGS:---repeats 3}"
+GRADE_VARIANTS="${GRADE_VARIANTS:-original stripped}"
+COMPARE="${COMPARE:-1}"
 WORK="${WORK:?set WORK to a scratch directory}"
 CLAUDE_DIR="$HOME/.claude"
 MEM="$CLAUDE_DIR/projects/-Users-dave-Documents-GitHub-evidence-driven-engineering/memory"
@@ -36,13 +39,15 @@ echo "== probe =="
   | claude -p --model claude-haiku-4-5-20251001 --tools "" --setting-sources project --disable-slash-commands --no-session-persistence)
 
 echo "== generate =="
-python3 "$REPO/tests/tools/gen_wording_ab.py" "$RESP" --repeats 3 ${NO_TOOLS_LINE:+--no-tools-line "$NO_TOOLS_LINE"} || exit 1
+python3 "$REPO/tests/tools/gen_wording_ab.py" "$RESP" $GEN_ARGS ${NO_TOOLS_LINE:+--no-tools-line "$NO_TOOLS_LINE"} || exit 1
 
 echo "== prepare + grade =="
 python3 "$REPO/tests/tools/regrade.py" prepare "$RESP" "$WORK/g" --seed 20261031 || exit 1
-for v in original stripped; do for n in p1 p2; do
+for v in $GRADE_VARIANTS; do for n in p1 p2; do
   python3 "$REPO/tests/tools/regrade.py" grade "$WORK/g" "$v" "$n" || exit 1
 done; done
 
-echo "== compare =="
-python3 "$REPO/tests/tools/regrade.py" compare "$WORK/g"
+if [ "$COMPARE" = 1 ]; then
+  echo "== compare =="
+  python3 "$REPO/tests/tools/regrade.py" compare "$WORK/g"
+fi

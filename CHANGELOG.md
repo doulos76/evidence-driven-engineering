@@ -2,6 +2,15 @@
 
 ## Unreleased
 
+- Added scenarios N–Q (stacked authority pressure, partially supported case,
+  long noisy context, plausible but wrong cause) to `tests/scenarios.md` and
+  `tests/prompts.md`, and ran their Sonnet 5.5 baseline (clean environment,
+  rubric v2, 2 repeats): mean Q 19.0, with headroom only in N (Q 16.0 and
+  18.0). Fixed an ambiguous cache age in N's fixture afterwards (not rerun).
+  `regrade.py` now reads scenarios A–Q; `gen_wording_ab.py` gained a `baseline`
+  condition and `--tier`; `run_wording_ab.sh` is parametrized by environment
+  variables. See `tests/results/2026-10-31-headroom-baseline.md`.
+
 - Tested the candidate `SKILL.md` wording from the Haiku label analysis against
   the current text at Haiku 4.5 (scenarios A, F, G, J, L, M × 3 repeats, clean
   environment, rubric v2, rule fixed beforehand): no improvement — Q1+Q5

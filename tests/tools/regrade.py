@@ -46,7 +46,7 @@ def scenario_prompts():
     src = PROMPTS.read_text(encoding="utf-8")
     result = {}
     for sec in re.split(r"\n(?=## Scenario )", src):
-        m = re.match(r"## Scenario ([A-M]) ", sec)
+        m = re.match(r"## Scenario ([A-Q]) ", sec)
         if m:
             result[m.group(1)] = re.search(r"### Prompt\n(.*)", sec, re.S).group(1).strip()
     return result
