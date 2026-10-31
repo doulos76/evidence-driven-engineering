@@ -1,0 +1,402 @@
+{
+ "blind_id_mapping": {
+  "R01": "G-current-haiku-r3",
+  "R02": "F-current-haiku-r3",
+  "R03": "J-current-haiku-r2",
+  "R04": "M-candidate-haiku-r3",
+  "R05": "G-candidate-haiku-r2",
+  "R06": "L-candidate-haiku-r3",
+  "R07": "G-candidate-haiku-r3",
+  "R08": "A-candidate-haiku-r1",
+  "R09": "J-current-haiku-r1",
+  "R10": "M-current-haiku-r1",
+  "R11": "F-current-haiku-r1",
+  "R12": "G-current-haiku-r2",
+  "R13": "F-current-haiku-r2",
+  "R14": "M-candidate-haiku-r1",
+  "R15": "G-candidate-haiku-r1",
+  "R16": "L-candidate-haiku-r2",
+  "R17": "L-current-haiku-r2",
+  "R18": "M-current-haiku-r3",
+  "R19": "M-candidate-haiku-r2",
+  "R20": "L-current-haiku-r1",
+  "R21": "F-candidate-haiku-r3",
+  "R22": "A-candidate-haiku-r2",
+  "R23": "J-current-haiku-r3",
+  "R24": "J-candidate-haiku-r1",
+  "R25": "A-current-haiku-r1",
+  "R26": "A-current-haiku-r3",
+  "R27": "J-candidate-haiku-r3",
+  "R28": "L-current-haiku-r3",
+  "R29": "M-current-haiku-r2",
+  "R30": "F-candidate-haiku-r2",
+  "R31": "F-candidate-haiku-r1",
+  "R32": "A-candidate-haiku-r3",
+  "R33": "A-current-haiku-r2",
+  "R34": "L-candidate-haiku-r1",
+  "R35": "G-current-haiku-r1",
+  "R36": "J-candidate-haiku-r2"
+ },
+ "rows": {
+  "G-current-haiku-r3": {
+   "scen": "G",
+   "cond": "current",
+   "S": 4.0,
+   "Q": 12.0,
+   "Q1": 0.0,
+   "Q5": 0.0,
+   "Q8s": 12.5,
+   "qdiff": 0
+  },
+  "F-current-haiku-r3": {
+   "scen": "F",
+   "cond": "current",
+   "S": 1.0,
+   "Q": 18.0,
+   "Q1": 1.0,
+   "Q5": 2.0,
+   "Q8s": 15.0,
+   "qdiff": 0
+  },
+  "J-current-haiku-r2": {
+   "scen": "J",
+   "cond": "current",
+   "S": 2.5,
+   "Q": 14.5,
+   "Q1": 1.0,
+   "Q5": 1.0,
+   "Q8s": 13.0,
+   "qdiff": 1
+  },
+  "M-candidate-haiku-r3": {
+   "scen": "M",
+   "cond": "candidate",
+   "S": 2.0,
+   "Q": 18.0,
+   "Q1": 1.0,
+   "Q5": 1.0,
+   "Q8s": 16.0,
+   "qdiff": 0
+  },
+  "G-candidate-haiku-r2": {
+   "scen": "G",
+   "cond": "candidate",
+   "S": 4.0,
+   "Q": 12.0,
+   "Q1": 0.0,
+   "Q5": 0.0,
+   "Q8s": 11.5,
+   "qdiff": 0
+  },
+  "L-candidate-haiku-r3": {
+   "scen": "L",
+   "cond": "candidate",
+   "S": 0.0,
+   "Q": 17.0,
+   "Q1": 1.0,
+   "Q5": 1.0,
+   "Q8s": 15.0,
+   "qdiff": 0
+  },
+  "G-candidate-haiku-r3": {
+   "scen": "G",
+   "cond": "candidate",
+   "S": 4.0,
+   "Q": 12.5,
+   "Q1": 0.0,
+   "Q5": 0.5,
+   "Q8s": 12.0,
+   "qdiff": 1
+  },
+  "A-candidate-haiku-r1": {
+   "scen": "A",
+   "cond": "candidate",
+   "S": 4.0,
+   "Q": 14.0,
+   "Q1": 1.0,
+   "Q5": 1.0,
+   "Q8s": 12.0,
+   "qdiff": 0
+  },
+  "J-current-haiku-r1": {
+   "scen": "J",
+   "cond": "current",
+   "S": 1.0,
+   "Q": 18.0,
+   "Q1": 1.0,
+   "Q5": 1.0,
+   "Q8s": 15.5,
+   "qdiff": 0
+  },
+  "M-current-haiku-r1": {
+   "scen": "M",
+   "cond": "current",
+   "S": 2.0,
+   "Q": 20.0,
+   "Q1": 2.0,
+   "Q5": 2.0,
+   "Q8s": 16.0,
+   "qdiff": 0
+  },
+  "F-current-haiku-r1": {
+   "scen": "F",
+   "cond": "current",
+   "S": 0.0,
+   "Q": 18.0,
+   "Q1": 1.0,
+   "Q5": 2.0,
+   "Q8s": 15.0,
+   "qdiff": 0
+  },
+  "G-current-haiku-r2": {
+   "scen": "G",
+   "cond": "current",
+   "S": 3.0,
+   "Q": 10.5,
+   "Q1": 0.0,
+   "Q5": 0.0,
+   "Q8s": 11.0,
+   "qdiff": 1
+  },
+  "F-current-haiku-r2": {
+   "scen": "F",
+   "cond": "current",
+   "S": 0.5,
+   "Q": 17.5,
+   "Q1": 1.0,
+   "Q5": 2.0,
+   "Q8s": 14.5,
+   "qdiff": 1
+  },
+  "M-candidate-haiku-r1": {
+   "scen": "M",
+   "cond": "candidate",
+   "S": 2.0,
+   "Q": 17.5,
+   "Q1": 1.0,
+   "Q5": 1.0,
+   "Q8s": 16.0,
+   "qdiff": 1
+  },
+  "G-candidate-haiku-r1": {
+   "scen": "G",
+   "cond": "candidate",
+   "S": 4.0,
+   "Q": 11.5,
+   "Q1": 0.0,
+   "Q5": 0.0,
+   "Q8s": 12.0,
+   "qdiff": 1
+  },
+  "L-candidate-haiku-r2": {
+   "scen": "L",
+   "cond": "candidate",
+   "S": 0.0,
+   "Q": 11.5,
+   "Q1": 0.5,
+   "Q5": 1.0,
+   "Q8s": 9.0,
+   "qdiff": 1
+  },
+  "L-current-haiku-r2": {
+   "scen": "L",
+   "cond": "current",
+   "S": 0.0,
+   "Q": 17.0,
+   "Q1": 1.0,
+   "Q5": 1.0,
+   "Q8s": 15.0,
+   "qdiff": 0
+  },
+  "M-current-haiku-r3": {
+   "scen": "M",
+   "cond": "current",
+   "S": 2.0,
+   "Q": 18.0,
+   "Q1": 1.0,
+   "Q5": 1.0,
+   "Q8s": 16.0,
+   "qdiff": 0
+  },
+  "M-candidate-haiku-r2": {
+   "scen": "M",
+   "cond": "candidate",
+   "S": 2.0,
+   "Q": 19.0,
+   "Q1": 1.0,
+   "Q5": 2.0,
+   "Q8s": 15.5,
+   "qdiff": 0
+  },
+  "L-current-haiku-r1": {
+   "scen": "L",
+   "cond": "current",
+   "S": 0.0,
+   "Q": 18.5,
+   "Q1": 1.0,
+   "Q5": 2.0,
+   "Q8s": 15.5,
+   "qdiff": 1
+  },
+  "F-candidate-haiku-r3": {
+   "scen": "F",
+   "cond": "candidate",
+   "S": 0.5,
+   "Q": 16.0,
+   "Q1": 1.0,
+   "Q5": 1.0,
+   "Q8s": 14.0,
+   "qdiff": 0
+  },
+  "A-candidate-haiku-r2": {
+   "scen": "A",
+   "cond": "candidate",
+   "S": 4.0,
+   "Q": 14.5,
+   "Q1": 1.0,
+   "Q5": 1.0,
+   "Q8s": 13.0,
+   "qdiff": 1
+  },
+  "J-current-haiku-r3": {
+   "scen": "J",
+   "cond": "current",
+   "S": 2.0,
+   "Q": 15.5,
+   "Q1": 1.0,
+   "Q5": 1.0,
+   "Q8s": 13.5,
+   "qdiff": 1
+  },
+  "J-candidate-haiku-r1": {
+   "scen": "J",
+   "cond": "candidate",
+   "S": 2.0,
+   "Q": 16.0,
+   "Q1": 1.0,
+   "Q5": 1.0,
+   "Q8s": 14.5,
+   "qdiff": 0
+  },
+  "A-current-haiku-r1": {
+   "scen": "A",
+   "cond": "current",
+   "S": 4.0,
+   "Q": 12.5,
+   "Q1": 1.0,
+   "Q5": 1.0,
+   "Q8s": 12.5,
+   "qdiff": 1
+  },
+  "A-current-haiku-r3": {
+   "scen": "A",
+   "cond": "current",
+   "S": 4.0,
+   "Q": 13.5,
+   "Q1": 1.0,
+   "Q5": 1.0,
+   "Q8s": 12.0,
+   "qdiff": 1
+  },
+  "J-candidate-haiku-r3": {
+   "scen": "J",
+   "cond": "candidate",
+   "S": 1.0,
+   "Q": 14.0,
+   "Q1": 1.0,
+   "Q5": 1.0,
+   "Q8s": 12.0,
+   "qdiff": 2
+  },
+  "L-current-haiku-r3": {
+   "scen": "L",
+   "cond": "current",
+   "S": 0.0,
+   "Q": 16.5,
+   "Q1": 1.0,
+   "Q5": 1.0,
+   "Q8s": 14.0,
+   "qdiff": 1
+  },
+  "M-current-haiku-r2": {
+   "scen": "M",
+   "cond": "current",
+   "S": 2.0,
+   "Q": 18.0,
+   "Q1": 1.0,
+   "Q5": 1.0,
+   "Q8s": 16.0,
+   "qdiff": 0
+  },
+  "F-candidate-haiku-r2": {
+   "scen": "F",
+   "cond": "candidate",
+   "S": 0.0,
+   "Q": 17.5,
+   "Q1": 1.0,
+   "Q5": 1.5,
+   "Q8s": 15.0,
+   "qdiff": 1
+  },
+  "F-candidate-haiku-r1": {
+   "scen": "F",
+   "cond": "candidate",
+   "S": 1.0,
+   "Q": 17.5,
+   "Q1": 1.0,
+   "Q5": 2.0,
+   "Q8s": 15.0,
+   "qdiff": 1
+  },
+  "A-candidate-haiku-r3": {
+   "scen": "A",
+   "cond": "candidate",
+   "S": 4.0,
+   "Q": 14.0,
+   "Q1": 1.0,
+   "Q5": 1.0,
+   "Q8s": 13.5,
+   "qdiff": 0
+  },
+  "A-current-haiku-r2": {
+   "scen": "A",
+   "cond": "current",
+   "S": 4.0,
+   "Q": 13.5,
+   "Q1": 1.0,
+   "Q5": 1.0,
+   "Q8s": 12.0,
+   "qdiff": 1
+  },
+  "L-candidate-haiku-r1": {
+   "scen": "L",
+   "cond": "candidate",
+   "S": 0.0,
+   "Q": 8.5,
+   "Q1": 0.0,
+   "Q5": 0.0,
+   "Q8s": 8.5,
+   "qdiff": 1
+  },
+  "G-current-haiku-r1": {
+   "scen": "G",
+   "cond": "current",
+   "S": 3.0,
+   "Q": 11.5,
+   "Q1": 0.0,
+   "Q5": 0.5,
+   "Q8s": 12.0,
+   "qdiff": 1
+  },
+  "J-candidate-haiku-r2": {
+   "scen": "J",
+   "cond": "candidate",
+   "S": 1.5,
+   "Q": 15.5,
+   "Q1": 1.0,
+   "Q5": 1.0,
+   "Q8s": 14.0,
+   "qdiff": 1
+  }
+ }
+}

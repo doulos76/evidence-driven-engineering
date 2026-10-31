@@ -17,16 +17,15 @@ confidence labeling (S lift about +1.7); the substance lift is about +0.5
 (below the +1.0 rule). At Haiku the same overclaims occur with and without the
 skill; with the skill they gain a `VERIFIED` label.
 
-## 1. Test the candidate `SKILL.md` wording at Haiku
+## 1. Candidate `SKILL.md` wording at Haiku — tested, not supported
 
-`2026-10-28-haiku-label-analysis.md` proposes wording that ties FACTS and
-VERIFIED to what was actually observed or supplied, forbids showing results
-that were not run, and asks for UNKNOWNS when the user limits the material. It
-is untested and not applied. To test: generate A, F, G, J, L and M at Haiku
-with current and candidate wording (2–3 repeats), grade with rubric v2 in the
-clean environment (needs the maintainer's consent to move the user-level
-instructions), and look for Q1 and Q5 rising without S falling. Applying the
-wording to `SKILL.md` needs the CONTRIBUTING evaluation bar.
+Done 2026-10-31 (`2026-10-31-wording-ab.md`): A, F, G, J, L and M at Haiku, 3
+repeats, current vs candidate wording, rubric v2 in the clean environment. By
+the rule fixed beforehand there is no improvement (Q1+Q5 −0.33, Q −0.92, 0 of 6
+scenarios positive; scenario L is most of the Q drop and varies a lot at n=3).
+The wording is not applied. Open: whether a different lever (separating
+read-from-code facts structurally, or an explicit check step) helps, and the
+probe in that run did not return `NONE` as before (cause not investigated).
 
 ## 2. A scenario set with headroom
 
