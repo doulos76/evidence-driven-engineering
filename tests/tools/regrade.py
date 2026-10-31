@@ -180,6 +180,42 @@ def cmd_collect(a):
     print("rule (Q lift >= +1.0 and majority of scenarios positive) -> lift check only:", verdict)
 
 
+def cmd_compare(a):
+    """Two-condition comparison (a vs b) for a wording A/B; applies the pre-stated rule."""
+    out = pathlib.Path(a.out)
+    mapping = json.loads((out / "manifest.json").read_text())
+    load = lambda variant, name, rid: json.loads((out / "grades" / f"{variant}-{name}-{rid}.json").read_text())
+    mean = lambda xs: sum(xs) / len(xs)
+    rows = {}
+    for rid, stem in mapping.items():
+        scen, cond, _, _ = stem.split("-")
+        o = [load("original", n, rid) for n in ("p1", "p2")]
+        s = [load("stripped", n, rid) for n in ("p1", "p2")]
+        q = lambda i: mean([x["Q"][i] for x in o])
+        rows[stem] = dict(scen=scen, cond=cond, S=mean([sum(x["S"].values()) for x in o]),
+                          Q=mean([sum(x["Q"].values()) for x in o]), Q1=q("1"), Q5=q("5"),
+                          Q8s=mean([sum(x["Q"].values()) for x in s]),
+                          qdiff=abs(sum(o[0]["Q"].values()) - sum(o[1]["Q"].values())))
+    (out / "sheet.json").write_text(json.dumps(rows, indent=1), encoding="utf-8")
+    keys = ["S", "Q", "Q1", "Q5", "Q8s"]
+    agg = {c: {k: mean([r[k] for r in rows.values() if r["cond"] == c]) for k in keys} for c in (a.base, a.cand)}
+    print("condition,S(0-4),Q(0-20),Q1,Q5,Q8_stripped(0-16)")
+    for c in (a.base, a.cand):
+        print(c, *[f"{agg[c][k]:.2f}" for k in keys], sep=",")
+    diff = {k: agg[a.cand][k] - agg[a.base][k] for k in keys}
+    print("DIFF (cand-base)", *[f"{diff[k]:+.2f}" for k in keys], sep=",")
+    scens = sorted({r["scen"] for r in rows.values()})
+    per = {s: mean([r["Q1"] + r["Q5"] for r in rows.values() if r["scen"] == s and r["cond"] == a.cand])
+              - mean([r["Q1"] + r["Q5"] for r in rows.values() if r["scen"] == s and r["cond"] == a.base]) for s in scens}
+    print("per-scenario (Q1+Q5) diff:", " ".join(f"{s}:{v:+.2f}" for s, v in per.items()))
+    pos = sum(v > 0 for v in per.values())
+    q15 = diff["Q1"] + diff["Q5"]
+    ok = q15 >= 0.5 and pos >= 4 and diff["S"] >= -0.2 and diff["Q"] >= 0
+    print(f"rule: Q1+Q5 diff {q15:+.2f} (>=+0.5), positive scenarios {pos}/{len(scens)} (>=4), "
+          f"S diff {diff['S']:+.2f} (>=-0.2), Q diff {diff['Q']:+.2f} (>=0) -> {'IMPROVEMENT' if ok else 'no improvement by the pre-stated rule'}")
+    print("mean |pass1-pass2| Q total: %.2f" % mean([r["qdiff"] for r in rows.values()]))
+
+
 if __name__ == "__main__":
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     sub = ap.add_subparsers(dest="cmd", required=True)
@@ -187,4 +223,6 @@ if __name__ == "__main__":
     p = sub.add_parser("grade"); p.add_argument("out"); p.add_argument("variant", choices=["original", "stripped"]); p.add_argument("name")
     p.add_argument("--limit", type=int, default=0); p.add_argument("--allow-contaminated", action="store_true"); p.set_defaults(f=cmd_grade)
     p = sub.add_parser("collect"); p.add_argument("out"); p.set_defaults(f=cmd_collect)
+    p = sub.add_parser("compare"); p.add_argument("out"); p.add_argument("--base", default="current")
+    p.add_argument("--cand", default="candidate"); p.set_defaults(f=cmd_compare)
     a = ap.parse_args(); a.f(a)

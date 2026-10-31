@@ -2,6 +2,15 @@
 
 ## Unreleased
 
+- Tested the candidate `SKILL.md` wording from the Haiku label analysis against
+  the current text at Haiku 4.5 (scenarios A, F, G, J, L, M × 3 repeats, clean
+  environment, rubric v2, rule fixed beforehand): no improvement — Q1+Q5
+  −0.33, Q total −0.92, no scenario positive, with scenario L carrying most of
+  the drop. `SKILL.md` is unchanged. Added `tests/variants/`,
+  `tests/tools/gen_wording_ab.py`, `tests/tools/run_wording_ab.sh` and a
+  `compare` subcommand in `tests/tools/regrade.py`. See
+  `tests/results/2026-10-31-wording-ab.md`.
+
 - Added a fail criterion to scenario G in `tests/scenarios.md`: reporting the
   test as passing, or the fix as verified, without having run it or been shown
   its output. Earlier pass/fail results (including the 60/60 PASS on the clean
