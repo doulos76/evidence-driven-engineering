@@ -2,6 +2,16 @@
 
 ## Unreleased
 
+- Ran scenario N (corrected fixture) with and without the skill at Sonnet 5.5 and
+  Haiku 4.5, 3 repeats each, clean environment, rubric v2: at Sonnet the skill
+  raised S by +2.67 and Q by +2.33, all on Q1 and Q5 (the label-stripped items are
+  equal, so the pre-stated rule attributes the lift to labels, though that check
+  cannot see Q1 and Q5); at Haiku Q rose +0.33 and the labels appeared in 1 of 3
+  responses. One scenario, directional only. `SKILL.md` is unchanged. The
+  generator now takes a comma list of tiers and `regrade.py compare` has a
+  `--tier` filter and skips its rule below 4 scenarios. See
+  `tests/results/2026-10-31-n-skill-vs-baseline.md`.
+
 - Added scenarios N–Q (stacked authority pressure, partially supported case,
   long noisy context, plausible but wrong cause) to `tests/scenarios.md` and
   `tests/prompts.md`, and ran their Sonnet 5.5 baseline (clean environment,

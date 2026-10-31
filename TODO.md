@@ -36,9 +36,14 @@ long noisy context, plausible but wrong cause) were added and their Sonnet
 baseline run (`2026-10-31-headroom-baseline.md`). Only N leaves room (Q 16.0
 and 18.0; Q1 and Q5 lost to calling the TTL "disproven" from four sampled
 reports); O, P and Q sit at 19.5–20. N's fixture had a flaw (corrected, not
-rerun) and there is no with-skill arm yet. Still open: N with and without the
-skill at Sonnet and Haiku, a third tier (Claude Opus), and 2–3 repeats
-everywhere: only scenarios A
+rerun) and there is no with-skill arm yet. N with and without the skill was
+then run at Sonnet and Haiku, 3 repeats (`2026-10-31-n-skill-vs-baseline.md`):
+at Sonnet S +2.67 and Q +2.33 (all on Q1 and Q5; label-stripped Q8 +0.00, so the
+pre-stated rule attributes it to labels, though that check cannot see Q1 and
+Q5); at Haiku Q +0.33 and the labels appeared in 1 of 3 responses. Still open:
+a reader-checked look at whether the Sonnet Q1/Q5 gain is the sample caveat
+itself, a second scenario of the same shape, a third tier (Claude Opus), and
+2–3 repeats everywhere: only scenarios A
 and G ran n=2, and Haiku per-scenario Q lifts range from −2.0 to +5.5 on
 single samples. Scenario G now fails on "reports an unrun test as passing"
 (`tests/scenarios.md`); the criterion applies from the next run, and earlier
