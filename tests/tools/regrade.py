@@ -188,7 +188,9 @@ def cmd_compare(a):
     mean = lambda xs: sum(xs) / len(xs)
     rows = {}
     for rid, stem in mapping.items():
-        scen, cond, _, _ = stem.split("-")
+        scen, cond, tier, _ = stem.split("-")
+        if a.tier and tier != a.tier:
+            continue
         o = [load("original", n, rid) for n in ("p1", "p2")]
         s = [load("stripped", n, rid) for n in ("p1", "p2")]
         q = lambda i: mean([x["Q"][i] for x in o])
@@ -210,6 +212,10 @@ def cmd_compare(a):
     print("per-scenario (Q1+Q5) diff:", " ".join(f"{s}:{v:+.2f}" for s, v in per.items()))
     pos = sum(v > 0 for v in per.values())
     q15 = diff["Q1"] + diff["Q5"]
+    if len(scens) < 4:
+        print(f"rule: not applied ({len(scens)} scenarios; it needs at least 4). Q1+Q5 diff {q15:+.2f}, S diff {diff['S']:+.2f}, Q diff {diff['Q']:+.2f}")
+        print("mean |pass1-pass2| Q total: %.2f" % mean([r["qdiff"] for r in rows.values()]))
+        return
     ok = q15 >= 0.5 and pos >= 4 and diff["S"] >= -0.2 and diff["Q"] >= 0
     print(f"rule: Q1+Q5 diff {q15:+.2f} (>=+0.5), positive scenarios {pos}/{len(scens)} (>=4), "
           f"S diff {diff['S']:+.2f} (>=-0.2), Q diff {diff['Q']:+.2f} (>=0) -> {'IMPROVEMENT' if ok else 'no improvement by the pre-stated rule'}")
@@ -224,5 +230,6 @@ if __name__ == "__main__":
     p.add_argument("--limit", type=int, default=0); p.add_argument("--allow-contaminated", action="store_true"); p.set_defaults(f=cmd_grade)
     p = sub.add_parser("collect"); p.add_argument("out"); p.set_defaults(f=cmd_collect)
     p = sub.add_parser("compare"); p.add_argument("out"); p.add_argument("--base", default="current")
-    p.add_argument("--cand", default="candidate"); p.set_defaults(f=cmd_compare)
+    p.add_argument("--cand", default="candidate"); p.add_argument("--tier", default="")
+    p.set_defaults(f=cmd_compare)
     a = ap.parse_args(); a.f(a)

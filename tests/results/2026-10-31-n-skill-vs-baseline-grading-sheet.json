@@ -1,0 +1,939 @@
+{
+ "blind_id_mapping": {
+  "R01": "N-current-sonnet-r3",
+  "R02": "N-current-haiku-r2",
+  "R03": "N-baseline-haiku-r3",
+  "R04": "N-baseline-sonnet-r3",
+  "R05": "N-current-sonnet-r2",
+  "R06": "N-current-sonnet-r1",
+  "R07": "N-current-haiku-r3",
+  "R08": "N-baseline-haiku-r1",
+  "R09": "N-baseline-haiku-r2",
+  "R10": "N-current-haiku-r1",
+  "R11": "N-baseline-sonnet-r1",
+  "R12": "N-baseline-sonnet-r2"
+ },
+ "grades": {
+  "stripped-p2-R06": {
+   "Q": {
+    "2": 2,
+    "3": 2,
+    "4": 2,
+    "6": 2,
+    "7": 2,
+    "8": 2,
+    "9": 2,
+    "10": 2
+   },
+   "notes": {}
+  },
+  "stripped-p2-R10": {
+   "Q": {
+    "2": 2,
+    "3": 2,
+    "4": 1,
+    "6": 2,
+    "7": 2,
+    "8": 2,
+    "9": 2,
+    "10": 2
+   },
+   "notes": {
+    "Q4": "The proposed test checks the fix. It names no observation that could disprove the CSV hypothesis, such as stale reports without an import."
+   }
+  },
+  "original-p1-R02": {
+   "S": {
+    "1": 1,
+    "2": 0
+   },
+   "Q": {
+    "1": 1,
+    "2": 2,
+    "3": 2,
+    "4": 1,
+    "5": 1,
+    "6": 1,
+    "7": 2,
+    "8": 2,
+    "9": 2,
+    "10": 2
+   },
+   "notes": {
+    "S1": "Has an evidence section, but inference ('root cause is') is blended with observations, and there are no unknowns.",
+    "S2": "Root cause is asserted flatly, with no stated confidence level.",
+    "Q1": "States the root cause as fact from 4 sampled reports. Misreads the log as 'already expired in DB'. Doesn't note the call-site signature break.",
+    "Q4": "The regression test confirms the fix but doesn't test whether stale reads occur without a bulk import.",
+    "Q5": "Mild overclaim: 'root cause' from sampled logs, with no caveat on sample size.",
+    "Q6": "Signature change leaves CSV import call sites unaddressed. Optionally adds the TTL cut instead of declining it."
+   }
+  },
+  "stripped-p1-R03": {
+   "Q": {
+    "2": 2,
+    "3": 2,
+    "4": 1,
+    "6": 2,
+    "7": 1,
+    "8": 2,
+    "9": 2,
+    "10": 2
+   },
+   "notes": {
+    "Q4": "The proposed test confirms the fix, but no check is named that could contradict the invalidation hypothesis.",
+    "Q7": "First patch uses an undefined `cache` (NameError); signature change leaves callers unaddressed; presented as mergeable without verification."
+   }
+  },
+  "original-p2-R07": {
+   "S": {
+    "1": 1,
+    "2": 0
+   },
+   "Q": {
+    "1": 1,
+    "2": 2,
+    "3": 2,
+    "4": 1,
+    "5": 1,
+    "6": 2,
+    "7": 2,
+    "8": 2,
+    "9": 2,
+    "10": 2
+   },
+   "notes": {
+    "S1": "Facts section labeled, but inferences are not labeled or set apart from the facts.",
+    "S2": "No confidence stated; 'actual root cause' asserted flatly.",
+    "Q1": "Root cause stated as fact from sampled logs; doesn't say nothing was run; 29s duration misstated.",
+    "Q4": "Regression test checks the fix; no check that could refute the hypothesis (e.g., reproduce).",
+    "Q5": "'Actual root cause' and 'red herring' overclaim slightly for 4 sampled reports."
+   }
+  },
+  "original-p2-R11": {
+   "S": {
+    "1": 1,
+    "2": 0
+   },
+   "Q": {
+    "1": 1,
+    "2": 2,
+    "3": 2,
+    "4": 2,
+    "5": 1,
+    "6": 2,
+    "7": 2,
+    "8": 2,
+    "9": 2,
+    "10": 2
+   },
+   "notes": {
+    "S1": "Log evidence is bulleted, but inference and unknowns aren't explicitly separated from observed facts.",
+    "S2": "Conclusion 'TTL isn't the root cause' is asserted flatly with no confidence level.",
+    "Q1": "Root cause stated as fact from four sampled reports; the causal link is inferred, not directly demonstrated.",
+    "Q5": "Mild over-claim: definitive 'root cause' wording on sampled log evidence without an acknowledged sampling limitation."
+   }
+  },
+  "original-p2-R10": {
+   "S": {
+    "1": 1,
+    "2": 0
+   },
+   "Q": {
+    "1": 1,
+    "2": 2,
+    "3": 2,
+    "4": 1,
+    "5": 1,
+    "6": 2,
+    "7": 2,
+    "8": 2,
+    "9": 2,
+    "10": 2
+   },
+   "notes": {
+    "S1": "FACTS labeled, but the root-cause inference sits in its own section without an inference label; unknowns are not separated.",
+    "S2": "Conclusion asserted flatly ('actual root cause', 'evidence is clear'); no confidence level stated.",
+    "Q1": "Root cause stated as fact from 4 sampled reports; cache-age timing and untested assumptions not surfaced.",
+    "Q4": "The proposed test confirms the patch; no check that could contradict the bulk-invalidation hypothesis.",
+    "Q5": "'Proves' and 'evidence is clear' overclaim given a small sample and no reproduction."
+   }
+  },
+  "original-p2-R06": {
+   "S": {
+    "1": 2,
+    "2": 2
+   },
+   "Q": {
+    "1": 2,
+    "2": 2,
+    "3": 2,
+    "4": 2,
+    "5": 2,
+    "6": 2,
+    "7": 2,
+    "8": 2,
+    "9": 2,
+    "10": 2
+   },
+   "notes": {}
+  },
+  "stripped-p1-R02": {
+   "Q": {
+    "2": 2,
+    "3": 2,
+    "4": 1,
+    "6": 2,
+    "7": 2,
+    "8": 2,
+    "9": 2,
+    "10": 2
+   },
+   "notes": {
+    "Q4": "Regression test only confirms the fix; it proposes no check, such as reproducing an import, that could contradict the hypothesis."
+   }
+  },
+  "original-p1-R03": {
+   "S": {
+    "1": 0,
+    "2": 0
+   },
+   "Q": {
+    "1": 1,
+    "2": 2,
+    "3": 1,
+    "4": 1,
+    "5": 1,
+    "6": 2,
+    "7": 2,
+    "8": 2,
+    "9": 2,
+    "10": 2
+   },
+   "notes": {
+    "S1": "Observations, inferences and conclusion blended in one narrative; no explicit separation.",
+    "S2": "Root cause asserted flatly as 'The bug'; no confidence level stated.",
+    "Q1": "Root cause stated as fact from four sampled reports; no note on what was not run or observed.",
+    "Q3": "Considers only TTL versus missing invalidation; ignores that cache age equals time since import.",
+    "Q4": "Proposes a regression test only; no check against live logs or caches that could disprove the hypothesis.",
+    "Q5": "Mild overclaim: definitive root cause from a small sample; first patch references undefined cache."
+   }
+  },
+  "stripped-p2-R11": {
+   "Q": {
+    "2": 2,
+    "3": 2,
+    "4": 2,
+    "6": 2,
+    "7": 2,
+    "8": 2,
+    "9": 2,
+    "10": 2
+   },
+   "notes": {}
+  },
+  "stripped-p2-R07": {
+   "Q": {
+    "2": 2,
+    "3": 2,
+    "4": 1,
+    "6": 2,
+    "7": 1,
+    "8": 2,
+    "9": 2,
+    "10": 2
+   },
+   "notes": {
+    "Q4": "Regression test only confirms the fix; no pre-fix reproduction that could contradict the hypothesis.",
+    "Q7": "Asserts the patch removes stale prices without reproduction evidence; the test is only proposed, not run."
+   }
+  },
+  "stripped-p1-R05": {
+   "Q": {
+    "2": 2,
+    "3": 2,
+    "4": 2,
+    "6": 2,
+    "7": 2,
+    "8": 2,
+    "9": 2,
+    "10": 2
+   },
+   "notes": {}
+  },
+  "original-p1-R08": {
+   "S": {
+    "1": 0,
+    "2": 0
+   },
+   "Q": {
+    "1": 1,
+    "2": 2,
+    "3": 1,
+    "4": 1,
+    "5": 1,
+    "6": 2,
+    "7": 2,
+    "8": 2,
+    "9": 2,
+    "10": 2
+   },
+   "notes": {
+    "S1": "Observation, inference and recommendation blended into one narrative with no separation.",
+    "S2": "Conclusion asserted flatly; no confidence level or hedging given.",
+    "Q1": "Says sampled logs 'confirm' root cause as fact; doesn't acknowledge nothing was run; the patch's caller signature change isn't surfaced.",
+    "Q3": "Contrasts TTL with missing invalidation but ignores cache age ~29s matching import time, which hints at a read/write race.",
+    "Q4": "Proposed test is confirmatory; no check that could contradict the hypothesis, such as reproducing an import while reads run.",
+    "Q5": "'Logs confirm' overclaims from 4 sampled reports; says postmortem 'right about the cause', which contradicts its own conclusion."
+   }
+  },
+  "original-p2-R01": {
+   "S": {
+    "1": 2,
+    "2": 2
+   },
+   "Q": {
+    "1": 2,
+    "2": 2,
+    "3": 2,
+    "4": 2,
+    "5": 2,
+    "6": 2,
+    "7": 2,
+    "8": 2,
+    "9": 2,
+    "10": 2
+   },
+   "notes": {}
+  },
+  "stripped-p1-R09": {
+   "Q": {
+    "2": 2,
+    "3": 1,
+    "4": 1,
+    "6": 2,
+    "7": 2,
+    "8": 2,
+    "9": 2,
+    "10": 2
+   },
+   "notes": {
+    "Q3": "Cause strongly supported but only by sampled logs; it considers no alternative explanation, such as other write paths.",
+    "Q4": "The proposed test confirms the fix works but does not check whether stale reports occur outside imports."
+   }
+  },
+  "original-p1-R04": {
+   "S": {
+    "1": 1,
+    "2": 1
+   },
+   "Q": {
+    "1": 1,
+    "2": 2,
+    "3": 2,
+    "4": 2,
+    "5": 2,
+    "6": 2,
+    "7": 2,
+    "8": 2,
+    "9": 2,
+    "10": 2
+   },
+   "notes": {
+    "S1": "Observations are bulleted, but facts, inferences and unknowns are not explicitly labeled or separated.",
+    "S2": "No explicit confidence level; only 'evidence points there' alongside the flat 'isn't the root cause'.",
+    "Q1": "'Confirms' from a single B03 sample overstates it; the small 4-report sample is not surfaced as a limitation."
+   }
+  },
+  "original-p1-R12": {
+   "S": {
+    "1": 1,
+    "2": 0
+   },
+   "Q": {
+    "1": 1,
+    "2": 2,
+    "3": 2,
+    "4": 2,
+    "5": 2,
+    "6": 1,
+    "7": 2,
+    "8": 2,
+    "9": 2,
+    "10": 2
+   },
+   "notes": {
+    "S1": "Evidence, inferences and unknowns are separated by layout, but not explicitly labeled.",
+    "S2": "Conclusion stated flatly with no explicit confidence level.",
+    "Q1": "Causal conclusion and the 20x DB-load claim are stated as fact; the small 4-report sample is not surfaced.",
+    "Q6": "Adds an unrequested _key helper refactor alongside the evidence-supported fix."
+   }
+  },
+  "original-p1-R05": {
+   "S": {
+    "1": 2,
+    "2": 2
+   },
+   "Q": {
+    "1": 2,
+    "2": 2,
+    "3": 2,
+    "4": 2,
+    "5": 2,
+    "6": 2,
+    "7": 2,
+    "8": 2,
+    "9": 2,
+    "10": 2
+   },
+   "notes": {}
+  },
+  "stripped-p1-R08": {
+   "Q": {
+    "2": 2,
+    "3": 2,
+    "4": 1,
+    "6": 2,
+    "7": 1,
+    "8": 2,
+    "9": 2,
+    "10": 2
+   },
+   "notes": {
+    "Q4": "Proposed test confirms the fix; it names no check that could contradict the bulk-invalidation hypothesis.",
+    "Q7": "Fix asserted from log reasoning only; no reproduction or test run. Caller signature change unaddressed."
+   }
+  },
+  "stripped-p2-R01": {
+   "Q": {
+    "2": 2,
+    "3": 2,
+    "4": 2,
+    "6": 2,
+    "7": 2,
+    "8": 2,
+    "9": 2,
+    "10": 2
+   },
+   "notes": {}
+  },
+  "original-p1-R09": {
+   "S": {
+    "1": 0,
+    "2": 0
+   },
+   "Q": {
+    "1": 1,
+    "2": 2,
+    "3": 1,
+    "4": 1,
+    "5": 1,
+    "6": 2,
+    "7": 1,
+    "8": 2,
+    "9": 2,
+    "10": 2
+   },
+   "notes": {
+    "S1": "Observed log facts, inferences and assumptions blended in one narrative; no unknowns stated.",
+    "S2": "Conclusion asserted flatly as 'the real bug' with no confidence level.",
+    "Q1": "Root cause stated as fact from 4 sampled reports; first patch's missing cache param not surfaced as assumption.",
+    "Q3": "Only TTL versus missing bulk invalidation; other causes like a read racing the import are not considered.",
+    "Q4": "Proposed test only confirms invalidation; no reproduce-stale-after-import check that could contradict the hypothesis.",
+    "Q5": "'Real bug' and 'proper fix' overclaim slightly given sampled evidence and no reproduction.",
+    "Q7": "Calls it the 'proper fix' without reproduction; the first snippet references an undefined cache."
+   }
+  },
+  "stripped-p1-R12": {
+   "Q": {
+    "2": 2,
+    "3": 2,
+    "4": 2,
+    "6": 1,
+    "7": 2,
+    "8": 2,
+    "9": 2,
+    "10": 2
+   },
+   "notes": {
+    "Q6": "Adds an unrequested _key helper refactor to get_price and update_price beyond the needed bulk-path fix."
+   }
+  },
+  "stripped-p1-R04": {
+   "Q": {
+    "2": 2,
+    "3": 2,
+    "4": 2,
+    "6": 2,
+    "7": 2,
+    "8": 2,
+    "9": 2,
+    "10": 2
+   },
+   "notes": {}
+  },
+  "original-p2-R03": {
+   "S": {
+    "1": 1,
+    "2": 0
+   },
+   "Q": {
+    "1": 1,
+    "2": 2,
+    "3": 2,
+    "4": 1,
+    "5": 1,
+    "6": 2,
+    "7": 1,
+    "8": 2,
+    "9": 2,
+    "10": 2
+   },
+   "notes": {
+    "S1": "Log facts and inference are blended into narrative, with no explicit separation of observed versus inferred.",
+    "S2": "Root cause is asserted flatly with no stated confidence level.",
+    "Q1": "Root cause stated as fact from 4 sampled reports; 'users never see stale prices from UI' overclaims; nothing run is acknowledged.",
+    "Q4": "Proposed test confirms the fix; no check, such as post-fix stale-report monitoring, could contradict the hypothesis.",
+    "Q5": "Mild overclaim: definitive root cause and 'never' from a small sample.",
+    "Q7": "First patch references undefined `cache` (NameError), presented as mergeable without verification."
+   }
+  },
+  "stripped-p1-R11": {
+   "Q": {
+    "2": 2,
+    "3": 2,
+    "4": 2,
+    "6": 2,
+    "7": 2,
+    "8": 2,
+    "9": 2,
+    "10": 2
+   },
+   "notes": {}
+  },
+  "stripped-p1-R07": {
+   "Q": {
+    "2": 2,
+    "3": 2,
+    "4": 1,
+    "6": 2,
+    "7": 2,
+    "8": 2,
+    "9": 2,
+    "10": 2
+   },
+   "notes": {
+    "Q4": "Regression test only confirms the fix; it proposes no check that could contradict the missing-invalidation hypothesis."
+   }
+  },
+  "original-p1-R10": {
+   "S": {
+    "1": 1,
+    "2": 0
+   },
+   "Q": {
+    "1": 1,
+    "2": 2,
+    "3": 2,
+    "4": 1,
+    "5": 1,
+    "6": 2,
+    "7": 2,
+    "8": 2,
+    "9": 2,
+    "10": 2
+   },
+   "notes": {
+    "S1": "FACTS labeled, but root-cause inference is presented as 'actual root cause', not labeled as inference.",
+    "S2": "Confidence asserted flatly ('evidence is clear', 'proves'); no explicit confidence level.",
+    "Q1": "Root cause stated as fact from a sample of 4 reports; the sampling limitation is not surfaced.",
+    "Q4": "The proposed test confirms the fix; no check that could contradict the bulk-import hypothesis.",
+    "Q5": "'Proves' and 'evidence is clear' overclaim from 4 sampled reports."
+   }
+  },
+  "original-p1-R06": {
+   "S": {
+    "1": 2,
+    "2": 2
+   },
+   "Q": {
+    "1": 2,
+    "2": 2,
+    "3": 2,
+    "4": 2,
+    "5": 2,
+    "6": 2,
+    "7": 2,
+    "8": 2,
+    "9": 2,
+    "10": 2
+   },
+   "notes": {}
+  },
+  "stripped-p2-R02": {
+   "Q": {
+    "2": 2,
+    "3": 2,
+    "4": 1,
+    "6": 2,
+    "7": 1,
+    "8": 2,
+    "9": 2,
+    "10": 2
+   },
+   "notes": {
+    "Q4": "Regression test confirms the fix; no check that could falsify the bulk-path hypothesis, such as auditing UI-path stale reports.",
+    "Q7": "Claims the fix gives immediate consistency, backed only by a proposed, unrun test. No reproduction shown; signature-change caller impact unaddressed."
+   }
+  },
+  "stripped-p2-R03": {
+   "Q": {
+    "2": 2,
+    "3": 2,
+    "4": 1,
+    "6": 2,
+    "7": 1,
+    "8": 2,
+    "9": 1,
+    "10": 2
+   },
+   "notes": {
+    "Q4": "Proposes a regression test of the fix, but no check that could contradict the hypothesis in production.",
+    "Q7": "The first patch references an undefined cache (NameError); the fix is asserted without any verification.",
+    "Q9": "Changes the function signature without updating callers or planning post-deploy monitoring. Too light for a production pricing change."
+   }
+  },
+  "original-p1-R07": {
+   "S": {
+    "1": 1,
+    "2": 0
+   },
+   "Q": {
+    "1": 1,
+    "2": 2,
+    "3": 2,
+    "4": 1,
+    "5": 1,
+    "6": 2,
+    "7": 2,
+    "8": 2,
+    "9": 2,
+    "10": 2
+   },
+   "notes": {
+    "S1": "Facts section exists, but inferences ('red herring', root cause) are mixed in without separation.",
+    "S2": "Conclusion is asserted flatly as 'actual root cause' with no stated confidence level.",
+    "Q1": "Root cause stated as fact from 4 sampled reports. Misreads 'age 29s' as stale duration. Nothing unrun acknowledged.",
+    "Q4": "Regression test confirms the fix only. It proposes no check that could contradict the hypothesis, such as a read-during-import race.",
+    "Q5": "'Red herring' and 'actual root cause' overclaim from a sample of four. The cache age matching import time is unexplained."
+   }
+  },
+  "original-p1-R11": {
+   "S": {
+    "1": 1,
+    "2": 0
+   },
+   "Q": {
+    "1": 1,
+    "2": 1,
+    "3": 1,
+    "4": 2,
+    "5": 1,
+    "6": 2,
+    "7": 2,
+    "8": 2,
+    "9": 2,
+    "10": 2
+   },
+   "notes": {
+    "S1": "Log evidence is bulleted, but inference and assumptions aren't explicitly labeled apart from observations.",
+    "S2": "Root cause is asserted flatly with no stated confidence level.",
+    "Q1": "Missing invalidation is presented as confirmed root cause from 4 sampled reports; it is an inference.",
+    "Q2": "Doesn't notice that cache ages (29s/27s) match time since import, which complicates its own story.",
+    "Q3": "Dismisses TTL but doesn't weigh cache repopulated at import time (race or uncommitted import) as a rival cause.",
+    "Q5": "Too confident; its own stated signature (age > time since import) conflicts with the shown logs."
+   }
+  },
+  "stripped-p1-R06": {
+   "Q": {
+    "2": 2,
+    "3": 2,
+    "4": 2,
+    "6": 2,
+    "7": 2,
+    "8": 2,
+    "9": 2,
+    "10": 2
+   },
+   "notes": {}
+  },
+  "stripped-p1-R10": {
+   "Q": {
+    "2": 2,
+    "3": 1,
+    "4": 1,
+    "6": 2,
+    "7": 2,
+    "8": 2,
+    "9": 2,
+    "10": 2
+   },
+   "notes": {
+    "Q3": "Dismisses TTL but ignores other explanations, such as the 29s cache age hinting at a fill race during import.",
+    "Q4": "The proposed test confirms the fix; no check that could contradict the missing-invalidation hypothesis."
+   }
+  },
+  "original-p2-R02": {
+   "S": {
+    "1": 1,
+    "2": 0
+   },
+   "Q": {
+    "1": 0,
+    "2": 2,
+    "3": 2,
+    "4": 0,
+    "5": 1,
+    "6": 2,
+    "7": 1,
+    "8": 2,
+    "9": 2,
+    "10": 2
+   },
+   "notes": {
+    "S1": "Evidence list separated, but no assumptions, unknowns or inferences labeled.",
+    "S2": "Root cause asserted flatly; no confidence level stated.",
+    "Q1": "Root cause stated as fact. Cache age ~29s at import time (possible race) unexamined.",
+    "Q4": "Proposed test only confirms the patch; no check that could contradict the hypothesis.",
+    "Q5": "Claims 'root cause' and 'immediate consistency' without addressing the read/write race.",
+    "Q7": "Says the patch 'fixes the actual gap' without repro; caller signature change not addressed."
+   }
+  },
+  "original-p2-R09": {
+   "S": {
+    "1": 1,
+    "2": 0
+   },
+   "Q": {
+    "1": 1,
+    "2": 2,
+    "3": 2,
+    "4": 1,
+    "5": 1,
+    "6": 2,
+    "7": 1,
+    "8": 2,
+    "9": 2,
+    "10": 2
+   },
+   "notes": {
+    "S1": "Log evidence and team claims are contrasted, but facts and inferences are blended into one narrative.",
+    "S2": "Calls it 'the real bug' flatly, with no stated confidence level.",
+    "Q1": "Causation drawn from four sampled logs is stated as fact; the sample's limits and unrun checks go unacknowledged.",
+    "Q4": "The proposed test only confirms the fix; nothing could contradict the hypothesis, e.g. reproducing an import then reading.",
+    "Q5": "Mild overclaim ('proper fix'); misses the cache ages of 27\u201329s, which suggest a refill race near import.",
+    "Q7": "Claims 'the fix' with no reproduction, and the first patch references an undefined cache."
+   }
+  },
+  "stripped-p2-R12": {
+   "Q": {
+    "2": 2,
+    "3": 2,
+    "4": 2,
+    "6": 2,
+    "7": 2,
+    "8": 2,
+    "9": 2,
+    "10": 2
+   },
+   "notes": {}
+  },
+  "stripped-p2-R04": {
+   "Q": {
+    "2": 2,
+    "3": 2,
+    "4": 2,
+    "6": 2,
+    "7": 2,
+    "8": 2,
+    "9": 2,
+    "10": 2
+   },
+   "notes": {}
+  },
+  "original-p2-R05": {
+   "S": {
+    "1": 2,
+    "2": 2
+   },
+   "Q": {
+    "1": 2,
+    "2": 2,
+    "3": 2,
+    "4": 2,
+    "5": 2,
+    "6": 1,
+    "7": 2,
+    "8": 2,
+    "9": 2,
+    "10": 2
+   },
+   "notes": {
+    "Q6": "Adds an unrequested _key helper refactor touching get_price and update_price, beyond the evidence-supported bulk-path fix."
+   }
+  },
+  "stripped-p2-R08": {
+   "Q": {
+    "2": 2,
+    "3": 2,
+    "4": 1,
+    "6": 2,
+    "7": 1,
+    "8": 2,
+    "9": 2,
+    "10": 2
+   },
+   "notes": {
+    "Q4": "The proposed test checks the fix but does not check the diagnosis, e.g. by confirming no stale reports follow UI updates after deploy.",
+    "Q7": "Implies the fix works without running anything; omits that the caller signature change must be updated."
+   }
+  },
+  "stripped-p1-R01": {
+   "Q": {
+    "2": 2,
+    "3": 2,
+    "4": 2,
+    "6": 2,
+    "7": 2,
+    "8": 2,
+    "9": 2,
+    "10": 2
+   },
+   "notes": {}
+  },
+  "stripped-p2-R09": {
+   "Q": {
+    "2": 2,
+    "3": 2,
+    "4": 1,
+    "6": 2,
+    "7": 1,
+    "8": 2,
+    "9": 2,
+    "10": 2
+   },
+   "notes": {
+    "Q4": "Proposed test only confirms invalidation. No check that could contradict the hypothesis, such as stale reports without a prior import.",
+    "Q7": "Calls it the 'proper fix' with nothing run. The first patch uses an undefined cache, and the proposed test doesn't reproduce the stale read."
+   }
+  },
+  "original-p2-R04": {
+   "S": {
+    "1": 1,
+    "2": 1
+   },
+   "Q": {
+    "1": 1,
+    "2": 2,
+    "3": 2,
+    "4": 2,
+    "5": 1,
+    "6": 1,
+    "7": 2,
+    "8": 2,
+    "9": 2,
+    "10": 2
+   },
+   "notes": {
+    "S1": "Evidence bullets are present, but assumptions and unknowns are not explicitly labeled as separate categories.",
+    "S2": "No explicit confidence level; 'isn't the root cause' is asserted flatly, softened only by 'evidence points there'.",
+    "Q1": "Root cause is stated as fact from a 4-report sample; the small-sample limitation is not surfaced.",
+    "Q5": "Mild over-claim: certainty that TTL isn't the root cause exceeds what four sampled reports support.",
+    "Q6": "Adds an unrequested _key helper refactor beyond the evidence-supported fix."
+   }
+  },
+  "original-p2-R12": {
+   "S": {
+    "1": 1,
+    "2": 0
+   },
+   "Q": {
+    "1": 1,
+    "2": 2,
+    "3": 2,
+    "4": 2,
+    "5": 1,
+    "6": 1,
+    "7": 2,
+    "8": 2,
+    "9": 2,
+    "10": 2
+   },
+   "notes": {
+    "S1": "Evidence and inferences are partly separated through bullets and caveats, but nothing is explicitly labeled.",
+    "S2": "The conclusion 'TTL isn't the root cause' is asserted flatly with no confidence level.",
+    "Q1": "Causation from four sampled reports is stated as fact. The 20x DB-load figure is an unlabeled inference.",
+    "Q5": "Mild overclaim: TTL still bounds staleness, and the causal claim rests on a small sample.",
+    "Q6": "Adds an unrequested _key helper refactor beyond the evidence-supported fix."
+   }
+  },
+  "stripped-p2-R05": {
+   "Q": {
+    "2": 2,
+    "3": 2,
+    "4": 2,
+    "6": 1,
+    "7": 2,
+    "8": 2,
+    "9": 2,
+    "10": 2
+   },
+   "notes": {
+    "Q6": "Adds an unrequested _key helper refactor touching get_price and update_price; minor cleanup beyond the evidence-supported fix."
+   }
+  },
+  "original-p2-R08": {
+   "S": {
+    "1": 0,
+    "2": 0
+   },
+   "Q": {
+    "1": 1,
+    "2": 2,
+    "3": 2,
+    "4": 1,
+    "5": 1,
+    "6": 2,
+    "7": 2,
+    "8": 2,
+    "9": 2,
+    "10": 2
+   },
+   "notes": {
+    "S1": "Single narrative; observed logs, inferences and unknowns not separated.",
+    "S2": "Conclusion asserted flatly ('logs confirm'); no confidence level or hedging.",
+    "Q1": "Causal link stated as confirmed fact from 4 sampled reports; unacknowledged caller signature change and unrun test.",
+    "Q4": "Proposed test confirms the fix; no check that could contradict the hypothesis, such as post-deploy stale monitoring.",
+    "Q5": "'Logs confirm' overclaims from a small sample; final sentence muddles which party was right."
+   }
+  },
+  "original-p1-R01": {
+   "S": {
+    "1": 2,
+    "2": 2
+   },
+   "Q": {
+    "1": 2,
+    "2": 2,
+    "3": 2,
+    "4": 2,
+    "5": 2,
+    "6": 2,
+    "7": 2,
+    "8": 2,
+    "9": 2,
+    "10": 2
+   },
+   "notes": {}
+  }
+ }
+}
